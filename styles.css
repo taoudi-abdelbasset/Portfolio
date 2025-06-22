@@ -468,14 +468,6 @@ body.dark-mode .cta-secondary:hover {
 /* =====================
     Placeholder Sections
 ===================== */
-.section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
-
 .section h2 {
     font-size: 2.5rem;
     color: #1f2937;
