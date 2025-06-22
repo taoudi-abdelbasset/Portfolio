@@ -1685,3 +1685,144 @@ body.dark-mode .skill-tag {
 body.dark-mode .timeline-item::after {
     box-shadow: 0 0 0 4px #2d3748, 0 0 20px rgba(96, 165, 250, 0.3);
 }
+
+@media (max-width: 991.98px) {
+    .navbar {
+        padding: 0.5rem 0;
+    }
+    .nav-container {
+        padding: 0 1rem;
+    }
+    .navbar-nav.nav-links {
+        gap: 0.5rem;
+        align-items: center;
+    }
+    .navbar-collapse {
+        background: inherit;
+        box-shadow: none;
+        padding: 0.5rem 0;
+    }
+    .navbar-nav .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-nav .nav-link {
+        display: block;
+        width: 100%;
+        padding: 0.7rem 0;
+    }
+    .theme-toggle {
+        margin: 0.5rem auto 0.5rem auto;
+        display: block;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-content {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        text-align: center;
+    }
+    .hero-image {
+        width: 220px;
+        height: 220px;
+    }
+    .hero-text {
+        max-width: 100%;
+        text-align: center;
+    }
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    .subtitle-container {
+        height: auto;
+        min-height: 40px;
+    }
+    .hero-cta {
+        flex-direction: column;
+        gap: 0.7rem;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 1rem 0.2rem;
+    }
+    .hero-image {
+        width: 120px;
+        height: 120px;
+    }
+    .hero-text h1 {
+        font-size: 1.1rem;
+    }
+    .hero-text p {
+        font-size: 0.95rem;
+    }
+    .subtitle {
+        font-size: 0.95rem;
+    }
+    .section {
+        padding: 40px 0 40px 0;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .timeline {
+        max-width: 100%;
+        padding: 0;
+    }
+    .timeline-item {
+        width: 100%;
+        padding: 10px 10px;
+        left: 0 !important;
+        margin-bottom: 1.2rem;
+    }
+    .timeline-item::after {
+        left: 10px !important;
+        right: auto;
+    }
+    .timeline::after {
+        left: 20px;
+    }
+    .timeline-content {
+        padding: 1rem;
+    }
+    .project-image {
+        height: 120px;
+        font-size: 2rem;
+    }
+    .project-content {
+        padding: 1rem;
+    }
+    .contact-section {
+        padding: 40px 0.5rem;
+    }
+    .contact-links {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-image {
+        width: 80px;
+        height: 80px;
+    }
+    .hero-text h1 {
+        font-size: 0.9rem;
+    }
+    .section h2 {
+        font-size: 1.3rem;
+    }
+}
