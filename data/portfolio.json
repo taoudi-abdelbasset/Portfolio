@@ -79,16 +79,16 @@
       "demoVideo": "https://youtube.com/watch?v=demo",
       "documentation": "https://docs.example.com/chatbot",
       "teamMembers": [
-        { "name": "John Doe", "role": "Backend Developer", "contact": "john@example.com" },
-        { "name": "Jane Smith", "role": "UI/UX Designer", "contact": "jane@example.com" }
+        { "name": "John Doe", "role": "Backend Developer", "contact": "john@example.com", "img":"", "role":"role001"},
+        { "name": "Jane Smith", "role": "UI/UX Designer", "contact": "jane@example.com", "img":"", "role":"role002"}
       ]
     }
   ],
   "contact": [
-    { "type": "email", "value": "your.email@example.com", "icon": "fas fa-envelope", "label": "your.email@example.com", "link": "mailto:your.email@example.com" },
-    { "type": "phone", "value": "+1234567890", "icon": "fas fa-phone", "label": "+123 456 7890", "link": "tel:+1234567890" },
-    { "type": "linkedin", "value": "https://linkedin.com/in/yourprofile", "icon": "fab fa-linkedin", "label": "LinkedIn", "link": "https://linkedin.com/in/yourprofile" },
-    { "type": "github", "value": "https://github.com/yourusername", "icon": "fab fa-github", "label": "GitHub", "link": "https://github.com/yourusername" },
+    { "type": "email", "value": "taoudiabdelbasset.contact@gmail.com", "icon": "fas fa-envelope", "label": "your.email@example.com", "link": "mailto:your.email@example.com" },
+    { "type": "phone", "value": "+212689381605", "icon": "fas fa-phone", "label": "+123 456 7890", "link": "tel:+1234567890" },
+    { "type": "linkedin", "value": "https://linkedin.com/in/taoudi-abdelbasset", "icon": "fab fa-linkedin", "label": "LinkedIn", "link": "https://linkedin.com/in/yourprofile" },
+    { "type": "github", "value": "https://github.com/abdelbasse", "icon": "fab fa-github", "label": "GitHub", "link": "https://github.com/yourusername" },
     { "type": "twitter", "value": "https://twitter.com/yourusername", "icon": "fab fa-twitter", "label": "Twitter", "link": "https://twitter.com/yourusername" }
   ]
 }
