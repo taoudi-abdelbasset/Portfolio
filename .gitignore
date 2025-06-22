@@ -5,4 +5,5 @@ update-content
 update-content/*
 
 main.html
-test.html
+main-test.html
+deploy.sh
