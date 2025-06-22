@@ -15,7 +15,7 @@
         <div class="nav-container">
             <div class="logo">Portfolio</div>
             <ul class="nav-links">
-                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
@@ -27,20 +27,36 @@
             </button>
         </div>
     </nav>
-    
+
+    <!-- Hero Section (one example) -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <div class="hero-image">
-                <i class="fas fa-user"></i>
+            <div class="hero-image-container">
+                <div class="hero-image">
+                    <i class="fas fa-code"></i>
+                </div>
             </div>
             <div class="hero-text">
                 <h1>Your Name</h1>
-                <div class="subtitle">AI Developer</div>
+                <div class="subtitle-container">
+                    <div class="subtitle" id="animatedRole">Full Stack Developer</div>
+                </div>
                 <div class="education">Bachelor's in Computer Science</div>
-                <p>Passionate about creating intelligent solutions and extracting insights from data.</p>
+                <p>Passionate about creating innovative solutions and building exceptional digital experiences that make a difference in people's lives.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="cta-button cta-primary">
+                        <i class="fas fa-rocket"></i>
+                        View My Work
+                    </a>
+                    <a href="#contact" class="cta-button cta-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Get In Touch
+                    </a>
+                </div>
             </div>
         </div>
     </section>
+
     <!-- Education Section (one example) -->
     <section id="education" class="section">
         <h2 data-aos="fade-up">Education</h2>

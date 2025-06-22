@@ -1,35 +1,20 @@
 // =====================
-// Main Loader Function
-// =====================
-async function loadPortfolio() {
-    const data = await fetch('data/portfolio.json').then(r => r.json());
-    loadTheme();
-    loadParticles();
-    loadNavbar();
-    loadHero(data.main);
-    loadEducation(data.education);
-    loadExperience(data.experience);
-    loadSkills(data.skills);
-    loadProjects(data.projects);
-    loadContact(data.contact);
-    loadModals();
-}
-
-// =====================
-// Theme & Utilities
+// Theme Toggle
 // =====================
 function loadTheme() {
-    AOS.init({ duration: 1000, once: true, offset: 100 });
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     const themeIcon = themeToggle.querySelector('i');
     const currentTheme = localStorage.getItem('theme') || 'light';
+    
     if (currentTheme === 'dark') {
         body.classList.add('dark-mode');
         themeIcon.classList.replace('fa-moon', 'fa-sun');
     }
+    
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
+        
         if (body.classList.contains('dark-mode')) {
             themeIcon.classList.replace('fa-moon', 'fa-sun');
             localStorage.setItem('theme', 'dark');
@@ -40,26 +25,92 @@ function loadTheme() {
     });
 }
 
+// =====================
+// Animated Role Text
+// =====================
+function animateRoleText() {
+    const roles = [
+        'Full Stack Developer',
+        'UI/UX Designer', 
+        'Mobile App Developer',
+        'Data Scientist',
+        'AI/ML Engineer',
+        'Cloud Architect',
+        'DevOps Engineer'
+    ];
+    
+    const roleElement = document.getElementById('animatedRole');
+    let currentIndex = 0;
+    
+    function typeWriter(text, callback) {
+        roleElement.textContent = '';
+        let i = 0;
+        
+        function type() {
+            if (i < text.length) {
+                roleElement.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, 100);
+            } else {
+                setTimeout(callback, 2000);
+            }
+        }
+        type();
+    }
+    
+    function eraseText(callback) {
+        const currentText = roleElement.textContent;
+        let i = currentText.length;
+        
+        function erase() {
+            if (i > 0) {
+                roleElement.textContent = currentText.substring(0, i - 1);
+                i--;
+                setTimeout(erase, 50);
+            } else {
+                callback();
+            }
+        }
+        erase();
+    }
+    
+    function cycle() {
+        typeWriter(roles[currentIndex], () => {
+            eraseText(() => {
+                currentIndex = (currentIndex + 1) % roles.length;
+                setTimeout(cycle, 500);
+            });
+        });
+    }
+    
+    cycle();
+}
+
+// =====================
+// Particles
+// =====================
 function loadParticles() {
     const particles = document.getElementById('particles');
-    for (let i = 0; i < 20; i++) {
+    
+    for (let i = 0; i < 25; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
         p.style.width = p.style.height = `${Math.random() * 40 + 20}px`;
         p.style.left = `${Math.random() * 100}%`;
         p.style.top = `${Math.random() * 100}%`;
-        p.style.background = 'rgba(59,130,246,0.08)';
         p.style.animationDuration = `${Math.random() * 4 + 4}s`;
+        p.style.animationDelay = `${Math.random() * 2}s`;
         particles.appendChild(p);
     }
 }
 
 // =====================
-// Navbar
+// Navbar Active State
 // =====================
 function loadNavbar() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
+    
     window.addEventListener('scroll', () => {
         let current = '';
         sections.forEach(section => {
@@ -68,6 +119,7 @@ function loadNavbar() {
                 current = section.getAttribute('id');
             }
         });
+        
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href').slice(1) === current) {
@@ -78,24 +130,25 @@ function loadNavbar() {
 }
 
 // =====================
-// Hero Section
+// Initialize Everything
 // =====================
-function loadHero(main) {
-    const hero = document.getElementById('home');
-    hero.innerHTML = `
-        <div class="hero-content">
-            <div class="hero-image">
-                <img src="${main.img}" alt="${main.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
-            </div>
-            <div class="hero-text">
-                <h1>${main.name}</h1>
-                <div class="subtitle">${main.subtitle}</div>
-                <div class="education">${main.education}</div>
-                <p>${main.bio}</p>
-            </div>
-        </div>
-    `;
-}
+document.addEventListener('DOMContentLoaded', function() {
+    loadTheme();
+    loadParticles();
+    loadNavbar();
+    animateRoleText();
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});
+
 
 // =====================
 // Education Section
