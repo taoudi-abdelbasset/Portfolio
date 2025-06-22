@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #8b5cf6;
+            --dark-bg: #1a202c;
+            --dark-card: #2d3748;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #2a4365 100%);
+            color: #e2e8f0;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .navbar {
+            background: rgba(26, 32, 44, 0.95) !important;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+            position: relative;
+            font-weight: 700;
+        }
+
+        body.dark-mode .section h2 {
+            color: #f7fafc;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item {
+            padding: 15px 50px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-item.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            right: -12px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            top: 25px;
+            z-index: 1;
+            box-shadow: 0 0 0 6px white, 0 0 25px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .timeline-item::after {
+            box-shadow: 0 0 0 6px var(--dark-bg), 0 0 25px rgba(96, 165, 250, 0.4);
+        }
+
+        .timeline-item:hover::after {
+            transform: scale(1.2);
+        }
+
+        .timeline-item.left {
+            left: 0;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        .timeline-item.right::after {
+            left: -12px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            cursor: pointer;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        body.dark-mode .timeline-content {
+            background: var(--dark-card);
+            color: #e2e8f0;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);
+        }
+
+        .timeline-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .timeline-date {
+            background: linear-gradient(45deg, #e0f2fe, #f3e5f5);
+            color: var(--text-primary);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+        }
+
+        body.dark-mode .timeline-date {
+            background: linear-gradient(45deg, #2d3748, #4a5568);
+            color: #e2e8f0;
+            border: 2px solid rgba(96, 165, 250, 0.3);
+        }
+
+        .timeline-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        body.dark-mode .timeline-title {
+            color: #f7fafc;
+        }
+
+        .timeline-company {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        body.dark-mode .timeline-company {
+            color: #60a5fa;
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        body.dark-mode .timeline-description {
+            color: #cbd5e0;
+        }
+
+        .timeline-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #f8fafc, #e2e8f0);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        body.dark-mode .skill-tag {
+            background: #4a5568;
+            color: #e2e8f0;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+        }
+
+        /* Modal Styles */
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .modal-content {
+            background: var(--dark-card);
+            color: #e2e8f0;
+        }
+
+        .modal-header {
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .modal-title {
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievements-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .achievements-list li::before {
+            content: '🏆';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        body.dark-mode .achievements-list li {
+            color: #cbd5e0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 19px;
+            }
+
+            .timeline-item.right {
+                left: 0%;
+            }
+
+            .timeline-item.right::after {
+                left: 19px;
+            }
+
+            .section {
+                padding: 60px 1rem;
+            }
+
+            .section h2 {
+                font-size: 2.2rem;
+            }
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+
+            .timeline-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Particles */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <h2 data-aos="fade-up">Education</h2>
+        <div class="timeline" id="educationTimeline">
+            <!-- Timeline items will be rendered by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <h2 data-aos="fade-up">Professional Experience</h2>
+        <div class="timeline" id="experienceTimeline">
+            <!-- Timeline items will be rendered by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Education Modal -->
+    <div class="modal fade" id="educationModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="educationModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="educationDetails"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Modal -->
+    <div class="modal fade" id="experienceModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="experienceModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="experienceDetails"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = 'light'; // Removed localStorage usage
+        let isDarkMode = false;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            isDarkMode = !isDarkMode;
+            
+            if (isDarkMode) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+
+        // Helper to format date range
+        function formatDateRange(from, to) {
+            return `${from} - ${to}`;
+        }
+
+        // Education data with detailed month/year
+        const educationData = [
+            {
+                from: "Sep 2020",
+                to: "Jun 2022",
+                title: "Master of Science in Artificial Intelligence",
+                location: "Stanford University",
+                icon: "fas fa-graduation-cap",
+                description: "Advanced studies in machine learning, deep learning, and neural networks. Specialized in computer vision and natural language processing with hands-on research experience in cutting-edge AI technologies.",
+                achievements: [
+                    "GPA: 3.9/4.0 - Magna Cum Laude with Distinguished Research",
+                    "Research Assistant in AI Lab under Prof. Andrew Ng",
+                    "Published 2 papers in top-tier conferences (NeurIPS, ICML)",
+                    "Winner of AI Innovation Competition 2021 ($10,000 prize)",
+                    "Teaching Assistant for CS229 Machine Learning course",
+                    "Thesis: 'Advanced Neural Architectures for Real-time Object Detection'"
+                ],
+                skills: ["Machine Learning", "Deep Learning", "Computer Vision", "NLP", "Research", "Python", "TensorFlow", "PyTorch"]
+            },
+            {
+                from: "Sep 2016",
+                to: "Jun 2020",
+                title: "Bachelor of Science in Computer Science",
+                location: "MIT",
+                icon: "fas fa-university",
+                description: "Comprehensive foundation in computer science with focus on algorithms, data structures, software engineering, and mobile application development. Active leader in student organizations and competitive programming.",
+                achievements: [
+                    "GPA: 3.8/4.0 - Summa Cum Laude with High Honors",
+                    "President of Computer Science Club (2019-2020)",
+                    "Dean's List for 6 consecutive semesters",
+                    "Hackathon Winner - MIT TechCrunch Disrupt 2019",
+                    "Google Code-in Mentor and Judge",
+                    "Senior Thesis: 'Optimizing Mobile App Performance Using AI'"
+                ],
+                skills: ["Algorithms", "Data Structures", "Software Engineering", "Mobile Development", "Leadership", "Java", "C++", "Swift"]
+            },
+            {
+                from: "Jan 2019",
+                to: "Dec 2020",
+                title: "Professional Certifications & Continuing Education",
+                location: "Various Institutions",
+                icon: "fas fa-certificate",
+                description: "Completed multiple industry-recognized certifications to supplement academic knowledge with practical skills and stay current with rapidly evolving technology trends.",
+                achievements: [
+                    "AWS Certified Solutions Architect - Professional Level",
+                    "Google Cloud Professional Data Engineer Certification",
+                    "Unity Certified Developer - Expert Level",
+                    "Scrum Master Certification (CSM) - Scrum Alliance",
+                    "CompTIA Security+ Certified Professional",
+                    "Microsoft Azure AI Engineer Associate"
+                ],
+                skills: ["Cloud Computing", "Data Engineering", "Game Development", "Agile", "Cybersecurity", "Azure", "AWS", "GCP"]
+            }
+        ];
+
+        // Experience data with detailed month/year
+        const experienceData = [
+            {
+                from: "Mar 2022",
+                to: "Present",
+                title: "Senior AI Developer",
+                company: "TechCorp Solutions",
+                icon: "fas fa-briefcase",
+                description: "Leading AI development projects, designing machine learning pipelines, and mentoring junior developers. Responsible for implementing cutting-edge AI solutions for enterprise clients across various industries.",
+                achievements: [
+                    "Developed AI chatbot that improved customer satisfaction by 40% and reduced response time by 75%",
+                    "Led cross-functional team of 8 developers on 5+ simultaneous AI projects worth $2M+",
+                    "Reduced model training time by 60% through advanced optimization techniques",
+                    "Implemented comprehensive MLOps pipeline for automated model deployment and monitoring",
+                    "Mentored 12 junior developers, with 8 receiving promotions within 18 months",
+                    "Presented AI solutions at 3 international conferences"
+                ],
+                skills: ["Python", "TensorFlow", "PyTorch", "MLOps", "Team Leadership", "AWS", "Docker", "Kubernetes"]
+            },
+            {
+                from: "Jun 2021",
+                to: "Feb 2022",
+                title: "Mobile Game Developer",
+                company: "GameStudio Inc.",
+                icon: "fas fa-mobile-alt",
+                description: "Specialized in developing engaging mobile games using Unity and C#. Worked on game mechanics, UI/UX design, and performance optimization for iOS and Android platforms with focus on user retention.",
+                achievements: [
+                    "Published 3 mobile games with combined 500K+ downloads and 4.5+ star ratings",
+                    "Implemented sophisticated in-app purchase system generating $50K+ monthly revenue",
+                    "Optimized game performance for low-end devices, increasing user base by 35%",
+                    "Designed and implemented multiplayer networking system for real-time gameplay",
+                    "Collaborated with marketing team to achieve 25% increase in user acquisition",
+                    "Won 'Best Mobile Game' award at Indie Game Festival 2022"
+                ],
+                skills: ["Unity", "C#", "Game Design", "iOS", "Android", "Photon Networking", "Analytics", "Monetization"]
+            },
+            {
+                from: "Aug 2020",
+                to: "May 2021",
+                title: "Data Scientist",
+                company: "DataTech Analytics",
+                icon: "fas fa-chart-line",
+                description: "Analyzed large datasets to extract business insights, built predictive models, and created data visualizations for stakeholders. Worked with cross-functional teams to implement data-driven solutions for Fortune 500 clients.",
+                achievements: [
+                    "Built predictive models with 95% accuracy for customer churn prediction",
+                    "Created automated reporting system saving 20+ hours/week across 5 departments",
+                    "Presented data insights to C-level executives, influencing $5M+ investment decisions",
+                    "Improved marketing ROI by 35% through advanced customer segmentation analysis",
+                    "Developed real-time dashboard reducing decision-making time by 50%",
+                    "Led data migration project from legacy systems to modern cloud infrastructure"
+                ],
+                skills: ["Python", "R", "SQL", "Tableau", "Statistics", "Machine Learning", "Big Data", "Cloud Analytics"]
+            },
+            {
+                from: "Sep 2019",
+                to: "Jul 2020",
+                title: "Junior Full Stack Developer",
+                company: "WebDev Solutions",
+                icon: "fas fa-code",
+                description: "Started career as a full-stack developer, working on web applications using modern frameworks. Gained experience in both frontend and backend development while collaborating with senior developers on client projects.",
+                achievements: [
+                    "Developed 8+ responsive web applications serving 10K+ users daily",
+                    "Implemented secure RESTful APIs for 15+ client projects with 99.9% uptime",
+                    "Collaborated with design team to improve UI/UX, increasing user engagement by 45%",
+                    "Reduced page load times by 40% through code optimization and caching strategies",
+                    "Mentored 3 junior interns, with all receiving full-time offers",
+                    "Contributed to open-source projects with 500+ GitHub stars"
+                ],
+                skills: ["JavaScript", "React", "Node.js", "MongoDB", "Git", "REST APIs", "Responsive Design", "Testing"]
+            }
+        ];
+
+        // Render education timeline
+        function renderEducationTimeline() {
+            const educationTimeline = document.getElementById('educationTimeline');
+            educationTimeline.innerHTML = '';
+            
+            educationData.forEach((edu, idx) => {
+                const side = idx % 2 === 0 ? 'left' : 'right';
+                const item = document.createElement('div');
+                item.className = `timeline-item ${side}`;
+                item.setAttribute('data-index', idx);
+                item.setAttribute('data-aos', 'fade-up');
+                item.innerHTML = `
+                    <div class="timeline-content">
+                        <div class="timeline-icon"><i class="${edu.icon}"></i></div>
+                        <div class="timeline-date">${formatDateRange(edu.from, edu.to)}</div>
+                        <div class="timeline-title">${edu.title}</div>
+                        <div class="timeline-company">${edu.location}</div>
+                        <div class="timeline-description">${edu.description.substring(0, 120)}...</div>
+                        <div class="timeline-skills">
+                            ${edu.skills.slice(0, 4).map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                            ${edu.skills.length > 4 ? '<span class="skill-tag">+' + (edu.skills.length - 4) + ' more</span>' : ''}
+                        </div>
+                    </div>
+                `;
+                item.addEventListener('click', () => showEducationModal(idx));
+                educationTimeline.appendChild(item);
+            });
+            
+            // Initialize animations
+            initializeTimelineAnimations();
+        }
+
+        // Render experience timeline
+        function renderExperienceTimeline() {
+            const experienceTimeline = document.getElementById('experienceTimeline');
+            experienceTimeline.innerHTML = '';
+            
+            experienceData.forEach((exp, idx) => {
+                const side = idx % 2 === 0 ? 'right' : 'left';
+                const item = document.createElement('div');
+                item.className = `timeline-item ${side}`;
+                item.setAttribute('data-index', idx);
+                item.setAttribute('data-aos', 'fade-up');
+                item.innerHTML = `
+                    <div class="timeline-content">
+                        <div class="timeline-icon"><i class="${exp.icon}"></i></div>
+                        <div class="timeline-date">${formatDateRange(exp.from, exp.to)}</div>
+                        <div class="timeline-title">${exp.title}</div>
+                        <div class="timeline-company">${exp.company}</div>
+                        <div class="timeline-description">${exp.description.substring(0, 120)}...</div>
+                        <div class="timeline-skills">
+                            ${exp.skills.slice(0, 4).map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                            ${exp.skills.length > 4 ? '<span class="skill-tag">+' + (exp.skills.length - 4) + ' more</span>' : ''}
+                        </div>
+                    </div>
+                `;
+                item.addEventListener('click', () => showExperienceModal(idx));
+                experienceTimeline.appendChild(item);
+            });
+            
+            // Initialize animations
+            initializeTimelineAnimations();
+        }
+
+        // Initialize timeline animations
+        function initializeTimelineAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                observer.observe(item);
+            });
+        }
+
+        // Education modal
+        const educationModal = new bootstrap.Modal(document.getElementById('educationModal'));
+        function showEducationModal(idx) {
+            const edu = educationData[idx];
+            document.getElementById('educationModalLabel').textContent = edu.title;
+            document.getElementById('educationDetails').innerHTML = `
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <div class="timeline-icon"><i class="${edu.icon}"></i></div>
+                    <div>
+                        <div><strong>Duration:</strong> ${formatDateRange(edu.from, edu.to)}</div>
+                        <div><strong>Institution:</strong> ${edu.location}</div>
+                    </div>
+                </div>
+                <p class="lead">${edu.description}</p>
+                <h5 class="mt-4 mb-3">Achievements & Highlights</h5>
+                <ul class="achievements-list">
+                    ${edu.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+                </ul>
+                <h5 class="mt-4 mb-3">Skills & Technologies</h5>
+                <div class="timeline-skills">
+                    ${edu.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                </div>
+            `;
+            educationModal.show();
+        }
+
+        // Experience modal
+        const experienceModal = new bootstrap.Modal(document.getElementById('experienceModal'));
+        function showExperienceModal(idx) {
+            const exp = experienceData[idx];
+            document.getElementById('experienceModalLabel').textContent = exp.title;
+            document.getElementById('experienceDetails').innerHTML = `
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <div class="timeline-icon"><i class="${exp.icon}"></i></div>
+                    <div>
+                        <div><strong>Duration:</strong> ${formatDateRange(exp.from, exp.to)}</div>
+                        <div><strong>Company:</strong> ${exp.company}</div>
+                    </div>
+                </div>
+                <p class="lead">${exp.description}</p>
+                <h5 class="mt-4 mb-3">Key Achievements & Impact</h5>
+                <ul class="achievements-list">
+                    ${exp.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+                </ul>
+                <h5 class="mt-4 mb-3">Technologies & Skills</h5>
+                <div class="timeline-skills">
+                    ${exp.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                </div>
+            `;
+            experienceModal.show();
+        }
+
+        // Render timelines on load
+        renderEducationTimeline();
+        renderExperienceTimeline();
+    </script>
+</body>
+</html>

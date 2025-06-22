@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="hero-text">
+                <h1>Your Name</h1>
+                <div class="subtitle">AI Developer</div>
+                <div class="education">Bachelor's in Computer Science</div>
+                <p>Passionate about creating intelligent solutions and extracting insights from data.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Education Section (one example) -->
+    <section id="education" class="section">
+        <h2 data-aos="fade-up">Education</h2>
+        <div class="timeline">
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-date">2020 - 2022</div>
+                    <div class="timeline-title">Master of Science in Artificial Intelligence</div>
+                    <div class="timeline-company">Stanford University</div>
+                    <div class="timeline-description">
+                        Advanced studies in machine learning and deep learning.
+                    </div>
+                    <div class="timeline-achievements">
+                        <ul>
+                            <li>GPA: 3.9/4.0</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-skills">
+                        <span class="skill-tag">Machine Learning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Experience Section (one example) -->
+    <section id="experience" class="section">
+        <h2 data-aos="fade-up">Professional Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-date">2022 - Present</div>
+                    <div class="timeline-title">Senior AI Developer</div>
+                    <div class="timeline-company">TechCorp Solutions</div>
+                    <div class="timeline-description">
+                        Leading AI development projects and mentoring junior developers.
+                    </div>
+                    <div class="timeline-achievements">
+                        <ul>
+                            <li>Developed AI chatbot</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-skills">
+                        <span class="skill-tag">Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section (one example) -->
+    <section id="skills" class="section">
+        <h2>Skills & Technologies</h2>
+        <div class="skills-grid">
+            <div class="skill-card" data-skill="ai" data-aos="fade-up">
+                <i class="fas fa-robot"></i>
+                <h3>Artificial Intelligence</h3>
+                <p>Machine Learning, Deep Learning</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section (one example) -->
+    <section id="projects" class="projects-section">
+        <div class="section">
+            <h2>Featured Projects</h2>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="projectSearch" placeholder="Search projects...">
+            </div>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="ai">AI Projects</button>
+            </div>
+            <div class="projects-grid" id="projectsGrid">
+                <div class="project-card">
+                    <div class="project-image"><i class="fas fa-robot"></i></div>
+                    <div class="project-content">
+                        <h3>AI Chatbot Assistant</h3>
+                        <p>Intelligent chatbot using NLP and machine learning</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section (kept simple) -->
+    <section id="contact" class="contact-section">
+        <div class="contact-simple">
+            <h2>Let's Collaborate</h2>
+            <p>Ready to work together? Get in touch!</p>
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>your.email@example.com</span>
+                </a>
+                <a href="tel:+1234567890" class="contact-link">
+                    <i class="fas fa-phone"></i>
+                    <span>+123 456 7890</span>
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/yourusername" class="contact-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://twitter.com/yourusername" class="contact-link" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Modals (kept for demo) -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="projectDetails"></div>
+        </div>
+    </div>
+    <div id="skillModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="skillDetails"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
