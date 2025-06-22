@@ -364,6 +364,17 @@ function loadModals() {
             if (e.target === modal) modal.style.display = 'none';
         });
     };
+    // Add close (X) button functionality for all modals
+    const modalIds = ['projectModal', 'skillModal', 'educationModal', 'experienceModal'];
+    modalIds.forEach(modalId => {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            const closeBtn = modal.querySelector('.close');
+            if (closeBtn) {
+                closeBtn.onclick = () => { modal.style.display = 'none'; };
+            }
+        }
+    });
 }
 
 function showEducationModal(education) {
