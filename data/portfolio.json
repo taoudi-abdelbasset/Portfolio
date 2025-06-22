@@ -3,7 +3,7 @@
     "img": "https://abdelbasse.github.io/Portfolio/data/src/imgs/user.png",
     "name": "TAOUDI Abdelbasset",
     "roles": [
-      "AI Developer",
+      "AI Developer.",
       "Game Creator",
       "Data Scientist",
       "Data Engineeur"
@@ -76,7 +76,7 @@
       "fullDescription": "A comprehensive AI chatbot that uses natural language processing to understand user queries and provide intelligent responses. Built with state-of-the-art transformer models.",
       "features": ["Natural Language Understanding", "Context-aware responses", "Multi-language support", "Real-time learning"],
       "githubLink": "https://github.com/yourusername/ai-chatbot",
-      "demoVideo": "https://youtube.com/watch?v=demo",
+      "demoVideo": "https://drive.google.com/file/d/1BjmjEA6goag88rSkqgzhHYdFcRl0najV/view",
       "documentation": "https://docs.example.com/chatbot",
       "teamMembers": [
         { "name": "John Doe", "role": "Backend Developer", "contact": "john@example.com", "img":"", "role":"role001"},
@@ -85,8 +85,8 @@
     }
   ],
   "contact": [
-    { "type": "email", "value": "taoudiabdelbasset.contact@gmail.com", "icon": "fas fa-envelope", "label": "your.email@example.com", "link": "mailto:your.email@example.com" },
-    { "type": "phone", "value": "+212689381605", "icon": "fas fa-phone", "label": "+123 456 7890", "link": "tel:+1234567890" },
+    { "type": "email", "value": "taoudiabdelbasset.contact@gmail.com", "icon": "fas fa-envelope", "label": "taoudiabdelbasset.contact@gmail.com", "link": "mailto:your.email@example.com" },
+    { "type": "phone", "value": "+212689381605", "icon": "fas fa-phone", "label": "+123 456 7890", "link": "tel:+212689381605" },
     { "type": "linkedin", "value": "https://linkedin.com/in/taoudi-abdelbasset", "icon": "fab fa-linkedin", "label": "LinkedIn", "link": "https://linkedin.com/in/yourprofile" },
     { "type": "github", "value": "https://github.com/abdelbasse", "icon": "fab fa-github", "label": "GitHub", "link": "https://github.com/yourusername" },
     { "type": "twitter", "value": "https://twitter.com/yourusername", "icon": "fab fa-twitter", "label": "Twitter", "link": "https://twitter.com/yourusername" }

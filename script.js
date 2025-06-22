@@ -74,22 +74,43 @@ async function loadPortfolio() {
 // =====================
 function loadTheme() {
     AOS.init({ duration: 1000, once: true, offset: 100 });
+
     const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
     const themeIcon = themeToggle.querySelector('i');
+    const navbar = document.querySelector('.navbar');
     const currentTheme = localStorage.getItem('theme') || 'light';
+
+    // Apply theme based on localStorage
     if (currentTheme === 'dark') {
-        body.classList.add('dark-mode');
+        document.documentElement.classList.add('dark-mode');
+        document.body.classList.add('dark-mode');
         themeIcon.classList.replace('fa-moon', 'fa-sun');
+        navbar.classList.remove('navbar-light', 'bg-white');
+        navbar.classList.add('navbar-dark', 'bg-dark');
+    } else {
+        document.documentElement.classList.remove('dark-mode');
+        document.body.classList.remove('dark-mode');
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+        navbar.classList.remove('navbar-dark', 'bg-dark');
+        navbar.classList.add('navbar-light', 'bg-white');
     }
+
+    // Toggle theme on click
     themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        if (body.classList.contains('dark-mode')) {
+        document.body.classList.toggle('dark-mode');
+        document.documentElement.classList.toggle('dark-mode');
+
+        const isDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+        if (isDark) {
             themeIcon.classList.replace('fa-moon', 'fa-sun');
-            localStorage.setItem('theme', 'dark');
+            navbar.classList.remove('navbar-light', 'bg-white');
+            navbar.classList.add('navbar-dark', 'bg-dark');
         } else {
             themeIcon.classList.replace('fa-sun', 'fa-moon');
-            localStorage.setItem('theme', 'light');
+            navbar.classList.remove('navbar-dark', 'bg-dark');
+            navbar.classList.add('navbar-light', 'bg-white');
         }
     });
 }
@@ -347,8 +368,21 @@ function loadContact(contacts) {
     const section = document.getElementById('contact');
     section.innerHTML = `<div class="contact-simple"><h2>Let's Collaborate</h2><p>Ready to work together? Get in touch!</p><div class="contact-links"></div></div>`;
     const links = section.querySelector('.contact-links');
+    links.innerHTML = '';
     contacts.forEach(link => {
-        links.innerHTML += `<a href="${link.link}" class="contact-link" target="_blank"><i class="${link.icon}"></i><span>${link.label}</span></a>`;
+        console.log('Contact section loaded:', link);
+        let href = link.link || link.value;
+        let label = link.label || link.value;
+        // If it's an email or phone, ensure proper prefix
+        if (link.type === 'email' && !href.startsWith('mailto:')) {
+            href = 'mailto:' + link.value;
+        } else if (link.type === 'phone' && !href.startsWith('tel:')) {
+            href = 'tel:' + link.value;
+        }
+        // Open in new tab for web links only
+        const isWeb = href.startsWith('http');
+        const target = isWeb ? ' target="_blank" rel="noopener"' : '';
+        links.innerHTML += `<a href="${href}" class="contact-link"${target}><i class="${link.icon}"></i><span>${label}</span></a>`;
     });
 }
 
@@ -453,6 +487,31 @@ function showProjectModal(project) {
     const modal = document.getElementById('projectModal');
     const details = document.getElementById('projectDetails');
     
+    const renderVideo = (videoUrl) => {
+        // Check if the video is from YouTube or Google Drive and create the appropriate iframe
+        if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+            // YouTube video embedding
+            const videoId = videoUrl.split('v=')[1] || videoUrl.split('/').pop();
+            return `
+                <div class="demo-section">
+                    <h4>Demo Video</h4>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            `;
+        } else if (videoUrl.includes('drive.google.com')) {
+            // Google Drive video embedding (public video only)
+            const fileId = videoUrl.split('/d/')[1].split('/')[0];
+            return `
+                <div class="demo-section">
+                    <h4>Demo Video</h4>
+                    <iframe src="https://drive.google.com/file/d/${fileId}/preview" width="100%" height="315" allow="autoplay"></iframe>
+                </div>
+            `;
+        } else {
+            return ''; // If it's not a recognized video link, return nothing
+        }
+    };
+    
     details.innerHTML = `
         <div class="project-modal-header">
             <div class="project-icon"><i class="${project.image}"></i></div>
@@ -463,14 +522,7 @@ function showProjectModal(project) {
         </div>
         
         <div class="project-modal-body">
-            ${project.demoVideo ? `
-            <div class="demo-section">
-                <h4>Demo Video</h4>
-                <video controls width="100%" style="max-height: 300px;">
-                    <source src="${project.demoVideo}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>` : ''}
+            ${project.demoVideo ? renderVideo(project.demoVideo) : ''}
             
             <div class="description-section">
                 <h4>Project Description</h4>
