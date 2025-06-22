@@ -141,7 +141,7 @@ function loadHero(main) {
         <div class="hero-content">
             <div class="hero-image-container">
                 <div class="hero-image">
-                    <img src="${main.img}" alt="${main.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+                    <img src="${main.img}" alt="${main.name}" style="width:100%;height:100%;object-fit:cover;" />
                 </div>
             </div>
             <div class="hero-text">
