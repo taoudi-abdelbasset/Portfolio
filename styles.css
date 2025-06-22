@@ -1826,3 +1826,37 @@ body.dark-mode .timeline-item::after {
         font-size: 1.3rem;
     }
 }
+
+/* =====================
+   Force 100% Width for Containers
+===================== */
+.navbar,
+.nav-container,
+.section,
+.modal-content,
+.project-modal-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+@media (max-width: 1200px) {
+    .nav-container,
+    .section {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .modal-content,
+    .project-modal-content {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding-left: 0.2rem !important;
+        padding-right: 0.2rem !important;
+    }
+}
