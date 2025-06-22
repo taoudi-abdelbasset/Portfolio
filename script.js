@@ -6,15 +6,12 @@ function loadTheme() {
     const body = document.body;
     const themeIcon = themeToggle.querySelector('i');
     const currentTheme = localStorage.getItem('theme') || 'light';
-    
     if (currentTheme === 'dark') {
         body.classList.add('dark-mode');
         themeIcon.classList.replace('fa-moon', 'fa-sun');
     }
-    
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
-        
         if (body.classList.contains('dark-mode')) {
             themeIcon.classList.replace('fa-moon', 'fa-sun');
             localStorage.setItem('theme', 'dark');
@@ -26,26 +23,14 @@ function loadTheme() {
 }
 
 // =====================
-// Animated Role Text
+// Animated Role Text (from JSON)
 // =====================
-function animateRoleText() {
-    const roles = [
-        'Full Stack Developer',
-        'UI/UX Designer', 
-        'Mobile App Developer',
-        'Data Scientist',
-        'AI/ML Engineer',
-        'Cloud Architect',
-        'DevOps Engineer'
-    ];
-    
+function animateRoleText(roles) {
     const roleElement = document.getElementById('animatedRole');
     let currentIndex = 0;
-    
     function typeWriter(text, callback) {
         roleElement.textContent = '';
         let i = 0;
-        
         function type() {
             if (i < text.length) {
                 roleElement.textContent += text.charAt(i);
@@ -57,11 +42,9 @@ function animateRoleText() {
         }
         type();
     }
-    
     function eraseText(callback) {
         const currentText = roleElement.textContent;
         let i = currentText.length;
-        
         function erase() {
             if (i > 0) {
                 roleElement.textContent = currentText.substring(0, i - 1);
@@ -73,7 +56,6 @@ function animateRoleText() {
         }
         erase();
     }
-    
     function cycle() {
         typeWriter(roles[currentIndex], () => {
             eraseText(() => {
@@ -82,22 +64,22 @@ function animateRoleText() {
             });
         });
     }
-    
     cycle();
 }
 
 // =====================
-// Particles
+// Particles (improved)
 // =====================
 function loadParticles() {
     const particles = document.getElementById('particles');
-    
+    particles.innerHTML = '';
     for (let i = 0; i < 25; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
         p.style.width = p.style.height = `${Math.random() * 40 + 20}px`;
         p.style.left = `${Math.random() * 100}%`;
         p.style.top = `${Math.random() * 100}%`;
+        p.style.background = 'rgba(59,130,246,0.08)';
         p.style.animationDuration = `${Math.random() * 4 + 4}s`;
         p.style.animationDelay = `${Math.random() * 2}s`;
         particles.appendChild(p);
@@ -110,7 +92,6 @@ function loadParticles() {
 function loadNavbar() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
-    
     window.addEventListener('scroll', () => {
         let current = '';
         sections.forEach(section => {
@@ -119,7 +100,6 @@ function loadNavbar() {
                 current = section.getAttribute('id');
             }
         });
-        
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href').slice(1) === current) {
@@ -130,24 +110,27 @@ function loadNavbar() {
 }
 
 // =====================
-// Initialize Everything
+// Hero Section (with animated roles)
 // =====================
-document.addEventListener('DOMContentLoaded', function() {
-    loadTheme();
-    loadParticles();
-    loadNavbar();
-    animateRoleText();
-    
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-});
+function loadHero(main) {
+    const hero = document.getElementById('home');
+    hero.innerHTML = `
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="${main.img}" alt="${main.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+            </div>
+            <div class="hero-text">
+                <h1>${main.name}</h1>
+                <div class="subtitle"><span id="animatedRole"></span></div>
+                <div class="education">${main.education}</div>
+                <p>${main.bio}</p>
+            </div>
+        </div>
+    `;
+    if (main.roles && main.roles.length > 0) {
+        animateRoleText(main.roles);
+    }
+}
 
 // =====================
 // Education Section
@@ -342,79 +325,34 @@ function loadModals() {
 }
 
 // =====================
-// Run main loader
+// Main Loader Function (fetches JSON and loads sections)
 // =====================
-function loadPortfolio() {
-    // Sample data for demonstration
-    const education = [
-        {
-            icon: 'fas fa-graduation-cap',
-            from: '2020',
-            to: '2022',
-            title: 'Master of Science in Artificial Intelligence',
-            location: 'Stanford University',
-            description: 'Advanced studies in machine learning and deep learning.',
-            achievements: ['GPA: 3.9/4.0'],
-            skills: ['Machine Learning']
-        }
-    ];
-    const experience = [
-        {
-            icon: 'fas fa-briefcase',
-            from: '2022',
-            to: 'Present',
-            title: 'Senior AI Developer',
-            company: 'TechCorp Solutions',
-            description: 'Leading AI development projects and mentoring junior developers.',
-            achievements: ['Developed AI chatbot'],
-            skills: ['Python']
-        }
-    ];
-    const skills = [
-        {
-            id: 'ai',
-            icon: 'fas fa-robot',
-            title: 'Artificial Intelligence',
-            description: 'Machine Learning, Deep Learning',
-            techTags: ['Python'],
-            certificates: [
-                {
-                    name: 'AI Specialist',
-                    issuer: 'Coursera',
-                    link: 'https://coursera.org/certificate/ai-specialist'
-                }
-            ]
-        }
-    ];
-    const projects = [
-        {
-            image: 'fas fa-robot',
-            title: 'AI Chatbot Assistant',
-            description: 'Intelligent chatbot using NLP and machine learning',
-            category: 'ai',
-            technologies: ['Python'],
-            fullDescription: 'A chatbot assistant that leverages NLP and ML to provide intelligent responses.',
-            features: ['Conversational AI', 'Context awareness'],
-            demoVideo: '',
-            documentation: '',
-            githubLink: '',
-            teamMembers: [
-                { name: 'Abdelbasset', role: 'Lead Developer', contact: 'your.email@example.com' }
-            ]
-        }
-    ];
-    const contacts = [
-        { link: 'mailto:your.email@example.com', icon: 'fas fa-envelope', label: 'your.email@example.com' },
-        { link: 'tel:+1234567890', icon: 'fas fa-phone', label: '+123 456 7890' },
-        { link: 'https://linkedin.com/in/yourprofile', icon: 'fab fa-linkedin', label: 'LinkedIn' },
-        { link: 'https://github.com/yourusername', icon: 'fab fa-github', label: 'GitHub' },
-        { link: 'https://twitter.com/yourusername', icon: 'fab fa-twitter', label: 'Twitter' }
-    ];
-    loadEducation(education);
-    loadExperience(experience);
-    loadSkills(skills);
-    loadProjects(projects);
-    loadContact(contacts);
+async function loadPortfolio() {
+    const data = await fetch('data/portfolio.json').then(r => r.json());
+    loadHero(data.main);
+    loadEducation(data.education);
+    loadExperience(data.experience);
+    loadSkills(data.skills);
+    loadProjects(data.projects);
+    loadContact(data.contact);
+    loadModals();
 }
 
-loadPortfolio();
+// =====================
+// Initialize Everything
+// =====================
+document.addEventListener('DOMContentLoaded', function() {
+    loadTheme();
+    loadParticles();
+    loadNavbar();
+    loadPortfolio();
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});
