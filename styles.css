@@ -427,61 +427,8 @@ body.dark-mode .cta-secondary:hover {
 }
 
 /* =====================
-    Responsive Design
+    Section Styles
 ===================== */
-@media (max-width: 768px) {
-    .hero-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-    
-    .hero-image {
-        width: 250px;
-        height: 250px;
-    }
-    
-    .hero-image i {
-        font-size: 4rem;
-    }
-    
-    .hero-text {
-        text-align: center;
-    }
-    
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
-    
-    .subtitle {
-        font-size: 1.4rem;
-    }
-    
-    .hero-cta {
-        justify-content: center;
-    }
-    
-    .nav-links {
-        display: none;
-    }
-}
-
-/* =====================
-    Placeholder Sections
-===================== */
-.section h2 {
-    font-size: 2.5rem;
-    color: #1f2937;
-}
-
-body.dark-mode .section h2 {
-    color: #e2e8f0;
-}
-
-
-/* =====================
-   Education Section Styles
-===================== */
-
 .section {
     padding: 80px 0;
     max-width: 1200px;
@@ -498,6 +445,10 @@ body.dark-mode .section h2 {
     position: relative;
 }
 
+body.dark-mode .section h2 {
+    color: #f7fafc;
+}
+
 .section h2::after {
     content: '';
     position: absolute;
@@ -510,9 +461,8 @@ body.dark-mode .section h2 {
 }
 
 /* =====================
-   Experience Section Styles
+   Timeline Styles (Experience & Education)
 ===================== */
-
 .timeline {
     position: relative;
     max-width: 800px;
@@ -552,6 +502,10 @@ body.dark-mode .section h2 {
     box-shadow: 0 0 0 4px white, 0 0 20px rgba(59, 130, 246, 0.3);
 }
 
+body.dark-mode .timeline-item::after {
+    box-shadow: 0 0 0 4px #0f0f23, 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
 .timeline-item.left {
     left: 0;
 }
@@ -578,6 +532,11 @@ body.dark-mode .section h2 {
     box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
 }
 
+body.dark-mode .timeline-content {
+    background: #2d3748;
+    color: #e2e8f0;
+}
+
 .timeline-icon {
     width: 60px;
     height: 60px;
@@ -602,11 +561,20 @@ body.dark-mode .section h2 {
     margin-bottom: 1rem;
 }
 
+body.dark-mode .timeline-date {
+    background: #4a5568;
+    color: #e2e8f0;
+}
+
 .timeline-title {
     font-size: 1.4rem;
     font-weight: bold;
     color: #1f2937;
     margin-bottom: 0.5rem;
+}
+
+body.dark-mode .timeline-title {
+    color: #f7fafc;
 }
 
 .timeline-company {
@@ -616,10 +584,18 @@ body.dark-mode .section h2 {
     margin-bottom: 1rem;
 }
 
+body.dark-mode .timeline-company {
+    color: #8b5cf6;
+}
+
 .timeline-description {
     color: #4b5563;
     line-height: 1.6;
     margin-bottom: 1rem;
+}
+
+body.dark-mode .timeline-description {
+    color: #cbd5e0;
 }
 
 .timeline-skills {
@@ -638,6 +614,11 @@ body.dark-mode .section h2 {
     font-weight: 500;
 }
 
+body.dark-mode .skill-tag {
+    background: #4a5568;
+    color: #e2e8f0;
+}
+
 .timeline-achievements {
     margin-top: 1rem;
 }
@@ -654,6 +635,10 @@ body.dark-mode .section h2 {
     color: #4b5563;
 }
 
+body.dark-mode .timeline-achievements li {
+    color: #cbd5e0;
+}
+
 .timeline-achievements li::before {
     content: '▶';
     position: absolute;
@@ -665,7 +650,6 @@ body.dark-mode .section h2 {
 /* =====================
    Skills Section Styles
 ===================== */
-
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -689,6 +673,11 @@ body.dark-mode .section h2 {
     box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
 }
 
+body.dark-mode .skill-card {
+    background: #2d3748;
+    color: #e2e8f0;
+}
+
 .skill-card i {
     font-size: 2.5rem;
     color: #3b82f6;
@@ -699,6 +688,10 @@ body.dark-mode .section h2 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
     color: #1f2937;
+}
+
+body.dark-mode .skill-card h3 {
+    color: #f7fafc;
 }
 
 .tech-tags {
@@ -718,14 +711,22 @@ body.dark-mode .section h2 {
     font-weight: 500;
 }
 
+body.dark-mode .tech-tag {
+    background: #4a5568;
+    color: #e2e8f0;
+}
+
 /* =====================
    Projects Section Styles
 ===================== */
-
 .projects-section {
     background: #f9fafb;
     margin: 0 -2rem;
     padding: 80px 2rem;
+}
+
+body.dark-mode .projects-section {
+    background: #1a202c;
 }
 
 .project-filters {
@@ -753,6 +754,18 @@ body.dark-mode .section h2 {
     color: white;
 }
 
+body.dark-mode .filter-btn {
+    background: #2d3748;
+    color: #8b5cf6;
+    border-color: #8b5cf6;
+}
+
+body.dark-mode .filter-btn.active,
+body.dark-mode .filter-btn:hover {
+    background: #8b5cf6;
+    color: #1a202c;
+}
+
 .search-box {
     max-width: 400px;
     margin: 0 auto 2rem;
@@ -773,12 +786,26 @@ body.dark-mode .section h2 {
     border-color: #3b82f6;
 }
 
+body.dark-mode .search-box input {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+}
+
+body.dark-mode .search-box input:focus {
+    border-color: #8b5cf6;
+}
+
 .search-box i {
     position: absolute;
     left: 1rem;
     top: 50%;
     transform: translateY(-50%);
     color: #9ca3af;
+}
+
+body.dark-mode .search-box i {
+    color: #718096;
 }
 
 .projects-grid {
@@ -802,6 +829,10 @@ body.dark-mode .section h2 {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
+body.dark-mode .project-card {
+    background: #2d3748;
+}
+
 .project-image {
     height: 200px;
     background: linear-gradient(45deg, #3b82f6, #8b5cf6);
@@ -823,6 +854,14 @@ body.dark-mode .section h2 {
     color: #1f2937;
 }
 
+body.dark-mode .project-content h3 {
+    color: #f7fafc;
+}
+
+body.dark-mode .project-content p {
+    color: #cbd5e0;
+}
+
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -838,10 +877,14 @@ body.dark-mode .section h2 {
     font-size: 0.8rem;
 }
 
+body.dark-mode .tag {
+    background: #4a5568;
+    color: #e2e8f0;
+}
+
 /* =====================
    Contact Section Styles
 ===================== */
-
 .contact-section {
     text-align: center;
     padding: 80px 2rem;
@@ -858,10 +901,18 @@ body.dark-mode .section h2 {
     color: #1f2937;
 }
 
+body.dark-mode .contact-simple h2 {
+    color: #f7fafc;
+}
+
 .contact-simple p {
     font-size: 1.2rem;
     color: #6b7280;
     margin-bottom: 3rem;
+}
+
+body.dark-mode .contact-simple p {
+    color: #a0aec0;
 }
 
 .contact-links {
@@ -891,6 +942,15 @@ body.dark-mode .section h2 {
     color: #3b82f6;
 }
 
+body.dark-mode .contact-link {
+    background: #2d3748;
+    color: #e2e8f0;
+}
+
+body.dark-mode .contact-link:hover {
+    color: #8b5cf6;
+}
+
 .contact-link i {
     font-size: 1.2rem;
 }
@@ -898,7 +958,6 @@ body.dark-mode .section h2 {
 /* =====================
    Modal Styles
 ===================== */
-
 .modal {
     display: none;
     position: fixed;

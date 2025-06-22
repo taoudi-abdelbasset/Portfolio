@@ -149,7 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
 // =====================
 // Education Section
 // =====================
@@ -345,4 +344,77 @@ function loadModals() {
 // =====================
 // Run main loader
 // =====================
+function loadPortfolio() {
+    // Sample data for demonstration
+    const education = [
+        {
+            icon: 'fas fa-graduation-cap',
+            from: '2020',
+            to: '2022',
+            title: 'Master of Science in Artificial Intelligence',
+            location: 'Stanford University',
+            description: 'Advanced studies in machine learning and deep learning.',
+            achievements: ['GPA: 3.9/4.0'],
+            skills: ['Machine Learning']
+        }
+    ];
+    const experience = [
+        {
+            icon: 'fas fa-briefcase',
+            from: '2022',
+            to: 'Present',
+            title: 'Senior AI Developer',
+            company: 'TechCorp Solutions',
+            description: 'Leading AI development projects and mentoring junior developers.',
+            achievements: ['Developed AI chatbot'],
+            skills: ['Python']
+        }
+    ];
+    const skills = [
+        {
+            id: 'ai',
+            icon: 'fas fa-robot',
+            title: 'Artificial Intelligence',
+            description: 'Machine Learning, Deep Learning',
+            techTags: ['Python'],
+            certificates: [
+                {
+                    name: 'AI Specialist',
+                    issuer: 'Coursera',
+                    link: 'https://coursera.org/certificate/ai-specialist'
+                }
+            ]
+        }
+    ];
+    const projects = [
+        {
+            image: 'fas fa-robot',
+            title: 'AI Chatbot Assistant',
+            description: 'Intelligent chatbot using NLP and machine learning',
+            category: 'ai',
+            technologies: ['Python'],
+            fullDescription: 'A chatbot assistant that leverages NLP and ML to provide intelligent responses.',
+            features: ['Conversational AI', 'Context awareness'],
+            demoVideo: '',
+            documentation: '',
+            githubLink: '',
+            teamMembers: [
+                { name: 'Abdelbasset', role: 'Lead Developer', contact: 'your.email@example.com' }
+            ]
+        }
+    ];
+    const contacts = [
+        { link: 'mailto:your.email@example.com', icon: 'fas fa-envelope', label: 'your.email@example.com' },
+        { link: 'tel:+1234567890', icon: 'fas fa-phone', label: '+123 456 7890' },
+        { link: 'https://linkedin.com/in/yourprofile', icon: 'fab fa-linkedin', label: 'LinkedIn' },
+        { link: 'https://github.com/yourusername', icon: 'fab fa-github', label: 'GitHub' },
+        { link: 'https://twitter.com/yourusername', icon: 'fab fa-twitter', label: 'Twitter' }
+    ];
+    loadEducation(education);
+    loadExperience(experience);
+    loadSkills(skills);
+    loadProjects(projects);
+    loadContact(contacts);
+}
+
 loadPortfolio();
