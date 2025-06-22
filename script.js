@@ -1,27 +1,3 @@
-function loadTheme() {
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    const themeIcon = themeToggle.querySelector('i');
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    
-    if (currentTheme === 'dark') {
-        body.classList.add('dark-mode');
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-    }
-    
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        
-        if (body.classList.contains('dark-mode')) {
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            themeIcon.classList.replace('fa-sun', 'fa-moon');
-            localStorage.setItem('theme', 'light');
-        }
-    });
-}
-
 function animateRoleText(roles) {
     if (!roles || roles.length === 0) {
         console.error('No roles provided for animation.');
@@ -74,56 +50,16 @@ function animateRoleText(roles) {
     
     cycle();
 }
-
-function loadParticles() {
-    const particles = document.getElementById('particles');
-    
-    for (let i = 0; i < 25; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        p.style.width = p.style.height = `${Math.random() * 40 + 20}px`;
-        p.style.left = `${Math.random() * 100}%`;
-        p.style.top = `${Math.random() * 100}%`;
-        p.style.animationDuration = `${Math.random() * 4 + 4}s`;
-        p.style.animationDelay = `${Math.random() * 2}s`;
-        particles.appendChild(p);
-    }
-}
-
-function loadNavbar() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 80;
-            if (pageYOffset >= sectionTop) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').slice(1) === current) {
-                link.classList.add('active');
-            }
-        });
-    });
-}
-
 // =====================
 // Main Loader Function
 // =====================
 async function loadPortfolio() {
     const data = await fetch('data/portfolio.json').then(r => r.json());
     
-    animateRoleText(data.main.roles);
-
     loadTheme();
     loadParticles();
     loadNavbar();
-    loadHero(data.main);
+    loadHero(data.main); // loadHero now calls animateRoleText
     loadEducation(data.education);
     loadExperience(data.experience);
     loadSkills(data.skills);
@@ -159,14 +95,15 @@ function loadTheme() {
 
 function loadParticles() {
     const particles = document.getElementById('particles');
-    for (let i = 0; i < 20; i++) {
+    
+    for (let i = 0; i < 25; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
         p.style.width = p.style.height = `${Math.random() * 40 + 20}px`;
         p.style.left = `${Math.random() * 100}%`;
         p.style.top = `${Math.random() * 100}%`;
-        p.style.background = 'rgba(59,130,246,0.08)';
         p.style.animationDuration = `${Math.random() * 4 + 4}s`;
+        p.style.animationDelay = `${Math.random() * 2}s`;
         particles.appendChild(p);
     }
 }
@@ -177,6 +114,7 @@ function loadParticles() {
 function loadNavbar() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
+
     window.addEventListener('scroll', () => {
         let current = '';
         sections.forEach(section => {
@@ -206,12 +144,16 @@ function loadHero(main) {
             </div>
             <div class="hero-text">
                 <h1>${main.name}</h1>
-                <div class="subtitle">${main.subtitle}</div>
+                <div class="subtitle"><span id="animatedRole"></span></div>
                 <div class="education">${main.education}</div>
                 <p>${main.bio}</p>
             </div>
         </div>
     `;
+    // Animate roles after DOM is updated
+    if (main.roles && main.roles.length > 0) {
+        animateRoleText(main.roles);
+    }
 }
 
 // =====================
