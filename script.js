@@ -1,7 +1,25 @@
 // =====================
-// Theme Toggle
+// Main Loader Function
+// =====================
+async function loadPortfolio() {
+    const data = await fetch('data/portfolio.json').then(r => r.json());
+    loadTheme();
+    loadParticles();
+    loadNavbar();
+    loadHero(data.main);
+    loadEducation(data.education);
+    loadExperience(data.experience);
+    loadSkills(data.skills);
+    loadProjects(data.projects);
+    loadContact(data.contact);
+    loadModals();
+}
+
+// =====================
+// Theme & Utilities
 // =====================
 function loadTheme() {
+    AOS.init({ duration: 1000, once: true, offset: 100 });
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     const themeIcon = themeToggle.querySelector('i');
@@ -22,58 +40,9 @@ function loadTheme() {
     });
 }
 
-// =====================
-// Animated Role Text (from JSON)
-// =====================
-function animateRoleText(roles) {
-    const roleElement = document.getElementById('animatedRole');
-    let currentIndex = 0;
-    function typeWriter(text, callback) {
-        roleElement.textContent = '';
-        let i = 0;
-        function type() {
-            if (i < text.length) {
-                roleElement.textContent += text.charAt(i);
-                i++;
-                setTimeout(type, 100);
-            } else {
-                setTimeout(callback, 2000);
-            }
-        }
-        type();
-    }
-    function eraseText(callback) {
-        const currentText = roleElement.textContent;
-        let i = currentText.length;
-        function erase() {
-            if (i > 0) {
-                roleElement.textContent = currentText.substring(0, i - 1);
-                i--;
-                setTimeout(erase, 50);
-            } else {
-                callback();
-            }
-        }
-        erase();
-    }
-    function cycle() {
-        typeWriter(roles[currentIndex], () => {
-            eraseText(() => {
-                currentIndex = (currentIndex + 1) % roles.length;
-                setTimeout(cycle, 500);
-            });
-        });
-    }
-    cycle();
-}
-
-// =====================
-// Particles (improved)
-// =====================
 function loadParticles() {
     const particles = document.getElementById('particles');
-    particles.innerHTML = '';
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 20; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
         p.style.width = p.style.height = `${Math.random() * 40 + 20}px`;
@@ -81,13 +50,12 @@ function loadParticles() {
         p.style.top = `${Math.random() * 100}%`;
         p.style.background = 'rgba(59,130,246,0.08)';
         p.style.animationDuration = `${Math.random() * 4 + 4}s`;
-        p.style.animationDelay = `${Math.random() * 2}s`;
         particles.appendChild(p);
     }
 }
 
 // =====================
-// Navbar Active State
+// Navbar
 // =====================
 function loadNavbar() {
     const sections = document.querySelectorAll('section');
@@ -110,7 +78,7 @@ function loadNavbar() {
 }
 
 // =====================
-// Hero Section (with animated roles)
+// Hero Section
 // =====================
 function loadHero(main) {
     const hero = document.getElementById('home');
@@ -121,15 +89,12 @@ function loadHero(main) {
             </div>
             <div class="hero-text">
                 <h1>${main.name}</h1>
-                <div class="subtitle"><span id="animatedRole"></span></div>
+                <div class="subtitle">${main.subtitle}</div>
                 <div class="education">${main.education}</div>
                 <p>${main.bio}</p>
             </div>
         </div>
     `;
-    if (main.roles && main.roles.length > 0) {
-        animateRoleText(main.roles);
-    }
 }
 
 // =====================
@@ -325,34 +290,6 @@ function loadModals() {
 }
 
 // =====================
-// Main Loader Function (fetches JSON and loads sections)
+// Run main loader
 // =====================
-async function loadPortfolio() {
-    const data = await fetch('data/portfolio.json').then(r => r.json());
-    loadHero(data.main);
-    loadEducation(data.education);
-    loadExperience(data.experience);
-    loadSkills(data.skills);
-    loadProjects(data.projects);
-    loadContact(data.contact);
-    loadModals();
-}
-
-// =====================
-// Initialize Everything
-// =====================
-document.addEventListener('DOMContentLoaded', function() {
-    loadTheme();
-    loadParticles();
-    loadNavbar();
-    loadPortfolio();
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-});
+loadPortfolio();
