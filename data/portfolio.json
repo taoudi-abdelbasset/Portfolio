@@ -33,7 +33,9 @@
   "experience": [
     {
       "from": "Mar 2022",
-      "to": "Present",
+      "to": "Present.",
+      "logo": "",
+      "location": "San Francisco, CA",
       "title": "Senior AI Developer",
       "company": "TechCorp Solutions",
       "icon": "fas fa-briefcase",

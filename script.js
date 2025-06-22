@@ -50,6 +50,7 @@ function animateRoleText(roles) {
     
     cycle();
 }
+
 // =====================
 // Main Loader Function
 // =====================
@@ -59,7 +60,7 @@ async function loadPortfolio() {
     loadTheme();
     loadParticles();
     loadNavbar();
-    loadHero(data.main); // loadHero now calls animateRoleText
+    loadHero(data.main);
     loadEducation(data.education);
     loadExperience(data.experience);
     loadSkills(data.skills);
@@ -166,65 +167,84 @@ function loadHero(main) {
     `;
 
     console.log('Hero section loaded:', main.roles);
-    // Animate roles after DOM is updated
     if (main.roles && main.roles.length > 0) {
         animateRoleText(main.roles);
     }
 }
 
 // =====================
-// Education Section
+// Education Section with Modal
 // =====================
 function loadEducation(education) {
     const section = document.getElementById('education');
     section.innerHTML = `<h2 data-aos="fade-up">Education</h2><div class="timeline"></div>`;
     const timeline = section.querySelector('.timeline');
+    
     education.forEach((item, i) => {
         timeline.innerHTML += `
-        <div class="timeline-item ${i%2===0?'left':'right'}" data-aos="${i%2===0?'fade-right':'fade-left'}">
+        <div class="timeline-item ${i%2===0?'left':'right'}" data-aos="${i%2===0?'fade-right':'fade-left'}" data-education-id="${i}">
             <div class="timeline-content">
                 <div class="timeline-icon"><i class="${item.icon}"></i></div>
                 <div class="timeline-date">${item.from} - ${item.to}</div>
                 <div class="timeline-title">${item.title}</div>
                 <div class="timeline-company">${item.location}</div>
-                <div class="timeline-description">${item.description}</div>
-                <div class="timeline-achievements"><ul>${item.achievements.map(a=>`<li>${a}</li>`).join('')}</ul></div>
-                <div class="timeline-skills">${item.skills.map(s=>`<span class="skill-tag">${s}</span>`).join('')}</div>
+                <div class="click-hint">Click for details</div>
             </div>
         </div>`;
     });
-    // Add hover effect
-    section.querySelectorAll('.timeline-content').forEach(item => {
+
+    // Add click events for education modal
+    section.querySelectorAll('.timeline-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const educationId = item.getAttribute('data-education-id');
+            const educationData = education[educationId];
+            showEducationModal(educationData);
+        });
+        
+        // Hover effects
         item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
+            this.querySelector('.timeline-content').style.transform = 'translateY(-10px) scale(1.02)';
         });
         item.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
+            this.querySelector('.timeline-content').style.transform = 'translateY(0) scale(1)';
         });
     });
 }
 
 // =====================
-// Experience Section
+// Experience Section with Modal
 // =====================
 function loadExperience(experience) {
     const section = document.getElementById('experience');
     section.innerHTML = `<h2 data-aos="fade-up">Professional Experience</h2><div class="timeline"></div>`;
     const timeline = section.querySelector('.timeline');
+    
     experience.forEach((item, i) => {
+        const logoHtml = item.logo ? 
+            `<img src="${item.logo}" alt="${item.company}" class="company-logo" />` : 
+            `<i class="${item.icon || 'fas fa-briefcase'}"></i>`;
+            
         timeline.innerHTML += `
-        <div class="timeline-item ${i%2===0?'right':'left'}" data-aos="${i%2===0?'fade-left':'fade-right'}">
+        <div class="timeline-item ${i%2===0?'right':'left'}" data-aos="${i%2===0?'fade-left':'fade-right'}" data-experience-id="${i}">
             <div class="timeline-content">
-                <div class="timeline-icon"><i class="${item.icon}"></i></div>
+                <div class="timeline-icon">${logoHtml}</div>
                 <div class="timeline-date">${item.from} - ${item.to}</div>
                 <div class="timeline-title">${item.title}</div>
                 <div class="timeline-company">${item.company}</div>
-                <div class="timeline-description">${item.description}</div>
-                <div class="timeline-achievements"><ul>${item.achievements.map(a=>`<li>${a}</li>`).join('')}</ul></div>
-                <div class="timeline-skills">${item.skills.map(s=>`<span class="skill-tag">${s}</span>`).join('')}</div>
+                <div class="click-hint">Click for details</div>
             </div>
         </div>`;
     });
+
+    // Add click events for experience modal
+    section.querySelectorAll('.timeline-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const experienceId = item.getAttribute('data-experience-id');
+            const experienceData = experience[experienceId];
+            showExperienceModal(experienceData);
+        });
+    });
+
     // Intersection Observer for animation
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -234,6 +254,7 @@ function loadExperience(experience) {
             }
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
     section.querySelectorAll('.timeline-item').forEach(item => {
         observer.observe(item);
     });
@@ -255,6 +276,7 @@ function loadSkills(skills) {
             <div class="tech-tags">${skill.techTags.map(t=>`<span class="tech-tag">${t}</span>`).join('')}</div>
         </div>`;
     });
+    
     // Modal for certificates
     const skillModal = document.getElementById('skillModal');
     const skillDetails = document.getElementById('skillDetails');
@@ -276,6 +298,7 @@ function loadProjects(projects) {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectSearch = document.getElementById('projectSearch');
     let currentFilter = 'all';
+    
     function renderProjects() {
         const search = projectSearch.value.toLowerCase();
         projectsGrid.innerHTML = '';
@@ -304,6 +327,7 @@ function loadProjects(projects) {
             projectsGrid.appendChild(card);
         });
     }
+    
     renderProjects();
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -314,35 +338,6 @@ function loadProjects(projects) {
         });
     });
     projectSearch.addEventListener('input', renderProjects);
-    // Project modal with full details
-    const projectModal = document.getElementById('projectModal');
-    const projectDetails = document.getElementById('projectDetails');
-    projectModal.querySelector('.close').onclick = () => projectModal.style.display = 'none';
-    window.onclick = e => {
-        if (e.target === projectModal) projectModal.style.display = 'none';
-        if (e.target === skillModal) skillModal.style.display = 'none';
-    };
-    function showProjectModal(project) {
-        projectDetails.innerHTML = `
-            <h2>${project.title}</h2>
-            <div class="project-meta">
-                <div class="meta-item"><h4>Category</h4>${project.category}</div>
-                <div class="meta-item"><h4>Technologies</h4>${project.technologies.join(', ')}</div>
-            </div>
-            <p>${project.fullDescription}</p>
-            <ul>${project.features.map(f => `<li>${f}</li>`).join('')}</ul>
-            <div style="margin:1rem 0;">
-                ${project.demoVideo ? `<a href="${project.demoVideo}" target="_blank" style="margin-right:1rem;color:#3b82f6;">Demo Video</a>` : ''}
-                ${project.documentation ? `<a href="${project.documentation}" target="_blank" style="margin-right:1rem;color:#3b82f6;">Documentation</a>` : ''}
-                ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" style="color:#3b82f6;">GitHub</a>` : ''}
-            </div>
-            <h4>Team Members</h4>
-            <div class="team-members">
-                ${project.teamMembers.map(m => `<div class="team-member"><strong>${m.name}</strong><br>${m.role}<br><a href="mailto:${m.contact}" style="color:#3b82f6;">${m.contact}</a></div>`).join('')}
-            </div>
-        `;
-        projectModal.style.display = 'block';
-    }
 }
 
 // =====================
@@ -358,10 +353,163 @@ function loadContact(contacts) {
 }
 
 // =====================
-// Modals (shared)
+// Modal Functions
 // =====================
 function loadModals() {
-    // Already handled in loadSkills and loadProjects
+    // Close modals when clicking outside
+    window.onclick = e => {
+        const modals = ['projectModal', 'skillModal', 'educationModal', 'experienceModal'];
+        modals.forEach(modalId => {
+            const modal = document.getElementById(modalId);
+            if (e.target === modal) modal.style.display = 'none';
+        });
+    };
+}
+
+function showEducationModal(education) {
+    const modal = document.getElementById('educationModal');
+    const details = document.getElementById('educationDetails');
+    
+    details.innerHTML = `
+        <div class="modal-header">
+            <div class="modal-icon"><i class="${education.icon}"></i></div>
+            <div class="modal-title-section">
+                <h2>${education.title}</h2>
+                <h3>${education.location}</h3>
+                <div class="modal-date">${education.from} - ${education.to}</div>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="description-section">
+                <h4>Description</h4>
+                <p>${education.description}</p>
+            </div>
+            ${education.achievements && education.achievements.length ? `
+            <div class="achievements-section">
+                <h4>Achievements</h4>
+                <ul>${education.achievements.map(a => `<li>${a}</li>`).join('')}</ul>
+            </div>` : ''}
+            ${education.skills && education.skills.length ? `
+            <div class="skills-section">
+                <h4>Skills Gained</h4>
+                <div class="skill-tags">${education.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}</div>
+            </div>` : ''}
+        </div>
+    `;
+    
+    modal.style.display = 'block';
+}
+
+function showExperienceModal(experience) {
+    const modal = document.getElementById('experienceModal');
+    const details = document.getElementById('experienceDetails');
+    
+    const logoHtml = experience.logo ? 
+        `<img src="${experience.logo}" alt="${experience.company}" class="modal-logo" />` : 
+        `<i class="${experience.icon || 'fas fa-briefcase'}"></i>`;
+    
+    details.innerHTML = `
+        <div class="modal-header">
+            <div class="modal-icon">${logoHtml}</div>
+            <div class="modal-title-section">
+                <h2>${experience.title}</h2>
+                <h3>${experience.company}</h3>
+                <div class="modal-date">${experience.from} - ${experience.to}</div>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="description-section">
+                <h4>Role Description</h4>
+                <p>${experience.description}</p>
+            </div>
+            ${experience.achievements && experience.achievements.length ? `
+            <div class="achievements-section">
+                <h4>Key Achievements</h4>
+                <ul>${experience.achievements.map(a => `<li>${a}</li>`).join('')}</ul>
+            </div>` : ''}
+            ${experience.skills && experience.skills.length ? `
+            <div class="skills-section">
+                <h4>Technologies Used</h4>
+                <div class="skill-tags">${experience.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}</div>
+            </div>` : ''}
+        </div>
+    `;
+    
+    modal.style.display = 'block';
+}
+
+function showProjectModal(project) {
+    const modal = document.getElementById('projectModal');
+    const details = document.getElementById('projectDetails');
+    
+    details.innerHTML = `
+        <div class="project-modal-header">
+            <div class="project-icon"><i class="${project.image}"></i></div>
+            <div class="project-title-section">
+                <h2>${project.title}</h2>
+                <span class="project-category">${project.category}</span>
+            </div>
+        </div>
+        
+        <div class="project-modal-body">
+            ${project.demoVideo ? `
+            <div class="demo-section">
+                <h4>Demo Video</h4>
+                <video controls width="100%" style="max-height: 300px;">
+                    <source src="${project.demoVideo}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>` : ''}
+            
+            <div class="description-section">
+                <h4>Project Description</h4>
+                <p>${project.fullDescription || project.description}</p>
+            </div>
+            
+            ${project.features && project.features.length ? `
+            <div class="features-section">
+                <h4>Key Features</h4>
+                <ul class="features-list">${project.features.map(f => `<li>${f}</li>`).join('')}</ul>
+            </div>` : ''}
+            
+            <div class="tech-section">
+                <h4>Technologies Used</h4>
+                <div class="project-tech-tags">
+                    ${project.technologies.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+                </div>
+            </div>
+            
+            ${project.teamMembers && project.teamMembers.length ? `
+            <div class="team-section">
+                <h4>Team Members</h4>
+                <div class="team-grid">
+                    ${project.teamMembers.map(member => `
+                        <div class="team-member">
+                            <div class="member-avatar">
+                                ${member.img ? 
+                                    `<img src="${member.img}" alt="${member.name}" />` : 
+                                    `<i class="fas fa-user"></i>`
+                                }
+                            </div>
+                            <div class="member-info">
+                                <strong>${member.name}</strong>
+                                <div class="member-role">${member.role}</div>
+                                <a href="mailto:${member.contact}" class="member-contact">${member.contact}</a>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>` : ''}
+            
+            <div class="project-links">
+                ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>` : ''}
+                ${project.documentation ? `<a href="${project.documentation}" target="_blank" class="project-link"><i class="fas fa-book"></i> Documentation</a>` : ''}
+                ${project.demoVideo ? `<a href="${project.demoVideo}" target="_blank" class="project-link"><i class="fas fa-play"></i> Demo Video</a>` : ''}
+            </div>
+        </div>
+    `;
+    
+    modal.style.display = 'block';
 }
 
 // =====================
