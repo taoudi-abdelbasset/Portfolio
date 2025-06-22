@@ -139,17 +139,33 @@ function loadHero(main) {
     const hero = document.getElementById('home');
     hero.innerHTML = `
         <div class="hero-content">
-            <div class="hero-image">
-                <img src="${main.img}" alt="${main.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+            <div class="hero-image-container">
+                <div class="hero-image">
+                    <img src="${main.img}" alt="${main.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+                </div>
             </div>
             <div class="hero-text">
                 <h1>${main.name}</h1>
-                <div class="subtitle"><span id="animatedRole"></span></div>
+                <div class="subtitle-container">
+                    <div class="subtitle"><span id="animatedRole"></span></div>
+                </div>
                 <div class="education">${main.education}</div>
                 <p>${main.bio}</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="cta-button cta-primary">
+                        <i class="fas fa-rocket"></i>
+                        View My Work
+                    </a>
+                    <a href="#contact" class="cta-button cta-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Get In Touch
+                    </a>
+                </div>
             </div>
         </div>
     `;
+
+    console.log('Hero section loaded:', main.roles);
     // Animate roles after DOM is updated
     if (main.roles && main.roles.length > 0) {
         animateRoleText(main.roles);
