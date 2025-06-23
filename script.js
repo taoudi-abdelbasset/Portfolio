@@ -374,7 +374,27 @@ function loadSkills(skills) {
 // =====================
 function loadProjects(projects) {
     const projectsGrid = document.getElementById('projectsGrid');
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    // Dynamically create filter buttons based on project categories
+    let filterBtnsContainer = document.getElementById('projectsFilterBtns');
+    if (!filterBtnsContainer) {
+        filterBtnsContainer = document.createElement('div');
+        filterBtnsContainer.id = 'projectsFilterBtns';
+        filterBtnsContainer.className = 'filter-btns';
+        projectsGrid.parentNode.insertBefore(filterBtnsContainer, projectsGrid);
+    }
+    // Get unique categories
+    const categories = Array.from(new Set(projects.map(p => p.category)));
+    // Add 'all' as the first filter
+    const allFilters = ['all', ...categories];
+    filterBtnsContainer.innerHTML = '';
+    allFilters.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn' + (cat === 'all' ? ' active' : '');
+        btn.setAttribute('data-filter', cat);
+        btn.textContent = cat === 'all' ? 'All Projects' : (cat.toUpperCase() + ' Project');
+        filterBtnsContainer.appendChild(btn);
+    });
+    const filterBtns = filterBtnsContainer.querySelectorAll('.filter-btn');
     const projectSearch = document.getElementById('projectSearch');
     const controlsId = 'projects-controls';
     let controls = document.getElementById(controlsId);
@@ -406,7 +426,6 @@ function loadProjects(projects) {
         toShow.forEach(project => {
             const card = document.createElement('div');
             card.className = 'project-card';
-
             // Top section: use imgBg if present and not empty, else icon
             let topSection = '';
             if (project.imgBg && project.imgBg.trim() !== '') {
@@ -414,7 +433,7 @@ function loadProjects(projects) {
             } else {
                 topSection = `<div class="project-image"><i class="${project.image}"></i></div>`;
             }
-            console.log(project);
+            // console.log(project);
             card.innerHTML = `
                 ${topSection}
                 <div class="project-content">
@@ -449,9 +468,9 @@ function loadProjects(projects) {
         }
     }
     renderProjects();
-    filterBtns.forEach(btn => {
+    filterBtnsContainer.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
+            filterBtnsContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             currentFilter = btn.getAttribute('data-filter');
             maxShow = getIncrement();
