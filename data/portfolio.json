@@ -152,8 +152,8 @@
       "description": "Containerization, version control, system administration",
       "techTags": ["Docker", "Git", "GitHub", "Linux", "Windows", "Jira"],
       "certificates": [
-        { "name": "Linux Essentials", "issuer": "Cisco", "link": "PLACEHOLDER_LINK" },
-        { "name": "Networking Essentials", "issuer": "Cisco", "link": "PLACEHOLDER_LINK" }
+        { "name": "Linux Essentials", "issuer": "Cisco", "link": "" },
+        { "name": "Networking Essentials", "issuer": "Cisco", "link": "" }
       ]
     },
     {
@@ -183,9 +183,9 @@
         "Multilabel Classification for intent detection",
         "Context-aware Java development support"
       ],
-      "githubLink": "PLACEHOLDER_GITHUB_LINK",
-      "demoVideo": "PLACEHOLDER_DEMO_VIDEO",
-      "documentation": "PLACEHOLDER_DOCUMENTATION_LINK",
+      "githubLink": "",
+      "demoVideo": "",
+      "documentation": "",
       "teamMembers": [
         { "name": "Abdelbasset TAOUDI", "role": "Lead Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "lead_dev" }
       ]
@@ -209,9 +209,9 @@
         "Internal communication system",
         "Academic performance analytics"
       ],
-      "githubLink": "PLACEHOLDER_GITHUB_LINK",
-      "demoVideo": "PLACEHOLDER_DEMO_VIDEO", 
-      "documentation": "PLACEHOLDER_DOCUMENTATION_LINK",
+      "githubLink": "",
+      "demoVideo": "", 
+      "documentation": "",
       "teamMembers": [
         { "name": "Abdelbasset TAOUDI", "role": "Full Stack Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "fullstack_dev" }
       ]
@@ -233,9 +233,9 @@
         "User profile management",
         "Interactive community features"
       ],
-      "githubLink": "PLACEHOLDER_GITHUB_LINK",
-      "demoVideo": "PLACEHOLDER_DEMO_VIDEO",
-      "documentation": "PLACEHOLDER_DOCUMENTATION_LINK", 
+      "githubLink": "",
+      "demoVideo": "",
+      "documentation": "", 
       "teamMembers": [
         { "name": "Abdelbasset TAOUDI", "role": "Full Stack Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "fullstack_dev" }
       ]
@@ -257,9 +257,9 @@
         "Cross-platform compatibility",
         "Performance-focused architecture"
       ],
-      "githubLink": "PLACEHOLDER_GITHUB_LINK",
-      "demoVideo": "PLACEHOLDER_DEMO_VIDEO",
-      "documentation": "PLACEHOLDER_DOCUMENTATION_LINK",
+      "githubLink": "",
+      "demoVideo": "",
+      "documentation": "",
       "teamMembers": [
         { "name": "Abdelbasset TAOUDI", "role": "Game Engine Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "engine_dev" }
       ]
@@ -281,9 +281,9 @@
         "Gesture-to-action mapping",
         "IoT integration for remote control"
       ],
-      "githubLink": "PLACEHOLDER_GITHUB_LINK",
-      "demoVideo": "PLACEHOLDER_DEMO_VIDEO",
-      "documentation": "PLACEHOLDER_DOCUMENTATION_LINK",
+      "githubLink": "",
+      "demoVideo": "",
+      "documentation": "",
       "teamMembers": [
         { "name": "Abdelbasset TAOUDI", "role": "AI Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "ai_dev" }
       ]
