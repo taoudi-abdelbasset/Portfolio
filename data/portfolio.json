@@ -71,7 +71,7 @@
       "title": "AI Chatbot Assistant Muhahaaa",
       "category": "ai",
       "description": "Intelligent chatbot using NLP and machine learning",
-      "image": "fas fa-robot",
+      "image": "https://abdelbasse.github.io/Portfolio/data/src/imgs/projects/001.png",
       "technologies": ["Python", "TensorFlow", "NLP", "FastAPI"],
       "fullDescription": "A comprehensive AI chatbot that uses natural language processing to understand user queries and provide intelligent responses. Built with state-of-the-art transformer models.",
       "features": ["Natural Language Understanding", "Context-aware responses", "Multi-language support", "Real-time learning"],
