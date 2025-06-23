@@ -3,85 +3,289 @@
     "img": "https://abdelbasse.github.io/Portfolio/data/src/imgs/user.png",
     "name": "TAOUDI Abdelbasset",
     "roles": [
-      "AI Developer",
-      "Game Creator",
       "Data Scientist",
-      "Data Engineer"
+      "Backend Developer", 
+      "Big Data Engineer",
+      "AI Developer"
     ],
-    "education": "Bachelor's in Computer Science • Master's in AI",
-    "bio": "Passionate about creating intelligent solutions, engaging mobile games, and extracting insights from data. I bring ideas to life through code and creativity."
+    "education": "Engineering Student in Big Data & Cloud Computing • BTS in Information Systems Development",
+    "bio": "Motivated engineering student at ENSET Mohammedia specializing in Big Data and Cloud Computing. Passionate about data science, backend development, and solving real-world problems through technology and innovation."
   },
   "education": [
     {
-      "from": "Sep 2020",
-      "to": "Jun 2022",
-      "title": "Master of Science in Artificial Intelligence",
-      "location": "Stanford University",
+      "from": "Sep 2023",
+      "to": "Jul 2026",
+      "title": "Engineering in Big Data and Cloud Computing (BDCC)",
+      "location": "Ecole Normale Supérieure de l'Enseignement Technique (ENSET Mohammedia)",
       "icon": "fas fa-graduation-cap",
-      "description": "Advanced studies in machine learning, deep learning, and neural networks. Specialized in computer vision and natural language processing with hands-on research experience in cutting-edge AI technologies.",
+      "description": "Specialized engineering program in Big Data and Cloud Computing within the Math-Informatics department. Advanced studies in data science, machine learning, distributed systems, and cloud technologies.",
       "achievements": [
-        "GPA: 3.9/4.0 - Magna Cum Laude with Distinguished Research",
-        "Research Assistant in AI Lab under Prof. Andrew Ng",
-        "Published 2 papers in top-tier conferences (NeurIPS, ICML)",
-        "Winner of AI Innovation Competition 2021 ($10,000 prize)",
-        "Teaching Assistant for CS229 Machine Learning course",
-        "Thesis: 'Advanced Neural Architectures for Real-time Object Detection'"
+        "Currently pursuing engineering degree in BDCC specialization",
+        "Department: Math-Informatics",
+        "Focus areas: Big Data Analytics, Cloud Computing, Machine Learning",
+        "Hands-on experience with distributed systems and data processing",
+        "Active participation in robotics competitions and AI projects"
       ],
-      "skills": ["Machine Learning", "Deep Learning", "Computer Vision", "NLP", "Research", "Python", "TensorFlow", "PyTorch"]
+      "skills": ["Big Data", "Cloud Computing", "Data Science", "Machine Learning", "Python", "SQL", "NoSQL", "Distributed Systems"]
+    },
+    {
+      "from": "Sep 2021",
+      "to": "Jul 2023",
+      "title": "Higher Technician Certificate in Information Systems Development (DSI)",
+      "location": "Brevet de Technicien Supérieur (BTS), Settat",
+      "icon": "fas fa-certificate",
+      "description": "Technical diploma focusing on information systems development, database management, and software engineering principles.",
+      "achievements": [
+        "Completed comprehensive curriculum in software development",
+        "Specialized in database design and management",
+        "Gained expertise in web development and system analysis",
+        "Developed multiple academic projects using various technologies"
+      ],
+      "skills": ["PHP", "Laravel", "MySQL", "JavaScript", "System Analysis", "Database Design", "Web Development"]
+    },
+    {
+      "from": "Sep 2020",
+      "to": "Jul 2021",
+      "title": "Baccalaureate in Experimental Sciences (Physical Sciences)",
+      "location": "Groupe Scolaire Azzaitoune, Settat",
+      "icon": "fas fa-school",
+      "description": "Scientific baccalaureate with specialization in physical sciences, providing strong foundation in mathematics, physics, and analytical thinking.",
+      "achievements": [
+        "Strong foundation in mathematics and physics",
+        "Analytical and problem-solving skills development",
+        "Preparation for engineering studies"
+      ],
+      "skills": ["Mathematics", "Physics", "Analytical Thinking", "Problem Solving"]
     }
   ],
   "experience": [
     {
-      "from": "Mar 2022",
-      "to": "Present.",
+      "from": "Jul 2024",
+      "to": "Sep 2024",
       "logo": "",
-      "location": "San Francisco, CA",
-      "title": "Senior AI Developer",
-      "company": "TechCorp Solutions",
+      "location": "Casablanca, Morocco",
+      "title": "Data & Process Optimization Intern",
+      "company": "Annour Technologies",
       "icon": "fas fa-briefcase",
-      "description": "Leading AI development projects, designing machine learning pipelines, and mentoring junior developers. Responsible for implementing cutting-edge AI solutions for enterprise clients across various industries.",
+      "description": "Specialized in data automation and process optimization, developing web applications to streamline business workflows and create interactive dashboards for data visualization and analysis.",
       "achievements": [
-        "Developed AI chatbot that improved customer satisfaction by 40% and reduced response time by 75%",
-        "Led cross-functional team of 8 developers on 5+ simultaneous AI projects worth $2M+",
-        "Reduced model training time by 60% through advanced optimization techniques",
-        "Implemented comprehensive MLOps pipeline for automated model deployment and monitoring",
-        "Mentored 12 junior developers, with 8 receiving promotions within 18 months",
-        "Presented AI solutions at 3 international conferences"
+        "Built Laravel web app automating ticket reporting, reducing monthly report time from 6 hours to 30 minutes (92% improvement)",
+        "Created interactive dashboards with D3.js and Query.js for ticket trend visualization",
+        "Enabled managers to identify bottlenecks and reduce escalations by 25%",
+        "Redesigned ticket workflows with step tracking and audit logs using Laravel",
+        "Cut resolution time by 35% and improved performance metrics tracking",
+        "Transformed manual Excel workflows into automated digital processes"
       ],
-      "skills": ["Python", "TensorFlow", "PyTorch", "MLOps", "Team Leadership", "AWS", "Docker", "Kubernetes"]
+      "skills": ["Laravel", "PHP", "D3.js", "MySQL", "Data Visualization", "Process Optimization", "Dashboard Development", "Workflow Automation"]
+    },
+    {
+      "from": "Jun 2023",
+      "to": "Jul 2023",
+      "logo": "",
+      "location": "Casablanca, Morocco", 
+      "title": "Software Development Intern",
+      "company": "Botischool",
+      "icon": "fas fa-code",
+      "description": "Focused on backend development and real-time communication systems, creating task management solutions and implementing modern web technologies for improved team collaboration.",
+      "achievements": [
+        "Developed task-tracking app in Laravel/MySQL with automated deadline alerts",
+        "Reduced missed deadlines by 40% through intelligent notification system",
+        "Integrated real-time chat system using Laravel Echo and WebSockets",
+        "Reduced email reliance by 60% and improved team communication speed",
+        "Gained hands-on experience in project management methodologies",
+        "Replaced manual follow-up processes with automated workflows"
+      ],
+      "skills": ["Laravel", "MySQL", "WebSockets", "Laravel Echo", "Real-time Systems", "Task Management", "Backend Development"]
+    },
+    {
+      "from": "Aug 2022",
+      "to": "Present",
+      "logo": "",
+      "location": "Settat, Morocco",
+      "title": "Observational Intern",
+      "company": "SETRONIC",
+      "icon": "fas fa-eye",
+      "description": "Administrative and documentation role focusing on data management, document organization, and database design projects.",
+      "achievements": [
+        "Performed administrative tasks including error correction in documents",
+        "Participated in MCD (Conceptual Data Model) project development",
+        "Assisted in creating data flow diagrams and entity-relationship models",
+        "Gained experience in database design and documentation",
+        "Improved document organization and data management processes"
+      ],
+      "skills": ["Data Modeling", "Database Design", "Documentation", "Administrative Tasks", "MCD", "Entity-Relationship Modeling"]
     }
   ],
   "skills": [
     {
-      "id": "AI/ML",
-      "icon": "fas fa-robot",
-      "title": "Artificial Intelligence",
-      "description": "Machine Learning, Deep Learning, Neural Networks",
-      "techTags": ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "OpenCV"],
+      "id": "programming",
+      "icon": "fas fa-code",
+      "title": "Programming Languages",
+      "description": "Python, Java, PHP, JavaScript, C++, C#",
+      "techTags": ["Python", "Java", "PHP", "JavaScript", "C++", "C#", "HTML", "CSS", "VB", "VBA"],
       "certificates": [
-        { "name": "Machine Learning Certificate", "issuer": "Stanford University", "link": "https://coursera.org/verify/cert1" },
-        { "name": "Deep Learning Specialization", "issuer": "DeepLearning.AI", "link": "https://coursera.org/verify/cert2" },
-        { "name": "TensorFlow Developer Certificate", "issuer": "Google", "link": "https://credentials.google.com/cert3" }
+        { "name": "Supervised Machine Learning", "issuer": "Coursera", "link": "https://shorturl.at/buksD" }
       ]
+    },
+    {
+      "id": "databases",
+      "icon": "fas fa-database", 
+      "title": "Database Technologies",
+      "description": "SQL, NoSQL, Big Data storage solutions",
+      "techTags": ["MySQL", "MongoDB", "Redis", "Apache Cassandra", "Apache HBase", "SQL Server"],
+      "certificates": [
+        { "name": "MongoDB Essentials", "issuer": "MongoDB", "link": "https://shorturl.at/TNH8K" }
+      ]
+    },
+    {
+      "id": "bigdata",
+      "icon": "fas fa-chart-line",
+      "title": "Big Data & Analytics",
+      "description": "Distributed systems, data processing, visualization",
+      "techTags": ["Hive", "HDFS", "Apache Superset", "Elasticsearch", "D3.js", "Data Visualization"],
+      "certificates": []
+    },
+    {
+      "id": "devops",
+      "icon": "fas fa-cogs",
+      "title": "DevOps & Tools",
+      "description": "Containerization, version control, system administration",
+      "techTags": ["Docker", "Git", "GitHub", "Linux", "Windows", "Jira"],
+      "certificates": [
+        { "name": "Linux Essentials", "issuer": "Cisco", "link": "PLACEHOLDER_LINK" },
+        { "name": "Networking Essentials", "issuer": "Cisco", "link": "PLACEHOLDER_LINK" }
+      ]
+    },
+    {
+      "id": "frameworks",
+      "icon": "fas fa-layer-group",
+      "title": "Frameworks & Technologies",
+      "description": "Web frameworks, real-time systems, IoT",
+      "techTags": ["Laravel", "Bootstrap", "WebSockets", "Laravel Echo", "IoT", "SDL"],
+      "certificates": []
     }
   ],
   "projects": [
     {
       "id": 1,
-      "title": "AI Chatbot Assistant Muhahaaa",
+      "title": "JavaDevLLM – AI-Powered Assistant for Java Developers",
       "category": "ai",
-      "description": "Intelligent chatbot using NLP and machine learning",
+      "description": "Smart assistant using JavaFX and LLM (LLaMA 3) for Java development tasks",
       "image": "fas fa-robot",
-      "imgBg" : "https://abdelbasse.github.io/Portfolio/data/src/imgs/projects/001.png",
-      "technologies": ["Python", "TensorFlow", "NLP", "FastAPI"],
-      "fullDescription": "A comprehensive AI chatbot that uses natural language processing to understand user queries and provide intelligent responses. Built with state-of-the-art transformer models.",
-      "features": ["Natural Language Understanding", "Context-aware responses", "Multi-language support", "Real-time learning"],
-      "githubLink": "https://github.com/yourusername/ai-chatbot",
-      "demoVideo": "https://youtu.be/ZK-rNEhJIDs?si=fj4riu6UkdmgpEQV",
-      "documentation": "https://docs.example.com/chatbot",
+      "imgBg": "PLACEHOLDER_IMAGE_URL",
+      "technologies": ["Java", "JavaFX", "LLaMA 3", "RAG", "ChromaDB", "MongoDB", "MLC"],
+      "fullDescription": "Developed a comprehensive AI-powered assistant to help developers and students with Java-related tasks including code generation, debugging, and algorithm explanation. Implemented RAG (Retrieval-Augmented Generation) architecture combining vector search with AI-generated responses for accurate and context-aware support.",
+      "features": [
+        "Code generation and debugging assistance",
+        "Algorithm explanation and optimization",
+        "RAG architecture for accurate responses", 
+        "Vector search with ChromaDB integration",
+        "Multilabel Classification for intent detection",
+        "Context-aware Java development support"
+      ],
+      "githubLink": "PLACEHOLDER_GITHUB_LINK",
+      "demoVideo": "PLACEHOLDER_DEMO_VIDEO",
+      "documentation": "PLACEHOLDER_DOCUMENTATION_LINK",
       "teamMembers": [
-        { "name": "John Doe", "role": "Backend Developer", "contact": "john@example.com", "img":"", "role":"role001"},
-        { "name": "Jane Smith", "role": "UI/UX Designer", "contact": "jane@example.com", "img":"", "role":"role002"}
+        { "name": "Abdelbasset TAOUDI", "role": "Lead Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "lead_dev" }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "BTS School Management System",
+      "category": "web",
+      "description": "Comprehensive Laravel-based school management system with email alerts and analytics",
+      "image": "fas fa-school",
+      "imgBg": "PLACEHOLDER_IMAGE_URL",
+      "technologies": ["Laravel", "PHP", "MySQL", "JavaScript", "SMTP", "Bootstrap"],
+      "fullDescription": "Built a comprehensive school management web application using Laravel with integrated email alert system, action logging, and simplified workflows for managing students, teachers, and sub-administrators. Features interactive visual dashboards for analyzing academic performance and user activity.",
+      "features": [
+        "Student and teacher management",
+        "Attendance tracking system",
+        "Course and exam management",
+        "Email notification system (SMTP)",
+        "Interactive data visualization dashboards",
+        "Action logging and audit trails",
+        "Internal communication system",
+        "Academic performance analytics"
+      ],
+      "githubLink": "PLACEHOLDER_GITHUB_LINK",
+      "demoVideo": "PLACEHOLDER_DEMO_VIDEO", 
+      "documentation": "PLACEHOLDER_DOCUMENTATION_LINK",
+      "teamMembers": [
+        { "name": "Abdelbasset TAOUDI", "role": "Full Stack Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "fullstack_dev" }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "E-Biblio Online Library Platform",
+      "category": "web",
+      "description": "Interactive online library platform for book sharing and community engagement",
+      "image": "fas fa-book",
+      "imgBg": "PLACEHOLDER_IMAGE_URL",
+      "technologies": ["Laravel", "PHP", "MySQL", "JavaScript", "Bootstrap"],
+      "fullDescription": "Developed a web application for an online library (e-biblio) using Laravel, allowing users to share, comment on, and discover books within an interactive community environment. Completed in one week as an intensive development project.",
+      "features": [
+        "Book sharing and discovery",
+        "Community comments and reviews",
+        "User interaction system",
+        "Book categorization and search",
+        "User profile management",
+        "Interactive community features"
+      ],
+      "githubLink": "PLACEHOLDER_GITHUB_LINK",
+      "demoVideo": "PLACEHOLDER_DEMO_VIDEO",
+      "documentation": "PLACEHOLDER_DOCUMENTATION_LINK", 
+      "teamMembers": [
+        { "name": "Abdelbasset TAOUDI", "role": "Full Stack Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "fullstack_dev" }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Personal Game Engine with SDL",
+      "category": "gamedev",
+      "description": "Custom game engine built with C++ and SDL for optimized rendering",
+      "image": "fas fa-gamepad",
+      "imgBg": "PLACEHOLDER_IMAGE_URL", 
+      "technologies": ["C++", "SDL", "Data Structures", "Memory Optimization"],
+      "fullDescription": "Developed a personal game engine using SDL (Simple DirectMedia Layer) in C++, utilizing advanced data structures to optimize memory usage and facilitate fast rendering. Completed in two weeks as a technical challenge project.",
+      "features": [
+        "Optimized memory management",
+        "Fast rendering capabilities",
+        "Advanced data structure implementation",
+        "SDL integration for multimedia",
+        "Cross-platform compatibility",
+        "Performance-focused architecture"
+      ],
+      "githubLink": "PLACEHOLDER_GITHUB_LINK",
+      "demoVideo": "PLACEHOLDER_DEMO_VIDEO",
+      "documentation": "PLACEHOLDER_DOCUMENTATION_LINK",
+      "teamMembers": [
+        { "name": "Abdelbasset TAOUDI", "role": "Game Engine Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "engine_dev" }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Smart Car with Hand Gesture Recognition",
+      "category": "iot",
+      "description": "AI-powered smart car with computer vision for gesture control",
+      "image": "fas fa-car",
+      "imgBg": "PLACEHOLDER_IMAGE_URL",
+      "technologies": ["AI", "Computer Vision", "Hand Gesture Recognition", "Classification Models", "IoT"],
+      "fullDescription": "Participated in ESAM Meknès Robotics Competition, working on AI implementation for hand gesture recognition using camera and classification models to interpret gestures and trigger corresponding actions in the smart car.",
+      "features": [
+        "Real-time hand gesture recognition",
+        "AI-powered classification models",
+        "Camera-based computer vision",
+        "Smart car control system",
+        "Gesture-to-action mapping",
+        "IoT integration for remote control"
+      ],
+      "githubLink": "PLACEHOLDER_GITHUB_LINK",
+      "demoVideo": "PLACEHOLDER_DEMO_VIDEO",
+      "documentation": "PLACEHOLDER_DOCUMENTATION_LINK",
+      "teamMembers": [
+        { "name": "Abdelbasset TAOUDI", "role": "AI Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "ai_dev" }
       ]
     }
   ],
@@ -89,8 +293,8 @@
     { "type": "email", "value": "taoudiabdelbasset.contact@gmail.com", "icon": "fas fa-envelope", "label": "taoudiabdelbasset.contact@gmail.com", "link": "mailto:taoudiabdelbasset.contact@gmail.com" },
     { "type": "email", "value": "taoudiabdu@gmail.com", "icon": "fas fa-envelope", "label": "taoudiabdu@gmail.com", "link": "mailto:taoudiabdu@gmail.com" },
     { "type": "phone", "value": "+212689381605", "icon": "fas fa-phone", "label": "+212689381605", "link": "tel:+212689381605" },
-    { "type": "linkedin", "value": "https://linkedin.com/in/taoudi-abdelbasset", "icon": "fab fa-linkedin", "label": "LinkedIn", "link": "https://linkedin.com/in/yourprofile" },
-    { "type": "github", "value": "https://github.com/abdelbasse", "icon": "fab fa-github", "label": "GitHub", "link": "https://github.com/yourusername" },
-    { "type": "twitter", "value": "https://twitter.com/yourusername", "icon": "fab fa-twitter", "label": "Twitter", "link": "https://twitter.com/yourusername" }
+    { "type": "linkedin", "value": "https://www.linkedin.com/in/taoudi-abdelbasset/", "icon": "fab fa-linkedin", "label": "LinkedIn", "link": "https://www.linkedin.com/in/taoudi-abdelbasset/" },
+    { "type": "github", "value": "https://github.com/abdelbasse", "icon": "fab fa-github", "label": "GitHub", "link": "https://github.com/abdelbasse" },
+    { "type": "twitter", "value": "PLACEHOLDER_TWITTER_URL", "icon": "fab fa-twitter", "label": "Twitter", "link": "PLACEHOLDER_TWITTER_URL" }
   ]
 }
