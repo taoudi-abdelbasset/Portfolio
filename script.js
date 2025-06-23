@@ -188,7 +188,7 @@ function loadHero(main) {
         </div>
     `;
 
-    console.log('Hero section loaded:', main.roles);
+    // console.log('Hero section loaded:', main.roles);
     if (main.roles && main.roles.length > 0) {
         animateRoleText(main.roles);
     }
@@ -406,8 +406,17 @@ function loadProjects(projects) {
         toShow.forEach(project => {
             const card = document.createElement('div');
             card.className = 'project-card';
+
+            // Top section: use imgBg if present and not empty, else icon
+            let topSection = '';
+            if (project.imgBg && project.imgBg.trim() !== '') {
+                topSection = `<div class="project-image" style="background-image:url('${project.imgBg}');background-size:cover;background-position:center;"></div>`;
+            } else {
+                topSection = `<div class="project-image"><i class="${project.image}"></i></div>`;
+            }
+            console.log(project);
             card.innerHTML = `
-                <div class="project-image"><i class="${project.image}"></i></div>
+                ${topSection}
                 <div class="project-content">
                     <h3>${project.title}</h3>
                     <p>${project.description}</p>
@@ -474,7 +483,7 @@ function loadContact(contacts) {
     const links = section.querySelector('.contact-links');
     links.innerHTML = '';
     contacts.forEach(link => {
-        console.log('Contact section loaded:', link);
+        // console.log('Contact section loaded:', link);
         let href = link.link || link.value;
         let label = link.label || link.value;
         // If it's an email or phone, ensure proper prefix
