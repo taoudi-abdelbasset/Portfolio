@@ -434,6 +434,7 @@ body.dark-mode .cta-secondary:hover {
         text-align: center;
     }
     .hero-image {
+        margin-top: 70px;
         width: 320px;
         height: 320px;
     }
@@ -463,6 +464,7 @@ body.dark-mode .cta-secondary:hover {
         padding: 1rem;
     }
     .hero-image {
+        margin-top: 70px;
         width: 65vw;
         max-width: 320px;
         height: 65vw;
@@ -1782,6 +1784,7 @@ body.dark-mode .timeline-item::after {
         text-align: center;
     }
     .hero-image {
+        margin-top: 70px;
         width: 220px;
         height: 220px;
     }
@@ -1811,6 +1814,7 @@ body.dark-mode .timeline-item::after {
         padding: 1rem 0.2rem;
     }
     .hero-image {
+        margin-top: 70px;
         width: 65vw;
         max-width: 320px;
         height: 65vw;
