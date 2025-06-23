@@ -53,7 +53,7 @@
   ],
   "skills": [
     {
-      "id": "ai",
+      "id": "AI/ML",
       "icon": "fas fa-robot",
       "title": "Artificial Intelligence",
       "description": "Machine Learning, Deep Learning, Neural Networks",
@@ -76,7 +76,7 @@
       "fullDescription": "A comprehensive AI chatbot that uses natural language processing to understand user queries and provide intelligent responses. Built with state-of-the-art transformer models.",
       "features": ["Natural Language Understanding", "Context-aware responses", "Multi-language support", "Real-time learning"],
       "githubLink": "https://github.com/yourusername/ai-chatbot",
-      "demoVideo": "https://drive.google.com/file/d/1BjmjEA6goag88rSkqgzhHYdFcRl0najV/view",
+      "demoVideo": "https://youtu.be/ZK-rNEhJIDs?si=fj4riu6UkdmgpEQV",
       "documentation": "https://docs.example.com/chatbot",
       "teamMembers": [
         { "name": "John Doe", "role": "Backend Developer", "contact": "john@example.com", "img":"", "role":"role001"},

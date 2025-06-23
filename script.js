@@ -115,6 +115,7 @@ function loadTheme() {
     });
 }
 
+
 function loadParticles() {
     const particles = document.getElementById('particles');
     
@@ -286,28 +287,85 @@ function loadExperience(experience) {
 // =====================
 function loadSkills(skills) {
     const section = document.getElementById('skills');
-    section.innerHTML = `<h2>Skills & Technologies</h2><div class="skills-grid"></div>`;
+    section.innerHTML = `<h2>Skills & Technologies</h2><div class="skills-grid"></div><div class="skills-controls" style="text-align:center;margin-top:1.5rem;"></div>`;
     const grid = section.querySelector('.skills-grid');
-    skills.forEach(skill => {
-        grid.innerHTML += `
-        <div class="skill-card" data-skill="${skill.id}" data-aos="fade-up">
-            <i class="${skill.icon}"></i>
-            <h3>${skill.title}</h3>
-            <p>${skill.description}</p>
-            <div class="tech-tags">${skill.techTags.map(t=>`<span class="tech-tag">${t}</span>`).join('')}</div>
-        </div>`;
-    });
-    
-    // Modal for certificates
-    const skillModal = document.getElementById('skillModal');
-    const skillDetails = document.getElementById('skillDetails');
-    skillModal.querySelector('.close').onclick = () => skillModal.style.display = 'none';
-    section.querySelectorAll('.skill-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const skill = skills.find(s => s.id === card.getAttribute('data-skill'));
-            skillDetails.innerHTML = `<h2>Certificates</h2><div class="certificates-grid">${skill.certificates && skill.certificates.length ? skill.certificates.map(c => `<div class="certificate-item"><div><strong>${c.name}</strong></div><div>${c.issuer}</div><a href="${c.link}" target="_blank">View Certificate</a></div>`).join('') : '<div>No certificates available.</div>'}</div>`;
-            skillModal.style.display = 'block';
+    const controls = section.querySelector('.skills-controls');
+    function getIncrement() {
+        return window.innerWidth <= 600 ? 4 : 8;
+    }
+    let maxShow = getIncrement();
+    function renderSkills() {
+        grid.innerHTML = '';
+        let toShow = skills.slice(0, maxShow);
+        toShow.forEach(skill => {
+            grid.innerHTML += `
+            <div class="skill-card" data-skill="${skill.id}" data-aos="fade-up">
+                <i class="${skill.icon}"></i>
+                <h3>${skill.title}</h3>
+                <p>${skill.description}</p>
+                <div class="tech-tags">${skill.techTags.map(t=>`<span class="tech-tag">${t}</span>`).join('')}</div>
+            </div>`;
         });
+        controls.innerHTML = '';
+        if (skills.length > maxShow) {
+            controls.innerHTML += `<button class="show-more-btn">Show More (+${getIncrement()})</button>`;
+        }
+        if (maxShow > getIncrement()) {
+            controls.innerHTML += `<button class="show-less-btn">Show Less</button>`;
+        }
+        // Modal for certificates
+        const skillModal = document.getElementById('skillModal');
+        const skillDetails = document.getElementById('skillDetails');
+        skillModal.querySelector('.close').onclick = () => skillModal.style.display = 'none';
+        section.querySelectorAll('.skill-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const skill = skills.find(s => s.id === card.getAttribute('data-skill'));
+                skillDetails.innerHTML = `
+                    <div class="modal-header">
+                        <div class="modal-icon"><i class="${skill.icon}"></i></div>
+                        <div class="modal-title-section">
+                            <h2>${skill.title} Certificates</h2>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="certificates-grid">
+                            ${skill.certificates && skill.certificates.length ? skill.certificates.map(c => `
+                                <div class="certificate-item">
+                                    <div><strong>${c.name}</strong></div>
+                                    <div>${c.issuer}</div>
+                                    <a href="${c.link}" target="_blank">View Certificate</a>
+                                </div>
+                            `).join('') : '<div>No certificates available.</div>'}
+                        </div>
+                    </div>
+                `;
+                skillModal.style.display = 'block';
+            });
+        });
+        // Button events
+        if (controls.querySelector('.show-more-btn')) {
+            controls.querySelector('.show-more-btn').onclick = () => {
+                maxShow += getIncrement();
+                renderSkills();
+            };
+        }
+        if (controls.querySelector('.show-less-btn')) {
+            controls.querySelector('.show-less-btn').onclick = () => {
+                maxShow = getIncrement();
+                renderSkills();
+            };
+        }
+    }
+    renderSkills();
+    window.addEventListener('resize', () => {
+        let newInc = getIncrement();
+        if (maxShow > newInc && window.innerWidth <= 600) {
+            maxShow = newInc;
+            renderSkills();
+        } else if (maxShow < newInc && window.innerWidth > 600) {
+            maxShow = newInc;
+            renderSkills();
+        }
     });
 }
 
@@ -318,8 +376,20 @@ function loadProjects(projects) {
     const projectsGrid = document.getElementById('projectsGrid');
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectSearch = document.getElementById('projectSearch');
+    const controlsId = 'projects-controls';
+    let controls = document.getElementById(controlsId);
+    if (!controls) {
+        controls = document.createElement('div');
+        controls.id = controlsId;
+        controls.style.textAlign = 'center';
+        controls.style.marginTop = '1.5rem';
+        projectsGrid.parentNode.appendChild(controls);
+    }
     let currentFilter = 'all';
-    
+    function getIncrement() {
+        return window.innerWidth <= 600 ? 4 : 8;
+    }
+    let maxShow = getIncrement();
     function renderProjects() {
         const search = projectSearch.value.toLowerCase();
         projectsGrid.innerHTML = '';
@@ -327,11 +397,13 @@ function loadProjects(projects) {
             (currentFilter === 'all' || p.category === currentFilter) &&
             (p.title.toLowerCase().includes(search) || p.description.toLowerCase().includes(search) || p.technologies.join(' ').toLowerCase().includes(search))
         );
-        if (filtered.length === 0) {
+        let toShow = filtered.slice(0, maxShow);
+        if (toShow.length === 0) {
             projectsGrid.innerHTML = '<div style="text-align:center;color:#888;">No projects found.</div>';
+            controls.innerHTML = '';
             return;
         }
-        filtered.slice(0, 3).forEach(project => {
+        toShow.forEach(project => {
             const card = document.createElement('div');
             card.className = 'project-card';
             card.innerHTML = `
@@ -347,18 +419,50 @@ function loadProjects(projects) {
             card.addEventListener('click', () => showProjectModal(project));
             projectsGrid.appendChild(card);
         });
+        controls.innerHTML = '';
+        if (filtered.length > maxShow) {
+            controls.innerHTML += `<button class="show-more-btn">Show More (+${getIncrement()})</button>`;
+        }
+        if (maxShow > getIncrement()) {
+            controls.innerHTML += `<button class="show-less-btn">Show Less</button>`;
+        }
+        if (controls.querySelector('.show-more-btn')) {
+            controls.querySelector('.show-more-btn').onclick = () => {
+                maxShow += getIncrement();
+                renderProjects();
+            };
+        }
+        if (controls.querySelector('.show-less-btn')) {
+            controls.querySelector('.show-less-btn').onclick = () => {
+                maxShow = getIncrement();
+                renderProjects();
+            };
+        }
     }
-    
     renderProjects();
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             currentFilter = btn.getAttribute('data-filter');
+            maxShow = getIncrement();
             renderProjects();
         });
     });
-    projectSearch.addEventListener('input', renderProjects);
+    projectSearch.addEventListener('input', () => {
+        maxShow = getIncrement();
+        renderProjects();
+    });
+    window.addEventListener('resize', () => {
+        let newInc = getIncrement();
+        if (maxShow > newInc && window.innerWidth <= 600) {
+            maxShow = newInc;
+            renderProjects();
+        } else if (maxShow < newInc && window.innerWidth > 600) {
+            maxShow = newInc;
+            renderProjects();
+        }
+    });
 }
 
 // =====================

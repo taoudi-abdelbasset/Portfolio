@@ -309,13 +309,13 @@ body.dark-mode .hero-text h1 {
 
 .subtitle {
     font-size: 1.8rem;
-    color: #3b82f6;
+    color: #f59e42; /* Changed from #3b82f6 */
     font-weight: 600;
     position: relative;
 }
 
 body.dark-mode .subtitle {
-    color: #8b5cf6;
+    color: #fbbf24; /* Changed from #8b5cf6 */
 }
 
 .subtitle::after {
@@ -463,17 +463,25 @@ body.dark-mode .cta-secondary:hover {
         padding: 1rem;
     }
     .hero-image {
-        width: 220px;
-        height: 220px;
+        width: 65vw;
+        max-width: 320px;
+        height: 65vw;
+        max-height: 320px;
+        min-width: 100px;
+        min-height: 100px;
     }
     .hero-text h1 {
-        font-size: 1.3rem;
+        font-size: 1.7rem;
     }
     .hero-text p {
         font-size: 1rem;
     }
     .subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
+    }
+    .modal-content,
+    .project-modal-content {
+        padding: 0.3rem 0.3rem !important;
     }
 }
 
@@ -703,9 +711,23 @@ body.dark-mode .timeline-achievements li {
 ===================== */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin-top: 3rem;
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+}
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+    }
 }
 
 .skill-card {
@@ -717,6 +739,10 @@ body.dark-mode .timeline-achievements li {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     position: relative;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
 }
 
 .skill-card:hover {
@@ -861,9 +887,22 @@ body.dark-mode .search-box i {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin-top: 2rem;
+    justify-content: center;
+}
+@media (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+}
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+    }
 }
 
 .project-card {
@@ -873,6 +912,10 @@ body.dark-mode .search-box i {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
 }
 
 .project-card:hover {
@@ -1020,18 +1063,32 @@ body.dark-mode .contact-link:hover {
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
 }
-
-.modal-content {
-    background: white;
-    margin: 2% auto;
-    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
-    border-radius: 18px;
-    width: 95%;
-    max-width: 900px;
-    max-height: 90vh;
+.model-container {
+    width: 60%;
+    height: 95vh;
+    max-height: 95vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 900px) {
+    .model-container {
+        width: 90%;
+    }
+}
+@media (max-width: 600px) {
+    .model-container {
+        width: 100%;
+        min-width: 0;
+    }
+}
+.modal-content, .project-modal-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 95vh;
     overflow-y: auto;
-    position: relative;
-    animation: modalSlideIn 0.3s ease;
+    height: auto;
     box-sizing: border-box;
 }
 
@@ -1097,11 +1154,11 @@ body.dark-mode .contact-link:hover {
     padding-bottom: 0.5rem;
     display: flex;
     flex-direction: column;
-    gap: 2.2rem;
+    gap: 0rem;
 }
 
 .description-section, .features-section, .achievements-section, .skills-section, .tech-section, .team-section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0px;
 }
 
 .description-section h4, .features-section h4, .achievements-section h4, .skills-section h4, .tech-section h4, .team-section h4 {
@@ -1754,76 +1811,25 @@ body.dark-mode .timeline-item::after {
         padding: 1rem 0.2rem;
     }
     .hero-image {
-        width: 120px;
-        height: 120px;
+        width: 65vw;
+        max-width: 320px;
+        height: 65vw;
+        max-height: 320px;
+        min-width: 100px;
+        min-height: 100px;
     }
     .hero-text h1 {
-        font-size: 1.1rem;
+        font-size: 1.7rem;
     }
     .hero-text p {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
     .subtitle {
         font-size: 0.95rem;
     }
-    .section {
-        padding: 40px 0 40px 0;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-    }
-    .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    .timeline {
-        max-width: 100%;
-        padding: 0;
-    }
-    .timeline-item {
-        width: 100%;
-        padding: 10px 10px;
-        left: 0 !important;
-        margin-bottom: 1.2rem;
-    }
-    .timeline-item::after {
-        left: 10px !important;
-        right: auto;
-    }
-    .timeline::after {
-        left: 20px;
-    }
-    .timeline-content {
-        padding: 1rem;
-    }
-    .project-image {
-        height: 120px;
-        font-size: 2rem;
-    }
-    .project-content {
-        padding: 1rem;
-    }
-    .contact-section {
-        padding: 40px 0.5rem;
-    }
-    .contact-links {
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 400px) {
-    .hero-image {
-        width: 80px;
-        height: 80px;
-    }
-    .hero-text h1 {
-        font-size: 0.9rem;
-    }
-    .section h2 {
-        font-size: 1.3rem;
+    .modal-content,
+    .project-modal-content {
+        padding: 0.3rem 0.3rem !important;
     }
 }
 
@@ -1858,5 +1864,47 @@ body.dark-mode .timeline-item::after {
         width: 100% !important;
         padding-left: 0.2rem !important;
         padding-right: 0.2rem !important;
+    }
+}
+
+/* =====================
+    Show More/Less Button Styles
+===================== */
+.show-more-btn, .show-less-btn {
+    display: inline-block;
+    margin: 0 0.5rem;
+    padding: 0.7rem 2.2rem;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.15);
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    outline: none;
+}
+.show-more-btn:hover, .show-less-btn:hover {
+    background: linear-gradient(45deg, #8b5cf6, #ec4899);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.18);
+}
+body.dark-mode .show-more-btn, body.dark-mode .show-less-btn {
+    background: linear-gradient(45deg, #8b5cf6, #ec4899);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.18);
+}
+body.dark-mode .show-more-btn:hover, body.dark-mode .show-less-btn:hover {
+    background: linear-gradient(45deg, #ec4899, #f59e0b);
+    color: #fff;
+}
+@media (max-width: 600px) {
+    .show-more-btn, .show-less-btn {
+        width: 90%;
+        font-size: 1rem;
+        padding: 0.7rem 0;
+        margin: 0.5rem auto;
+        display: block;
     }
 }
