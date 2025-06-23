@@ -626,7 +626,7 @@ function showProjectModal(project) {
     };
     
     details.innerHTML = `
-        <div class="project-modal-header">
+        <div class="modal-header">
             <div class="project-icon"><i class="${project.image}"></i></div>
             <div class="project-title-section">
                 <h2>${project.title}</h2>
@@ -634,7 +634,7 @@ function showProjectModal(project) {
             </div>
         </div>
         
-        <div class="project-modal-body">
+        <div class="modal-body">
             ${project.demoVideo ? renderVideo(project.demoVideo) : ''}
             
             <div class="description-section">
