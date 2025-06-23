@@ -85,7 +85,8 @@
     }
   ],
   "contact": [
-    { "type": "email", "value": "taoudiabdelbasset.contact@gmail.com", "icon": "fas fa-envelope", "label": "taoudiabdelbasset.contact@gmail.com", "link": "mailto:your.email@example.com" },
+    { "type": "email", "value": "taoudiabdelbasset.contact@gmail.com", "icon": "fas fa-envelope", "label": "taoudiabdelbasset.contact@gmail.com", "link": "mailto:taoudiabdelbasset.contact@gmail.com" },
+    { "type": "email", "value": "taoudiabdu@gmail.com", "icon": "fas fa-envelope", "label": "taoudiabdu@gmail.com", "link": "mailto:taoudiabdu@gmail.com" },
     { "type": "phone", "value": "+212689381605", "icon": "fas fa-phone", "label": "+212689381605", "link": "tel:+212689381605" },
     { "type": "linkedin", "value": "https://linkedin.com/in/taoudi-abdelbasset", "icon": "fab fa-linkedin", "label": "LinkedIn", "link": "https://linkedin.com/in/yourprofile" },
     { "type": "github", "value": "https://github.com/abdelbasse", "icon": "fab fa-github", "label": "GitHub", "link": "https://github.com/yourusername" },
