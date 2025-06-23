@@ -451,6 +451,7 @@ body.dark-mode .cta-secondary:hover {
     .subtitle-container {
         height: auto;
         min-height: 40px;
+        justify-content: center;
     }
     .hero-cta {
         flex-direction: column;
@@ -1801,6 +1802,7 @@ body.dark-mode .timeline-item::after {
     .subtitle-container {
         height: auto;
         min-height: 40px;
+        justify-content: center;
     }
     .hero-cta {
         flex-direction: column;
@@ -1829,7 +1831,7 @@ body.dark-mode .timeline-item::after {
         font-size: 1rem;
     }
     .subtitle {
-        font-size: 0.95rem;
+        font-size: 1.2rem;
     }
     .modal-content,
     .project-modal-content {
