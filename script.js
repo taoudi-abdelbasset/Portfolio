@@ -374,7 +374,7 @@ function loadSkills(skills) {
 // =====================
 function loadProjects(projects) {
     const projectsGrid = document.getElementById('projectsGrid');
-    // Dynamically create filter buttons based on project categories
+    // Dynamically create filter buttons based on project categories (multi-label support)
     let filterBtnsContainer = document.getElementById('projectsFilterBtns');
     if (!filterBtnsContainer) {
         filterBtnsContainer = document.createElement('div');
@@ -382,8 +382,16 @@ function loadProjects(projects) {
         filterBtnsContainer.className = 'filter-btns';
         projectsGrid.parentNode.insertBefore(filterBtnsContainer, projectsGrid);
     }
-    // Get unique categories
-    const categories = Array.from(new Set(projects.map(p => p.category)));
+    // Collect all unique categories from all projects (multi-label)
+    const categoriesSet = new Set();
+    projects.forEach(p => {
+        if (Array.isArray(p.categories)) {
+            p.categories.forEach(cat => categoriesSet.add(cat));
+        } else if (p.category) {
+            categoriesSet.add(p.category);
+        }
+    });
+    const categories = Array.from(categoriesSet);
     // Add 'all' as the first filter
     const allFilters = ['all', ...categories];
     filterBtnsContainer.innerHTML = '';
@@ -413,10 +421,13 @@ function loadProjects(projects) {
     function renderProjects() {
         const search = projectSearch.value.toLowerCase();
         projectsGrid.innerHTML = '';
-        let filtered = projects.filter(p =>
-            (currentFilter === 'all' || p.category === currentFilter) &&
-            (p.title.toLowerCase().includes(search) || p.description.toLowerCase().includes(search) || p.technologies.join(' ').toLowerCase().includes(search))
-        );
+        let filtered = projects.filter(p => {
+            // Multi-label filter logic
+            let cats = Array.isArray(p.categories) ? p.categories : (p.category ? [p.category] : []);
+            let matchCat = (currentFilter === 'all') || cats.includes(currentFilter);
+            let matchSearch = p.title.toLowerCase().includes(search) || p.description.toLowerCase().includes(search) || p.technologies.join(' ').toLowerCase().includes(search);
+            return matchCat && matchSearch;
+        });
         let toShow = filtered.slice(0, maxShow);
         if (toShow.length === 0) {
             projectsGrid.innerHTML = '<div style="text-align:center;color:#888;">No projects found.</div>';
@@ -433,7 +444,6 @@ function loadProjects(projects) {
             } else {
                 topSection = `<div class="project-image"><i class="${project.image}"></i></div>`;
             }
-            // console.log(project);
             card.innerHTML = `
                 ${topSection}
                 <div class="project-content">

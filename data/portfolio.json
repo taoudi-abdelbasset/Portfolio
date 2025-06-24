@@ -211,10 +211,10 @@
     {
       "id": 1,
       "title": "RetailVision Analytics - Smart Store Monitoring System",
-      "category": "ai",
+      "categories": ["ai", "bigdata", "web"],
       "description": "Computer vision solution for retail analytics using existing surveillance cameras",
       "image": "fas fa-store",
-      "imgBg": "https://abdelbasse.github.io/Portfolio/data/src/imgs/projects/retail-analytics.png",
+      "imgBg": "https://abdelbasse.github.io/Portfolio/data/src/imgs/projects/default.png",
       "technologies": ["Computer Vision", "YOLOv8", "DeepSORT", "Apache Spark", "Kafka", "MongoDB", "PostgreSQL", "HDFS", "Hive", "Angular", "Spring Boot"],
       "fullDescription": "Developed an innovative retail analytics platform that transforms existing surveillance cameras into intelligent sensors for customer behavior analysis. The system provides actionable insights on customer traffic patterns, demographic segmentation, and store zone performance without requiring additional hardware investment.",
       "features": [
@@ -236,7 +236,7 @@
     {
       "id": 2,
       "title": "JavaDevLLM – AI-Powered Assistant for Java Developers",
-      "category": "ai",
+      "categories": ["ai", "bigdata", "web"],
       "description": "Smart assistant using JavaFX and LLM (LLaMA 3) for Java development tasks",
       "image": "fas fa-robot",
       "imgBg": "https://abdelbasse.github.io/Portfolio/data/src/imgs/projects/default.png",
@@ -260,7 +260,7 @@
     {
       "id": 3,
       "title": "Smart Car with Hand Gesture Recognition",
-      "category": "iot",
+      "categories": ["ai", "iot"],
       "description": "AI-powered smart car with computer vision for gesture control",
       "image": "fas fa-car",
       "imgBg": "https://abdelbasse.github.io/Portfolio/data/src/imgs/projects/default.png",
@@ -284,7 +284,7 @@
     {
       "id": 4,
       "title": "BTS School Management System",
-      "category": "web",
+      "categories": ["web"],
       "description": "Comprehensive Laravel-based school management system with email alerts and analytics",
       "image": "fas fa-school",
       "imgBg": "https://abdelbasse.github.io/Portfolio/data/src/imgs/projects/default.png",
@@ -310,7 +310,7 @@
     {
       "id": 5,
       "title": "E-Biblio Online Library Platform",
-      "category": "web",
+      "categories": ["web"],
       "description": "Interactive online library platform for book sharing and community engagement",
       "image": "fas fa-book",
       "imgBg": "https://abdelbasse.github.io/Portfolio/data/src/imgs/projects/default.png",
@@ -334,7 +334,7 @@
     {
       "id": 6,
       "title": "Personal Game Engine with SDL",
-      "category": "gamedev",
+      "categories": ["gamedev"],
       "description": "Custom game engine built with C++ and SDL for optimized rendering",
       "image": "fas fa-gamepad",
       "imgBg": "https://abdelbasse.github.io/Portfolio/data/src/imgs/projects/default.png", 
