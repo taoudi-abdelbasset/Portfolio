@@ -320,7 +320,7 @@
         width: 99vw;
         max-width: 80vw;
         height: 80vh;
-        max-height: calc(80vh - 0px);
+        max-height: calc(80vh - 80px);
         border-radius: 0;
     }
     .chat-container.fullscreen {
