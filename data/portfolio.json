@@ -150,7 +150,7 @@
       "icon": "fas fa-database", 
       "title": "Database Technologies",
       "description": "Skilled in designing, managing, and querying relational and non-relational databases.",
-      "techTags": ["MySQL", "MongoDB", "Redis", "Apache Cassandra", "Apache HBase", "SQL Server"],
+      "techTags": ["MySQL", "MongoDB", "Redis", "Apache Cassandra", "Apache HBase", "SQL Server", "PostgreSQL", "Hive"],
       "certificates": [
         { "name": "MongoDB Essentials", "issuer": "MongoDB", "link": "https://shorturl.at/TNH8K" }
       ]
@@ -159,8 +159,16 @@
       "id": "bigdata",
       "icon": "fas fa-chart-line",
       "title": "Big Data & Analytics",
-      "description": "Experience with distributed systems, data visualization, and analytics tools.",
-      "techTags": ["HDFS", "Hive", "Apache Superset", "Elasticsearch", "D3.js", "Data Visualization"],
+      "description": "Experience with distributed systems, data processing pipelines, and analytics tools.",
+      "techTags": ["HDFS", "Hive", "Apache Superset", "Elasticsearch", "D3.js", "Data Visualization", "Apache Spark", "Apache Kafka", "Stream Processing"],
+      "certificates": []
+    },
+    {
+      "id": "ai_ml",
+      "icon": "fas fa-brain",
+      "title": "AI/Computer Vision",
+      "description": "Experience with computer vision, object detection, and machine learning systems.",
+      "techTags": ["YOLOv8", "DeepSORT", "Object Detection", "Re-identification", "OpenCV", "TensorFlow","Scikit-learn", "MLC LLM"],
       "certificates": []
     },
     {
@@ -178,8 +186,8 @@
       "id": "frameworks",
       "icon": "fas fa-layer-group",
       "title": "Frameworks & Technologies",
-      "description": "Worked with various frameworks for web, real-time, mobile, and IoT development.",
-      "techTags": ["Laravel", "Bootstrap", "WebSockets", "Laravel Echo", "IoT", "Android Studio", "SDL", "Unity", "Django"],
+      "description": "Worked with various frameworks for web, real-time, and data-intensive applications.",
+      "techTags": ["Laravel", "Bootstrap", "Spring Boot", "Angular", "Django", "WebSockets"],
       "certificates": []
     },
     {
@@ -187,7 +195,7 @@
       "icon": "fas fa-user-check",
       "title": "Soft Skills",
       "description": "Strong interpersonal and organizational skills gained from leadership and volunteer roles.",
-      "techTags": ["Problem Solving", "Communication", "Time Management", "Sales", "Teamwork", "Leadership"],
+      "techTags": ["Problem Solving", "Communication", "Time Management", "Sales", "Teamwork"],
       "certificates": []
     },
     {
@@ -195,13 +203,38 @@
       "icon": "fas fa-tools",
       "title": "Design & Other Tools",
       "description": "Basic to intermediate experience with visual design and 3D tools.",
-      "techTags": ["Adobe Illustrator", "Adobe Photoshop", "Blender"],
+      "techTags": ["Adobe Illustrator", "Adobe Photoshop", "Blender", "Wireframing"],
       "certificates": []
     }
   ],
   "projects": [
     {
       "id": 1,
+      "title": "RetailVision Analytics - Smart Store Monitoring System",
+      "category": "ai",
+      "description": "Computer vision solution for retail analytics using existing surveillance cameras",
+      "image": "fas fa-store",
+      "imgBg": "https://abdelbasse.github.io/Portfolio/data/src/imgs/projects/retail-analytics.png",
+      "technologies": ["Computer Vision", "YOLOv8", "DeepSORT", "Apache Spark", "Kafka", "MongoDB", "PostgreSQL", "HDFS", "Hive", "Angular", "Spring Boot"],
+      "fullDescription": "Developed an innovative retail analytics platform that transforms existing surveillance cameras into intelligent sensors for customer behavior analysis. The system provides actionable insights on customer traffic patterns, demographic segmentation, and store zone performance without requiring additional hardware investment.",
+      "features": [
+        "Real-time people detection and tracking with YOLOv8 and DeepSORT",
+        "Demographic analysis (age/gender estimation)",
+        "Heatmap generation for customer density visualization",
+        "Multi-camera tracking and zone-based analytics",
+        "Big Data pipeline with Kafka and Spark Streaming",
+        "Interactive dashboards with Superset",
+        "Privacy-compliant data processing (no PII storage)"
+      ],
+      "githubLink": "",
+      "demoVideo": "",
+      "documentation": "https://docs.google.com/document/d/1Q6rszE6J3B-ltHpWRbZT2jgiINE5lmKJdr725LYLQj8/edit?usp=sharing",
+      "teamMembers": [
+        { "name": "Abdelbasset TAOUDI", "role": "System Architect", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "lead_dev" }
+      ]
+    },
+    {
+      "id": 2,
       "title": "JavaDevLLM – AI-Powered Assistant for Java Developers",
       "category": "ai",
       "description": "Smart assistant using JavaFX and LLM (LLaMA 3) for Java development tasks",
@@ -221,11 +254,35 @@
       "demoVideo": "",
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Lead Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "lead_dev" }
+        { "name": "Abdelbasset TAOUDI", "role": "Lead Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "ETL & Data Pipeline Developer"}
       ]
     },
     {
-      "id": 2,
+      "id": 3,
+      "title": "Smart Car with Hand Gesture Recognition",
+      "category": "iot",
+      "description": "AI-powered smart car with computer vision for gesture control",
+      "image": "fas fa-car",
+      "imgBg": "https://abdelbasse.github.io/Portfolio/data/src/imgs/projects/default.png",
+      "technologies": ["AI", "Computer Vision", "Hand Gesture Recognition", "Classification Models", "IoT"],
+      "fullDescription": "Participated in ESAM Meknès Robotics Competition, working on AI implementation for hand gesture recognition using camera and classification models to interpret gestures and trigger corresponding actions in the smart car.",
+      "features": [
+        "Real-time hand gesture recognition",
+        "AI-powered classification models",
+        "Camera-based computer vision",
+        "Smart car control system",
+        "Gesture-to-action mapping",
+        "IoT integration for remote control"
+      ],
+      "githubLink": "",
+      "demoVideo": "",
+      "documentation": "",
+      "teamMembers": [
+        { "name": "Abdelbasset TAOUDI", "role": "AI Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "ai_dev" }
+      ]
+    },
+    {
+      "id": 4,
       "title": "BTS School Management System",
       "category": "web",
       "description": "Comprehensive Laravel-based school management system with email alerts and analytics",
@@ -251,7 +308,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 5,
       "title": "E-Biblio Online Library Platform",
       "category": "web",
       "description": "Interactive online library platform for book sharing and community engagement",
@@ -275,7 +332,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 6,
       "title": "Personal Game Engine with SDL",
       "category": "gamedev",
       "description": "Custom game engine built with C++ and SDL for optimized rendering",
@@ -296,30 +353,6 @@
       "documentation": "",
       "teamMembers": [
         { "name": "Abdelbasset TAOUDI", "role": "Game Engine Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "engine_dev" }
-      ]
-    },
-    {
-      "id": 5,
-      "title": "Smart Car with Hand Gesture Recognition",
-      "category": "iot",
-      "description": "AI-powered smart car with computer vision for gesture control",
-      "image": "fas fa-car",
-      "imgBg": "https://abdelbasse.github.io/Portfolio/data/src/imgs/projects/default.png",
-      "technologies": ["AI", "Computer Vision", "Hand Gesture Recognition", "Classification Models", "IoT"],
-      "fullDescription": "Participated in ESAM Meknès Robotics Competition, working on AI implementation for hand gesture recognition using camera and classification models to interpret gestures and trigger corresponding actions in the smart car.",
-      "features": [
-        "Real-time hand gesture recognition",
-        "AI-powered classification models",
-        "Camera-based computer vision",
-        "Smart car control system",
-        "Gesture-to-action mapping",
-        "IoT integration for remote control"
-      ],
-      "githubLink": "",
-      "demoVideo": "",
-      "documentation": "",
-      "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "AI Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "ai_dev" }
       ]
     }
   ],
