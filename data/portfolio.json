@@ -60,6 +60,24 @@
   ],
   "experience": [
     {
+      "from": "Aug 2024",
+      "to": "Feb 2025",
+      "logo": "",
+      "location": "Mohammedia, Casablanca-Settat, Morocco",
+      "title": "EP Manager & OGV Member",
+      "company": "AIESEC Morocco",
+      "icon": "fas fa-users",
+      "description": "Contributed to global exchange initiatives by managing EPs (Exchange Participants) and supporting outbound global volunteer programs. Focused on leadership, intercultural collaboration, and project coordination within a youth-driven organization.",
+      "achievements": [
+        "Guided Exchange Participants through the application and onboarding process for global volunteering opportunities",
+        "Collaborated with local and international teams to match candidates with relevant projects abroad",
+        "Organized onboarding sessions, ensuring cultural preparedness and expectations alignment",
+        "Enhanced organizational communication and follow-up processes, improving engagement and participant satisfaction",
+        "Developed leadership, public speaking, and event coordination skills through on-site operations"
+      ],
+      "skills": ["Leadership", "Intercultural Communication", "Event Coordination", "Project Management", "Public Speaking", "Youth Engagement"]
+    },
+    {
       "from": "Jul 2024",
       "to": "Sep 2024",
       "logo": "",
@@ -80,7 +98,7 @@
     },
     {
       "from": "Jun 2023",
-      "to": "Jul 2023",
+      "to": "Aug 2023",
       "logo": "",
       "location": "Casablanca, Morocco", 
       "title": "Software Development Intern",
@@ -99,7 +117,7 @@
     },
     {
       "from": "Aug 2022",
-      "to": "Present",
+      "to": "Sep 2022",
       "logo": "",
       "location": "Settat, Morocco",
       "title": "Observational Intern",
@@ -121,8 +139,8 @@
       "id": "programming",
       "icon": "fas fa-code",
       "title": "Programming Languages",
-      "description": "Python, Java, PHP, JavaScript, C++, C#",
-      "techTags": ["Python", "Java", "PHP", "JavaScript", "C++", "C#", "HTML", "CSS", "VB", "VBA"],
+      "description": "Proficient in multiple programming languages used in backend, frontend, and data workflows.",
+      "techTags": ["Python", "Java", "PHP", "JavaScript", "C++", "C#", "VB.NET", "VBA", "HTML", "CSS"],
       "certificates": [
         { "name": "Supervised Machine Learning", "issuer": "Coursera", "link": "https://shorturl.at/buksD" }
       ]
@@ -131,7 +149,7 @@
       "id": "databases",
       "icon": "fas fa-database", 
       "title": "Database Technologies",
-      "description": "SQL, NoSQL, Big Data storage solutions",
+      "description": "Skilled in designing, managing, and querying relational and non-relational databases.",
       "techTags": ["MySQL", "MongoDB", "Redis", "Apache Cassandra", "Apache HBase", "SQL Server"],
       "certificates": [
         { "name": "MongoDB Essentials", "issuer": "MongoDB", "link": "https://shorturl.at/TNH8K" }
@@ -141,15 +159,15 @@
       "id": "bigdata",
       "icon": "fas fa-chart-line",
       "title": "Big Data & Analytics",
-      "description": "Distributed systems, data processing, visualization",
-      "techTags": ["Hive", "HDFS", "Apache Superset", "Elasticsearch", "D3.js", "Data Visualization"],
+      "description": "Experience with distributed systems, data visualization, and analytics tools.",
+      "techTags": ["HDFS", "Hive", "Apache Superset", "Elasticsearch", "D3.js", "Data Visualization"],
       "certificates": []
     },
     {
       "id": "devops",
       "icon": "fas fa-cogs",
       "title": "DevOps & Tools",
-      "description": "Containerization, version control, system administration",
+      "description": "Proficient with containerization, version control, and deployment tools.",
       "techTags": ["Docker", "Git", "GitHub", "Linux", "Windows", "Jira"],
       "certificates": [
         { "name": "Linux Essentials", "issuer": "Cisco", "link": "" },
@@ -160,8 +178,24 @@
       "id": "frameworks",
       "icon": "fas fa-layer-group",
       "title": "Frameworks & Technologies",
-      "description": "Web frameworks, real-time systems, IoT",
-      "techTags": ["Laravel", "Bootstrap", "WebSockets", "Laravel Echo", "IoT", "SDL"],
+      "description": "Worked with various frameworks for web, real-time, mobile, and IoT development.",
+      "techTags": ["Laravel", "Bootstrap", "WebSockets", "Laravel Echo", "IoT", "Android Studio", "SDL", "Unity", "Django"],
+      "certificates": []
+    },
+    {
+      "id": "softskills",
+      "icon": "fas fa-user-check",
+      "title": "Soft Skills",
+      "description": "Strong interpersonal and organizational skills gained from leadership and volunteer roles.",
+      "techTags": ["Problem Solving", "Communication", "Time Management", "Sales", "Teamwork", "Leadership"],
+      "certificates": []
+    },
+    {
+      "id": "tools",
+      "icon": "fas fa-tools",
+      "title": "Design & Other Tools",
+      "description": "Basic to intermediate experience with visual design and 3D tools.",
+      "techTags": ["Adobe Illustrator", "Adobe Photoshop", "Blender"],
       "certificates": []
     }
   ],
