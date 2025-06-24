@@ -20,36 +20,36 @@
         <button class="chat-toggle" id="chatToggle">
             <i class="fas fa-robot"></i>
         </button>
-        <div class="chat-modal-overlay" id="chatModalOverlay" style="display:none;">
-            <div class="chat-container" id="chatContainer">
-                <button class="chat-close" id="chatCloseBtn">&times;</button>
-                <div class="chat-header">
-                    <div>Portfolio Assistant 🎯</div>
-                    <div style="font-size: 14px; opacity: 0.8;">Ask about my work!</div>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <div>Portfolio Assistant 🎯</div>
+                <div class="chat-actions">
+                    <button class="chat-expand" id="chatExpandBtn" title="Expand/Collapse"><i class="fas fa-expand"></i></button>
+                    <button class="chat-close" id="chatCloseBtn">&times;</button>
                 </div>
-                <div class="chat-messages" id="chatMessages">
-                    <div class="message ai">
-                        👋 Hello! I'm **Abdelbasset**. I'm here to tell you about my work and experience.
-                        <br><br>Feel free to ask me about:
-                        <br>• 💼 My projects and development experience
-                        <br>• 🛠️ Technical skills and technologies I work with
-                        <br>• 🎓 My background and education
-                        <br>• 📈 What value I can bring to your company or project
-                        <br>• 📧 How to get in touch with me
-                        <br><br>What would you like to know?
-                    </div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message ai">
+                    👋 Hello! I'm **Abdelbasset**. I'm here to tell you about my work and experience.
+                    <br><br>Feel free to ask me about:
+                    <br>• 💼 My projects and development experience
+                    <br>• 🛠️ Technical skills and technologies I work with
+                    <br>• 🎓 My background and education
+                    <br>• 📈 What value I can bring to your company or project
+                    <br>• 📧 How to get in touch with me
+                    <br><br>What would you like to know?
                 </div>
-                <div class="typing-indicator" id="typingIndicator">
-                    <div class="typing-dots">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+            </div>
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <div class="chat-input-container">
-                    <input type="text" class="chat-input" id="chatInput" placeholder="Ask about my portfolio...">
-                    <button class="send-btn" id="sendBtn">Send</button>
-                </div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Ask about my portfolio...">
+                <button class="send-btn" id="sendBtn">Send</button>
             </div>
         </div>
     </div>

@@ -27,34 +27,24 @@
     box-shadow: 0 6px 25px rgba(0,0,0,0.4);
 }
 
-/* Modal overlay for chat */
-.chat-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(30, 34, 60, 0.7);
-    z-index: 2000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.2s;
-}
-
 .chat-container {
-    position: relative;
-    width: 95vw;
-    max-width: 600px;
-    height: 90vh;
-    max-height: 700px;
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 400px;
+    height: 600px;
     background: white;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     display: none;
     flex-direction: column;
     overflow: hidden;
-    /* Remove resize/min/max for modal */
+    min-width: 350px;
+    min-height: 400px;
+    max-width: 800px;
+    max-height: 80vh;
+    transition: all 0.3s;
+    z-index: 2001;
 }
 
 .chat-container.active {
@@ -62,15 +52,20 @@
     animation: slideUp 0.3s ease;
 }
 
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Fullscreen mode */
+.chat-container.fullscreen {
+    position: fixed !important;
+    top: 80px; /* Height of navbar (adjust if your navbar is taller) */
+    left: 0;
+    right: 0;
+    width: 100vw !important;
+    height: calc(100vh - 80px) !important;
+    min-width: 0;
+    min-height: 0;
+    max-width: 100vw;
+    max-height: calc(100vh - 80px);
+    border-radius: 0;
+    z-index: 3000;
 }
 
 .chat-header {
@@ -83,22 +78,26 @@
     justify-content: space-between;
     align-items: center;
     cursor: move;
+    position: relative;
 }
 
-/* Close button for modal */
-.chat-close {
-    position: absolute;
-    top: 12px;
-    right: 18px;
-    font-size: 1.5rem;
-    color: #888;
+.chat-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.chat-close, .chat-expand {
     background: none;
     border: none;
+    color: #fff;
+    font-size: 1.5rem;
     cursor: pointer;
-    z-index: 10;
+    padding: 0 6px;
     transition: color 0.2s;
 }
 .chat-close:hover { color: #d00; }
+.chat-expand:hover { color: #0af; }
 
 .chat-messages {
     flex: 1;
@@ -319,9 +318,15 @@
 @media (max-width: 768px) {
     .chat-container {
         width: 99vw;
-        max-width: 99vw;
-        height: 99vh;
-        max-height: 99vh;
+        max-width: 80vw;
+        height: 80vh;
+        max-height: calc(80vh - 0px);
+        border-radius: 0;
+    }
+    .chat-container.fullscreen {
+        top: 56px;
+        width: 100vw !important;
+        height: calc(100vh - 56px) !important;
         border-radius: 0;
     }
 }

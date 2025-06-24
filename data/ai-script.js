@@ -5,8 +5,8 @@ let dataLoaded = false;
 
 // Elements
 const chatToggle = document.getElementById('chatToggle');
-const chatModalOverlay = document.getElementById('chatModalOverlay');
 const chatContainer = document.getElementById('chatContainer');
+const chatExpandBtn = document.getElementById('chatExpandBtn');
 const chatCloseBtn = document.getElementById('chatCloseBtn');
 const chatMessages = document.getElementById('chatMessages');
 const chatInput = document.getElementById('chatInput');
@@ -91,24 +91,25 @@ function setApiKey() {
     }
 }
 
-// Toggle chat (modal style)
+// Toggle chat (floating style)
 chatToggle.addEventListener('click', () => {
-    chatOpen = true;
-    chatModalOverlay.style.display = 'flex';
     chatContainer.classList.add('active');
     chatInput.focus();
 });
 chatCloseBtn.addEventListener('click', () => {
-    chatOpen = false;
-    chatModalOverlay.style.display = 'none';
     chatContainer.classList.remove('active');
+    chatContainer.classList.remove('fullscreen');
 });
-// Optional: close modal when clicking outside chat
-chatModalOverlay.addEventListener('click', (e) => {
-    if (e.target === chatModalOverlay) {
-        chatOpen = false;
-        chatModalOverlay.style.display = 'none';
-        chatContainer.classList.remove('active');
+chatExpandBtn.addEventListener('click', () => {
+    chatContainer.classList.toggle('fullscreen');
+    // Optionally change icon
+    const icon = chatExpandBtn.querySelector('i');
+    if (chatContainer.classList.contains('fullscreen')) {
+        icon.classList.remove('fa-expand');
+        icon.classList.add('fa-compress');
+    } else {
+        icon.classList.remove('fa-compress');
+        icon.classList.add('fa-expand');
     }
 });
 
