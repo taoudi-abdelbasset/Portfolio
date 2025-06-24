@@ -230,7 +230,7 @@
       "demoVideo": "",
       "documentation": "https://docs.google.com/document/d/1Q6rszE6J3B-ltHpWRbZT2jgiINE5lmKJdr725LYLQj8/edit?usp=sharing",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "System Architect", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "lead_dev" }
+        { "name": "Abdelbasset TAOUDI", "role": "Lead Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "ETL & Data Pipeline Developer"}
       ]
     },
     {
@@ -254,7 +254,7 @@
       "demoVideo": "",
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Lead Developer", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "ETL & Data Pipeline Developer"}
+        { "name": "Abdelbasset TAOUDI", "role": "System Architect", "contact": "taoudiabdelbasset.contact@gmail.com", "img": "", "role": "lead_dev" }
       ]
     },
     {
