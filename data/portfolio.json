@@ -1,6 +1,6 @@
 {
   "main": {
-    "img": "/https://taoudi-abdelbasset.github.io/Portfolio/data/src/imgs/user.png",
+    "img": "https://taoudi-abdelbasset.github.io/Portfolio/data/src/imgs/user.png",
     "name": "TAOUDI Abdelbasset",
     "roles": [
       "Data Scientist",
@@ -214,7 +214,7 @@
       "categories": ["ai", "bigdata", "web"],
       "description": "Computer vision solution for retail analytics using existing surveillance cameras",
       "image": "fas fa-store",
-      "imgBg": "/https://taoudi-abdelbasset.github.io/Portfolio/data/src/imgs/projects/default.png",
+      "imgBg": "https://taoudi-abdelbasset.github.io/Portfolio/data/src/imgs/projects/default.png",
       "technologies": ["Computer Vision", "YOLOv8", "DeepSORT", "Apache Spark", "Kafka", "MongoDB", "PostgreSQL", "HDFS", "Hive", "Angular", "Spring Boot"],
       "fullDescription": "Developed an innovative retail analytics platform that transforms existing surveillance cameras into intelligent sensors for customer behavior analysis. The system provides actionable insights on customer traffic patterns, demographic segmentation, and store zone performance without requiring additional hardware investment.",
       "features": [
@@ -239,7 +239,7 @@
       "categories": ["ai", "bigdata", "web"],
       "description": "Smart assistant using JavaFX and LLM (LLaMA 3) for Java development tasks",
       "image": "fas fa-robot",
-      "imgBg": "/https://taoudi-abdelbasset.github.io/Portfolio/data/src/imgs/projects/default.png",
+      "imgBg": "https://taoudi-abdelbasset.github.io/Portfolio/data/src/imgs/projects/default.png",
       "technologies": ["Java", "JavaFX", "LLaMA 3", "RAG", "ChromaDB", "MongoDB", "MLC"],
       "fullDescription": "Developed a comprehensive AI-powered assistant to help developers and students with Java-related tasks including code generation, debugging, and algorithm explanation. Implemented RAG (Retrieval-Augmented Generation) architecture combining vector search with AI-generated responses for accurate and context-aware support.",
       "features": [
@@ -263,7 +263,7 @@
       "categories": ["ai", "iot"],
       "description": "AI-powered smart car with computer vision for gesture control",
       "image": "fas fa-car",
-      "imgBg": "/https://taoudi-abdelbasset.github.io/Portfolio/data/src/imgs/projects/default.png",
+      "imgBg": "https://taoudi-abdelbasset.github.io/Portfolio/data/src/imgs/projects/default.png",
       "technologies": ["AI", "Computer Vision", "Hand Gesture Recognition", "Classification Models", "IoT"],
       "fullDescription": "Participated in ESAM Meknès Robotics Competition, working on AI implementation for hand gesture recognition using camera and classification models to interpret gestures and trigger corresponding actions in the smart car.",
       "features": [
@@ -287,7 +287,7 @@
       "categories": ["web"],
       "description": "Comprehensive Laravel-based school management system with email alerts and analytics",
       "image": "fas fa-school",
-      "imgBg": "/https://taoudi-abdelbasset.github.io/Portfolio/data/src/imgs/projects/default.png",
+      "imgBg": "https://taoudi-abdelbasset.github.io/Portfolio/data/src/imgs/projects/default.png",
       "technologies": ["Laravel", "PHP", "MySQL", "JavaScript", "SMTP", "Bootstrap"],
       "fullDescription": "Built a comprehensive school management web application using Laravel with integrated email alert system, action logging, and simplified workflows for managing students, teachers, and sub-administrators. Features interactive visual dashboards for analyzing academic performance and user activity.",
       "features": [
@@ -313,7 +313,7 @@
       "categories": ["web"],
       "description": "Interactive online library platform for book sharing and community engagement",
       "image": "fas fa-book",
-      "imgBg": "/https://taoudi-abdelbasset.github.io/Portfolio/data/src/imgs/projects/default.png",
+      "imgBg": "https://taoudi-abdelbasset.github.io/Portfolio/data/src/imgs/projects/default.png",
       "technologies": ["Laravel", "PHP", "MySQL", "JavaScript", "Bootstrap"],
       "fullDescription": "Developed a web application for an online library (e-biblio) using Laravel, allowing users to share, comment on, and discover books within an interactive community environment. Completed in one week as an intensive development project.",
       "features": [
@@ -337,7 +337,7 @@
       "categories": ["gamedev"],
       "description": "Custom game engine built with C++ and SDL for optimized rendering",
       "image": "fas fa-gamepad",
-      "imgBg": "/https://taoudi-abdelbasset.github.io/Portfolio/data/src/imgs/projects/default.png", 
+      "imgBg": "https://taoudi-abdelbasset.github.io/Portfolio/data/src/imgs/projects/default.png", 
       "technologies": ["C++", "SDL", "Data Structures", "Memory Optimization"],
       "fullDescription": "Developed a personal game engine using SDL (Simple DirectMedia Layer) in C++, utilizing advanced data structures to optimize memory usage and facilitate fast rendering. Completed in two weeks as a technical challenge project.",
       "features": [
