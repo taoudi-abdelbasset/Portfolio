@@ -361,6 +361,6 @@
     { "type": "email", "value": "taoudiabdu@gmail.com", "icon": "fas fa-envelope", "label": "taoudiabdu@gmail.com", "link": "mailto:taoudiabdu@gmail.com" },
     { "type": "phone", "value": "+212689381605", "icon": "fas fa-phone", "label": "+212689381605", "link": "tel:+212689381605" },
     { "type": "linkedin", "value": "https://www.linkedin.com/in/taoudi-abdelbasset/", "icon": "fab fa-linkedin", "label": "LinkedIn", "link": "https://www.linkedin.com/in/taoudi-abdelbasset/" },
-    { "type": "github", "value": "https://github.com/taoudi-abdelbasset", "icon": "fab fa-github", "label": "GitHub", "link": "https://github.com/abdelbasse" }
+    { "type": "github", "value": "https://github.com/taoudi-abdelbasset", "icon": "fab fa-github", "label": "GitHub", "link": "https://github.com/taoudi-abdelbasset" }
   ]
 }
