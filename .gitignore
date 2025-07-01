@@ -7,3 +7,5 @@ update-content/*
 main.html
 main-test.html
 deploy.sh
+
+portfolio-data-summary.md
