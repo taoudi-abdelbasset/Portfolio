@@ -721,3 +721,302 @@ function showProjectModal(project) {
 // Run main loader
 // =====================
 loadPortfolio();
+
+// ------------------------------------------------------
+
+// Enhanced Contact Loading with Analytics
+function loadContactWithAnalytics(contacts) {
+    const section = document.getElementById('contact');
+    section.innerHTML = `
+        <div class="contact-simple">
+            <h2>Let's Collaborate</h2>
+            <p>Ready to work together? Get in touch!</p>
+            <div class="contact-links"></div>
+        </div>
+    `;
+    
+    const links = section.querySelector('.contact-links');
+    links.innerHTML = '';
+    
+    contacts.forEach(link => {
+        let href = link.link || link.value;
+        let label = link.label || link.value;
+        let contactType = link.type || 'unknown';
+        
+        // If it's an email or phone, ensure proper prefix
+        if (link.type === 'email' && !href.startsWith('mailto:')) {
+            href = 'mailto:' + link.value;
+        } else if (link.type === 'phone' && !href.startsWith('tel:')) {
+            href = 'tel:' + link.value;
+        }
+        
+        // Open in new tab for web links only
+        const isWeb = href.startsWith('http');
+        
+        const contactElement = document.createElement('a');
+        contactElement.href = href;
+        contactElement.className = 'contact-link';
+        if (isWeb) {
+            contactElement.setAttribute('target', '_blank');
+            contactElement.setAttribute('rel', 'noopener');
+        }
+        contactElement.innerHTML = `<i class="${link.icon}"></i><span>${label}</span>`;
+        
+        // Add analytics tracking
+        contactElement.addEventListener('click', () => {
+            Analytics.trackContactClick(contactType, link.value || href);
+        });
+        
+        links.appendChild(contactElement);
+    });
+}
+
+// Enhanced Project Modal with Analytics
+function showProjectModalWithAnalytics(project) {
+    // Track project view
+    const category = Array.isArray(project.categories) ? 
+        project.categories.join(', ') : 
+        (project.category || 'Uncategorized');
+    
+    Analytics.trackProjectClick(project.title, category);
+    
+    const modal = document.getElementById('projectModal');
+    const details = document.getElementById('projectDetails');
+    
+    // Your existing project modal rendering logic here
+    const renderVideo = (videoUrl) => {
+        if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+            const videoId = videoUrl.split('v=')[1] || videoUrl.split('/').pop();
+            return `
+                <div class="demo-section">
+                    <h4>Demo Video</h4>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            `;
+        } else if (videoUrl.includes('drive.google.com')) {
+            const fileId = videoUrl.split('/d/')[1].split('/')[0];
+            return `
+                <div class="demo-section">
+                    <h4>Demo Video</h4>
+                    <iframe src="https://drive.google.com/file/d/${fileId}/preview" width="100%" height="315" allow="autoplay"></iframe>
+                </div>
+            `;
+        }
+        return '';
+    };
+    
+    details.innerHTML = `
+        <div class="modal-header">
+            <div class="project-icon"><i class="${project.image}"></i></div>
+            <div class="project-title-section">
+                <h2>${project.title}</h2>
+                <span class="project-category">${category}</span>
+            </div>
+        </div>
+        
+        <div class="modal-body">
+            ${project.demoVideo ? renderVideo(project.demoVideo) : ''}
+            
+            <div class="description-section">
+                <h4>Project Description</h4>
+                <p>${project.fullDescription || project.description}</p>
+            </div>
+            
+            ${project.features && project.features.length ? `
+            <div class="features-section">
+                <h4>Key Features</h4>
+                <ul class="features-list">${project.features.map(f => `<li>${f}</li>`).join('')}</ul>
+            </div>` : ''}
+            
+            <div class="tech-section">
+                <h4>Technologies Used</h4>
+                <div class="project-tech-tags">
+                    ${project.technologies.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+                </div>
+            </div>
+            
+            <div class="project-links">
+                ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" class="project-link github-link"><i class="fab fa-github"></i> GitHub</a>` : ''}
+                ${project.documentation ? `<a href="${project.documentation}" target="_blank" class="project-link doc-link"><i class="fas fa-book"></i> Documentation</a>` : ''}
+                ${project.demoVideo ? `<a href="${project.demoVideo}" target="_blank" class="project-link demo-link"><i class="fas fa-play"></i> Demo Video</a>` : ''}
+            </div>
+        </div>
+    `;
+    
+    // Add analytics to project links after modal is populated
+    setTimeout(() => {
+        const githubLink = modal.querySelector('.github-link');
+        const docLink = modal.querySelector('.doc-link');
+        const demoLink = modal.querySelector('.demo-link');
+        
+        if (githubLink) {
+            githubLink.addEventListener('click', () => {
+                Analytics.trackCTAClick('GitHub', project.githubLink);
+            });
+        }
+        
+        if (docLink) {
+            docLink.addEventListener('click', () => {
+                Analytics.trackCTAClick('Documentation', project.documentation);
+            });
+        }
+        
+        if (demoLink) {
+            demoLink.addEventListener('click', () => {
+                Analytics.trackCTAClick('Demo Video', project.demoVideo);
+            });
+        }
+    }, 100);
+    
+    modal.style.display = 'block';
+}
+
+// Initialize Analytics
+function initializeAnalytics() {
+    // Load Google Analytics
+    loadGoogleAnalytics();
+    
+    // Start scroll depth tracking
+    Analytics.trackScrollDepth();
+    
+    console.log('Analytics initialized successfully!');
+}
+
+// Enhanced functions to add to your existing script.js
+function enhanceExistingFunctionsWithAnalytics() {
+    
+    // Override the existing loadContact function
+    const originalLoadContact = window.loadContact;
+    if (originalLoadContact) {
+        window.loadContact = function(contacts) {
+            loadContactWithAnalytics(contacts);
+        };
+    }
+    
+    // Override the existing showProjectModal function
+    const originalShowProjectModal = window.showProjectModal;
+    if (originalShowProjectModal) {
+        window.showProjectModal = function(project) {
+            showProjectModalWithAnalytics(project);
+        };
+    }
+    
+    // Add analytics to navigation
+    setTimeout(() => {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const sectionName = link.textContent.trim();
+                Analytics.trackNavigationClick(sectionName);
+            });
+        });
+    }, 1000);
+    
+    // Add analytics to CTA buttons
+    setTimeout(() => {
+        const ctaButtons = document.querySelectorAll('.cta-button');
+        ctaButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const buttonText = button.textContent.trim();
+                const destination = button.getAttribute('href');
+                Analytics.trackCTAClick(buttonText, destination);
+            });
+        });
+    }, 1000);
+    
+    // Add analytics to theme toggle
+    setTimeout(() => {
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                setTimeout(() => {
+                    const isDark = document.body.classList.contains('dark-mode');
+                    Analytics.trackThemeToggle(isDark ? 'dark' : 'light');
+                }, 100);
+            });
+        }
+    }, 1000);
+    
+    // Add analytics to project filters
+    setTimeout(() => {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filterType = button.getAttribute('data-filter') || button.textContent.trim();
+                Analytics.trackProjectFilter(filterType);
+            });
+        });
+        
+        // Track project search
+        const projectSearch = document.getElementById('projectSearch');
+        if (projectSearch) {
+            let searchTimeout;
+            projectSearch.addEventListener('input', () => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    const searchTerm = projectSearch.value.trim();
+                    if (searchTerm.length > 2) {
+                        Analytics.trackSearch(searchTerm, 'projects');
+                    }
+                }, 1000);
+            });
+        }
+    }, 1500);
+    
+    // Add analytics to education and experience items
+    setTimeout(() => {
+        const educationItems = document.querySelectorAll('[data-education-id]');
+        educationItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const titleElement = item.querySelector('.timeline-title');
+                const companyElement = item.querySelector('.timeline-company');
+                
+                if (titleElement && companyElement) {
+                    Analytics.trackEducationClick(
+                        titleElement.textContent.trim(),
+                        companyElement.textContent.trim()
+                    );
+                }
+            });
+        });
+        
+        const experienceItems = document.querySelectorAll('[data-experience-id]');
+        experienceItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const titleElement = item.querySelector('.timeline-title');
+                const companyElement = item.querySelector('.timeline-company');
+                
+                if (titleElement && companyElement) {
+                    Analytics.trackExperienceClick(
+                        titleElement.textContent.trim(),
+                        companyElement.textContent.trim()
+                    );
+                }
+            });
+        });
+        
+        const skillCards = document.querySelectorAll('.skill-card');
+        skillCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const skillTitle = card.querySelector('h3');
+                if (skillTitle) {
+                    Analytics.trackSkillClick(skillTitle.textContent.trim());
+                }
+            });
+        });
+    }, 2000);
+}
+
+// Auto-initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeAnalytics();
+        enhanceExistingFunctionsWithAnalytics();
+    });
+} else {
+    initializeAnalytics();
+    enhanceExistingFunctionsWithAnalytics();
+}
+
+// Export Analytics for manual use
+window.PortfolioAnalytics = Analytics;
