@@ -608,6 +608,21 @@ function setupChatbotAnalytics() {
     }
 }
 
+/**
+ * Sends a simple hello world event to Google Analytics.
+ * @returns {boolean} true if sent, false if not
+ */
+window.sendHelloWorldEvent = function() {
+    if (window.gtag) {
+        gtag('event', 'hello_world', {
+            message: 'hello world!',
+            datetime: new Date().toString()
+        });
+        return true;
+    }
+    return false;
+}
+
 // =====================
 // Modal Functions
 // =====================
