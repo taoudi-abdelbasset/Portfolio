@@ -91,10 +91,50 @@ function setApiKey() {
     }
 }
 
+// --- Analytics Integration for Chatbot ---
+function sendChatAnalyticsEvent(eventType, data) {
+    let status = 'not sent';
+    if (window.PortfolioAnalytics) {
+        if (eventType === 'open') {
+            PortfolioAnalytics.trackChatOpen && PortfolioAnalytics.trackChatOpen();
+            status = 'sent';
+            console.log('[Analytics] Chatbot open event sent:', {event: 'chat_open'});
+        }
+        if (eventType === 'message') {
+            PortfolioAnalytics.trackChatMessage && PortfolioAnalytics.trackChatMessage(data);
+            status = 'sent';
+            console.log('[Analytics] Chatbot message event sent:', {event: 'chat_message_sent', message: data});
+        }
+    } else if (window.gtag) {
+        if (eventType === 'open') {
+            gtag('event', 'chat_open', {
+                'event_category': 'Chatbot',
+                'event_label': 'Chatbot Opened'
+            });
+            status = 'sent';
+            console.log('[Analytics] Chatbot open event sent via gtag');
+        }
+        if (eventType === 'message') {
+            gtag('event', 'chat_message_sent', {
+                'event_category': 'Chatbot',
+                'event_label': 'Message Sent',
+                'message': data
+            });
+            status = 'sent';
+            console.log('[Analytics] Chatbot message event sent via gtag:', data);
+        }
+    } else {
+        console.warn('[Analytics] No analytics available for event:', eventType, data);
+    }
+    return status;
+}
+
 // Toggle chat (floating style)
 chatToggle.addEventListener('click', () => {
     chatContainer.classList.add('active');
     chatInput.focus();
+    // Analytics: Chat opened
+    sendChatAnalyticsEvent('open');
 });
 chatCloseBtn.addEventListener('click', () => {
     chatContainer.classList.remove('active');
@@ -117,6 +157,9 @@ chatExpandBtn.addEventListener('click', () => {
 async function sendMessage() {
     const message = chatInput.value.trim();
     if (!message || !GEMINI_API_KEY) return;
+
+    // Analytics: Chat message sent
+    sendChatAnalyticsEvent('message', message);
 
     // Check if portfolio data is loaded
     if (!dataLoaded || !portfolioData) {

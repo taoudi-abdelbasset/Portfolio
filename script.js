@@ -526,6 +526,86 @@ function loadContact(contacts) {
         const target = isWeb ? ' target="_blank" rel="noopener"' : '';
         links.innerHTML += `<a href="${href}" class="contact-link"${target}><i class="${link.icon}"></i><span>${label}</span></a>`;
     });
+    // Analytics for contact links
+    setTimeout(() => {
+        section.querySelectorAll('.contact-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const href = link.getAttribute('href');
+                const text = link.textContent.trim();
+                let contactType = 'unknown';
+                if (href.startsWith('mailto:')) contactType = 'email';
+                else if (href.startsWith('tel:')) contactType = 'phone';
+                else if (href.includes('linkedin')) contactType = 'linkedin';
+                else if (href.includes('github')) contactType = 'github';
+                else if (href.includes('twitter')) contactType = 'twitter';
+                if (window.PortfolioAnalytics) {
+                    PortfolioAnalytics.trackContactClick && PortfolioAnalytics.trackContactClick(contactType, text);
+                }
+            });
+        });
+    }, 1000);
+}
+
+// =====================
+// Chatbot Analytics Integration
+// =====================
+
+// Helper to track chat open and message sent
+function setupChatbotAnalytics() {
+    const chatToggle = document.getElementById('chatToggle');
+    const sendBtn = document.getElementById('sendBtn');
+    const chatInput = document.getElementById('chatInput');
+    let chatOpened = false;
+
+    if (chatToggle) {
+        chatToggle.addEventListener('click', () => {
+            if (!chatOpened) {
+                chatOpened = true;
+                if (window.PortfolioAnalytics) {
+                    PortfolioAnalytics.trackChatOpen && PortfolioAnalytics.trackChatOpen();
+                } else if (window.gtag) {
+                    gtag('event', 'chat_open', {
+                        'event_category': 'Chatbot',
+                        'event_label': 'Chatbot Opened'
+                    });
+                }
+            }
+        });
+    }
+
+    if (sendBtn && chatInput) {
+        sendBtn.addEventListener('click', () => {
+            const msg = chatInput.value.trim();
+            if (msg.length > 0) {
+                if (window.PortfolioAnalytics) {
+                    PortfolioAnalytics.trackChatMessage && PortfolioAnalytics.trackChatMessage(msg);
+                } else if (window.gtag) {
+                    gtag('event', 'chat_message_sent', {
+                        'event_category': 'Chatbot',
+                        'event_label': 'Message Sent',
+                        'message': msg
+                    });
+                }
+            }
+        });
+        // Also track Enter key
+        chatInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const msg = chatInput.value.trim();
+                if (msg.length > 0) {
+                    if (window.PortfolioAnalytics) {
+                        PortfolioAnalytics.trackChatMessage && PortfolioAnalytics.trackChatMessage(msg);
+                    } else if (window.gtag) {
+                        gtag('event', 'chat_message_sent', {
+                            'event_category': 'Chatbot',
+                            'event_label': 'Message Sent',
+                            'message': msg
+                        });
+                    }
+                }
+            }
+        });
+    }
 }
 
 // =====================
@@ -585,6 +665,10 @@ function showEducationModal(education) {
     `;
     
     modal.style.display = 'block';
+    // Analytics
+    if (window.PortfolioAnalytics) {
+        PortfolioAnalytics.trackEducationClick && PortfolioAnalytics.trackEducationClick(education.title, education.location);
+    }
 }
 
 function showExperienceModal(experience) {
@@ -623,6 +707,10 @@ function showExperienceModal(experience) {
     `;
     
     modal.style.display = 'block';
+    // Analytics
+    if (window.PortfolioAnalytics) {
+        PortfolioAnalytics.trackExperienceClick && PortfolioAnalytics.trackExperienceClick(experience.title, experience.company);
+    }
 }
 
 function showProjectModal(project) {
@@ -715,9 +803,14 @@ function showProjectModal(project) {
     `;
     
     modal.style.display = 'block';
+    // Analytics
+    if (window.PortfolioAnalytics) {
+        PortfolioAnalytics.trackProjectClick && PortfolioAnalytics.trackProjectClick(project.title, project.category || 'General');
+    }
 }
 
 // =====================
 // Run main loader
 // =====================
 loadPortfolio();
+setupChatbotAnalytics();

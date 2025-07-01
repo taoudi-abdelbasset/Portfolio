@@ -2,30 +2,8 @@
 // Google Analytics Configuration & Event Tracking
 // =====================
 
-// Replace 'GA_MEASUREMENT_ID' with your actual Google Analytics Measurement ID
-// Get it from: https://analytics.google.com/analytics/web/
-const GA_MEASUREMENT_ID = 'G-D9ZV8TZTZ5'; // Replace with your actual GA4 Measurement ID
-
-// Load Google Analytics
-function loadGoogleAnalytics() {
-    // Load gtag script
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-    document.head.appendChild(script);
-    
-    // Initialize gtag
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', GA_MEASUREMENT_ID, {
-        page_title: 'Portfolio - Taoudi Abdelbasset',
-        page_location: window.location.href
-    });
-    
-    console.log('Google Analytics initialized with ID:', GA_MEASUREMENT_ID);
-}
+// Your actual Google Analytics Measurement ID
+const GA_MEASUREMENT_ID = 'G-D9ZV8TZTZ5';
 
 // Analytics Event Tracking Functions
 const Analytics = {
@@ -143,7 +121,7 @@ const Analytics = {
         console.log(`Analytics: Search performed - ${searchTerm} (${searchType})`);
     },
 
-    // Track theme toggle
+    // Track theme toggle (without localStorage)
     trackThemeToggle: (newTheme) => {
         if (window.gtag) {
             gtag('event', 'theme_toggle', {
@@ -153,35 +131,6 @@ const Analytics = {
             });
         }
         console.log(`Analytics: Theme changed to ${newTheme}`);
-    },
-
-    // Track modal closes
-    trackModalClose: (modalType, contentName) => {
-        if (window.gtag) {
-            gtag('event', 'modal_close', {
-                'modal_type': modalType,
-                'content_name': contentName,
-                'event_category': 'Modals',
-                'event_label': `${modalType}: ${contentName}`
-            });
-        }
-        console.log(`Analytics: Modal closed - ${modalType}: ${contentName}`);
-    },
-
-    // Track page time
-    trackTimeOnPage: () => {
-        const startTime = Date.now();
-        
-        window.addEventListener('beforeunload', () => {
-            const timeSpent = Math.round((Date.now() - startTime) / 1000);
-            if (window.gtag && timeSpent > 5) { // Only track if user spent more than 5 seconds
-                gtag('event', 'page_time', {
-                    'time_seconds': timeSpent,
-                    'event_category': 'Engagement',
-                    'event_label': `${timeSpent}s on page`
-                });
-            }
-        });
     },
 
     // Track scroll depth
@@ -211,117 +160,91 @@ const Analytics = {
                 });
             }
         });
-    }
+    },
+
+    // Track time on page
+    trackTimeOnPage: () => {
+        const startTime = Date.now();
+        
+        // Track time when user leaves
+        window.addEventListener('beforeunload', () => {
+            const timeSpent = Math.round((Date.now() - startTime) / 1000);
+            if (window.gtag && timeSpent > 5) {
+                gtag('event', 'page_time', {
+                    'time_seconds': timeSpent,
+                    'event_category': 'Engagement',
+                    'event_label': `${timeSpent}s on page`
+                });
+            }
+        });
+
+        // Also track time every 30 seconds for active users
+        setInterval(() => {
+            const timeSpent = Math.round((Date.now() - startTime) / 1000);
+            if (window.gtag && timeSpent % 30 === 0 && timeSpent > 0) {
+                gtag('event', 'time_milestone', {
+                    'time_seconds': timeSpent,
+                    'event_category': 'Engagement',
+                    'event_label': `${timeSpent}s active`
+                });
+            }
+        }, 30000);
+    },
+
+    // Track chatbot open
+    trackChatOpen: () => {
+        let status = 'not sent';
+        if (window.gtag) {
+            gtag('event', 'chat_open', {
+                'event_category': 'Chatbot',
+                'event_label': 'Chatbot Opened'
+            });
+            status = 'sent';
+        }
+        console.log('Analytics: Chatbot opened | Status:', status, '| Data:', {event: 'chat_open'});
+        return status;
+    },
+
+    // Track chatbot message/question sent
+    trackChatMessage: (message) => {
+        let status = 'not sent';
+        if (window.gtag) {
+            gtag('event', 'chat_message_sent', {
+                'event_category': 'Chatbot',
+                'event_label': 'Message Sent',
+                'message': message
+            });
+            status = 'sent';
+        }
+        // Optionally: Save question to localStorage for your own review (not sent to Google)
+        try {
+            let msgs = JSON.parse(localStorage.getItem('chatbot_questions') || '[]');
+            msgs.push({ message, time: new Date().toISOString() });
+            localStorage.setItem('chatbot_questions', JSON.stringify(msgs));
+        } catch (e) {}
+        console.log('Analytics: Chatbot message sent | Status:', status, '| Data:', {event: 'chat_message_sent', message});
+        return status;
+    },
 };
 
-// Enhanced Portfolio Functions with Analytics Integration
-function enhancePortfolioWithAnalytics() {
-    // Initialize Google Analytics
-    loadGoogleAnalytics();
-    
-    // Start tracking page time and scroll depth
-    Analytics.trackTimeOnPage();
-    Analytics.trackScrollDepth();
-    
-    console.log('Portfolio Analytics Enhanced Successfully!');
-}
-
 // =====================
-// Integration Functions - Add these to your existing functions
+// Integration Functions
 // =====================
-
-// Enhanced Contact Loading with Analytics
-function loadContactWithAnalytics(contacts) {
-    const section = document.getElementById('contact');
-    section.innerHTML = `<div class="contact-simple"><h2>Let's Collaborate</h2><p>Ready to work together? Get in touch!</p><div class="contact-links"></div></div>`;
-    const links = section.querySelector('.contact-links');
-    links.innerHTML = '';
-    
-    contacts.forEach(link => {
-        let href = link.link || link.value;
-        let label = link.label || link.value;
-        let contactType = link.type || 'unknown';
-        
-        // If it's an email or phone, ensure proper prefix
-        if (link.type === 'email' && !href.startsWith('mailto:')) {
-            href = 'mailto:' + link.value;
-        } else if (link.type === 'phone' && !href.startsWith('tel:')) {
-            href = 'tel:' + link.value;
-        }
-        
-        // Open in new tab for web links only
-        const isWeb = href.startsWith('http');
-        const target = isWeb ? ' target="_blank" rel="noopener"' : '';
-        
-        const contactElement = document.createElement('a');
-        contactElement.href = href;
-        contactElement.className = 'contact-link';
-        if (target) contactElement.setAttribute('target', '_blank');
-        if (target) contactElement.setAttribute('rel', 'noopener');
-        contactElement.innerHTML = `<i class="${link.icon}"></i><span>${label}</span>`;
-        
-        // Add analytics tracking
-        contactElement.addEventListener('click', () => {
-            Analytics.trackContactClick(contactType, link.value || href);
-        });
-        
-        links.appendChild(contactElement);
-    });
-}
-
-// Enhanced Project Modal Function with Analytics
-function showProjectModalWithAnalytics(project) {
-    // Track project view
-    Analytics.trackProjectClick(project.title, project.category || 'Uncategorized');
-    
-    const modal = document.getElementById('projectModal');
-    const details = document.getElementById('projectDetails');
-    
-    // Your existing showProjectModal code here...
-    // (keeping the same modal rendering logic)
-    
-    // Add analytics to project links
-    setTimeout(() => {
-        const projectLinks = modal.querySelectorAll('.project-link');
-        projectLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                const linkText = link.textContent.trim();
-                Analytics.trackCTAClick(linkText, link.href);
-            });
-        });
-    }, 100);
-    
-    modal.style.display = 'block';
-}
-
-// Enhanced Theme Toggle with Analytics
-function enhanceThemeToggleWithAnalytics() {
-    const themeToggle = document.getElementById('themeToggle');
-    
-    // Add analytics to existing theme toggle functionality
-    const originalClickHandler = themeToggle.onclick;
-    
-    themeToggle.addEventListener('click', () => {
-        setTimeout(() => {
-            const isDark = document.body.classList.contains('dark-mode');
-            Analytics.trackThemeToggle(isDark ? 'dark' : 'light');
-        }, 50);
-    });
-}
 
 // Enhanced Navigation with Analytics
 function enhanceNavigationWithAnalytics() {
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            const sectionName = link.textContent.trim();
-            Analytics.trackNavigationClick(sectionName);
-        });
-    });
-    
-    // Track CTA buttons in hero section
+    // Wait for elements to load
     setTimeout(() => {
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const sectionName = link.textContent.trim();
+                Analytics.trackNavigationClick(sectionName);
+            });
+        });
+        
+        // Track CTA buttons in hero section
         const ctaButtons = document.querySelectorAll('.cta-button');
         ctaButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -330,6 +253,22 @@ function enhanceNavigationWithAnalytics() {
                 Analytics.trackCTAClick(buttonText, destination);
             });
         });
+    }, 2000);
+}
+
+// Enhanced Theme Toggle with Analytics
+function enhanceThemeToggleWithAnalytics() {
+    setTimeout(() => {
+        const themeToggle = document.getElementById('themeToggle');
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                setTimeout(() => {
+                    const isDark = document.body.classList.contains('dark-mode');
+                    Analytics.trackThemeToggle(isDark ? 'dark' : 'light');
+                }, 100);
+            });
+        }
     }, 1000);
 }
 
@@ -358,17 +297,44 @@ function enhanceProjectFiltersWithAnalytics() {
                 }, 1000);
             });
         }
-    }, 1000);
+    }, 2000);
 }
 
-// Function to integrate analytics into existing modals
-function enhanceModalsWithAnalytics() {
-    // Education modal analytics
+// Enhanced Contact Loading with Analytics
+function enhanceContactWithAnalytics() {
     setTimeout(() => {
+        const contactLinks = document.querySelectorAll('.contact-link');
+        contactLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const href = link.getAttribute('href');
+                const text = link.textContent.trim();
+                let contactType = 'unknown';
+                
+                if (href.startsWith('mailto:')) {
+                    contactType = 'email';
+                } else if (href.startsWith('tel:')) {
+                    contactType = 'phone';
+                } else if (href.includes('linkedin')) {
+                    contactType = 'linkedin';
+                } else if (href.includes('github')) {
+                    contactType = 'github';
+                } else if (href.includes('twitter')) {
+                    contactType = 'twitter';
+                }
+                
+                Analytics.trackContactClick(contactType, text);
+            });
+        });
+    }, 2000);
+}
+
+// Enhanced Modals with Analytics
+function enhanceModalsWithAnalytics() {
+    setTimeout(() => {
+        // Education modal analytics
         const educationItems = document.querySelectorAll('[data-education-id]');
         educationItems.forEach(item => {
             item.addEventListener('click', () => {
-                const educationId = item.getAttribute('data-education-id');
                 const titleElement = item.querySelector('.timeline-title');
                 const companyElement = item.querySelector('.timeline-company');
                 
@@ -385,7 +351,6 @@ function enhanceModalsWithAnalytics() {
         const experienceItems = document.querySelectorAll('[data-experience-id]');
         experienceItems.forEach(item => {
             item.addEventListener('click', () => {
-                const experienceId = item.getAttribute('data-experience-id');
                 const titleElement = item.querySelector('.timeline-title');
                 const companyElement = item.querySelector('.timeline-company');
                 
@@ -408,33 +373,65 @@ function enhanceModalsWithAnalytics() {
                 }
             });
         });
-    }, 1500);
+
+        // Project card analytics
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const projectTitle = card.querySelector('h3');
+                if (projectTitle) {
+                    Analytics.trackProjectClick(projectTitle.textContent.trim(), 'General');
+                }
+            });
+        });
+    }, 3000);
 }
 
 // =====================
-// Initialize Enhanced Analytics
+// Initialize Analytics
 // =====================
-function initializePortfolioAnalytics() {
-    // Wait for DOM to be ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-            enhancePortfolioWithAnalytics();
-            enhanceNavigationWithAnalytics();
-            enhanceThemeToggleWithAnalytics();
-            enhanceProjectFiltersWithAnalytics();
-            enhanceModalsWithAnalytics();
+function initializeAnalytics() {
+    console.log('Initializing Portfolio Analytics...');
+    
+    // Start tracking
+    Analytics.trackTimeOnPage();
+    Analytics.trackScrollDepth();
+    
+    // Enhance existing functionality
+    enhanceNavigationWithAnalytics();
+    enhanceThemeToggleWithAnalytics();
+    enhanceProjectFiltersWithAnalytics();
+    enhanceContactWithAnalytics();
+    enhanceModalsWithAnalytics();
+    
+    console.log('Portfolio Analytics initialized successfully!');
+    
+    // Send initialization event
+    if (window.gtag) {
+        gtag('event', 'analytics_initialized', {
+            'event_category': 'System',
+            'event_label': 'Analytics Ready'
         });
-    } else {
-        enhancePortfolioWithAnalytics();
-        enhanceNavigationWithAnalytics();
-        enhanceThemeToggleWithAnalytics();
-        enhanceProjectFiltersWithAnalytics();
-        enhanceModalsWithAnalytics();
     }
 }
 
-// Auto-initialize when script loads
-initializePortfolioAnalytics();
+// Wait for everything to load before initializing
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(initializeAnalytics, 1000);
+    });
+} else {
+    setTimeout(initializeAnalytics, 1000);
+}
 
-// Export Analytics object for manual tracking
+// Make Analytics available globally
 window.PortfolioAnalytics = Analytics;
+
+// Debug function to test analytics
+window.testAnalytics = function() {
+    console.log('Testing Analytics...');
+    Analytics.trackNavigationClick('Test Navigation');
+    Analytics.trackProjectClick('Test Project', 'Test Category');
+    Analytics.trackContactClick('email', 'test@example.com');
+    console.log('Test events sent!');
+};
