@@ -1,7 +1,6 @@
 // =====================
 // Google Analytics Configuration & Event Tracking
 // =====================
-
 // Your actual Google Analytics Measurement ID
 const GA_MEASUREMENT_ID = 'G-D9ZV8TZTZ5';
 
