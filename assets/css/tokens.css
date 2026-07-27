@@ -1,0 +1,179 @@
+/* =========================================================================
+   Design tokens — "Porcelain & Petrol"
+   Ground is a cool chalky porcelain with a faint green-grey bias, not a warm
+   cream. The accent is a deep petrol: the only saturated thing on the page.
+   Components must read these tokens and never hard-code a color, so the two
+   themes stay in sync by construction.
+   ========================================================================= */
+
+:root {
+  color-scheme: light dark;
+
+  /* ---- Surfaces & ink (light) ------------------------------------------
+     Cards lift *lighter* than the ground rather than darker — a small
+     inversion of the usual card treatment that suits paper. */
+  --paper:            #f1f2ef;
+  --paper-raised:     #fafbf9;
+  --paper-sunken:     #e7e9e4;
+  --ink:              #14181a;
+  --ink-muted:        #5c6663;
+  --ink-faint:        #8a938f;
+  --rule:             #d6dad5;
+  --rule-strong:      #bcc3bb;
+
+  /* ---- Accent ---------------------------------------------------------- */
+  --accent:           #0e5f5a;
+  --accent-hover:     #0a4a46;
+  --accent-soft:      #cfe0dc;
+  --accent-ink:       #ffffff;
+
+  /* ---- Semantic — deliberately separate from the accent ----------------- */
+  --good:             #3f8f5b;
+  --warn:             #b8863b;
+  --crit:             #b4483f;
+
+  /* ---- Depth & overlay -------------------------------------------------- */
+  --shadow-sm: 0 1px 2px rgb(20 24 26 / 4%), 0 2px 8px rgb(20 24 26 / 4%);
+  --shadow-md: 0 2px 6px rgb(20 24 26 / 6%), 0 12px 28px rgb(20 24 26 / 8%);
+  --shadow-lg: 0 8px 24px rgb(20 24 26 / 10%), 0 32px 64px rgb(20 24 26 / 14%);
+  --backdrop:  rgb(20 24 26 / 42%);
+  --skeleton:  linear-gradient(90deg, var(--paper-sunken) 25%, var(--rule) 37%, var(--paper-sunken) 63%);
+
+  /* ---- Type ------------------------------------------------------------
+     Three roles: Newsreader reads and displays, Plex Sans runs the UI
+     chrome, Plex Mono carries data. */
+  --font-display: "Newsreader", "Iowan Old Style", Charter, Georgia, "Times New Roman", serif;
+  --font-ui:      "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --step--2: clamp(0.6875rem, 0.665rem + 0.11vw, 0.75rem);
+  --step--1: clamp(0.8125rem, 0.785rem + 0.14vw, 0.875rem);
+  --step-0:  clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  --step-1:  clamp(1.1875rem, 1.12rem + 0.34vw, 1.375rem);
+  --step-2:  clamp(1.4375rem, 1.32rem + 0.58vw, 1.8125rem);
+  --step-3:  clamp(1.75rem, 1.55rem + 1vw, 2.4375rem);
+  --step-4:  clamp(2.125rem, 1.78rem + 1.7vw, 3.25rem);
+  --step-5:  clamp(2.5rem, 1.9rem + 2.95vw, 4.5rem);
+
+  --leading-tight: 1.05;
+  --leading-snug:  1.28;
+  --leading-body:  1.62;
+  --tracking-label: 0.1em;
+
+  /* ---- Space & layout --------------------------------------------------- */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-s:   1rem;
+  --space-m:   1.5rem;
+  --space-l:   2rem;
+  --space-xl:  3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  --measure:     66ch;
+  --shell-max:   1180px;
+  --gutter:      clamp(1.25rem, 4vw, 3.5rem);
+  --eyebrow-col: 9rem;
+  --topbar-h:    4.25rem;
+
+  /* Editorial restraint: small radii, never pill-shaped cards. */
+  --radius-sm: 2px;
+  --radius-md: 5px;
+  --radius-lg: 9px;
+
+  /* ---- Motion ----------------------------------------------------------- */
+  --ease-out:    cubic-bezier(0.16, 0.84, 0.44, 1);
+  --ease-in-out: cubic-bezier(0.65, 0.05, 0.36, 1);
+  --dur-fast: 140ms;
+  --dur:      260ms;
+  --dur-slow: 520ms;
+}
+
+/* ---- Dark theme -------------------------------------------------------
+   The accent is re-picked rather than inverted: #0e5f5a would disappear on a
+   dark ground, so dark gets a lighter petrol that still reads as the same
+   hue family and clears contrast against --paper. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:        #101413;
+    --paper-raised: #181d1c;
+    --paper-sunken: #0a0d0c;
+    --ink:          #e8ebe7;
+    --ink-muted:    #98a29e;
+    --ink-faint:    #6b7572;
+    --rule:         #28302e;
+    --rule-strong:  #3c4643;
+
+    --accent:       #5ec5b6;
+    --accent-hover: #7ed7ca;
+    --accent-soft:  #1d3b37;
+    --accent-ink:   #06201d;
+
+    --good: #5fb37d;
+    --warn: #d6a45c;
+    --crit: #de7a70;
+
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 30%), 0 2px 8px rgb(0 0 0 / 24%);
+    --shadow-md: 0 2px 6px rgb(0 0 0 / 34%), 0 12px 28px rgb(0 0 0 / 34%);
+    --shadow-lg: 0 8px 24px rgb(0 0 0 / 40%), 0 32px 64px rgb(0 0 0 / 48%);
+    --backdrop:  rgb(4 6 6 / 62%);
+    --skeleton:  linear-gradient(90deg, var(--paper-sunken) 25%, var(--rule) 37%, var(--paper-sunken) 63%);
+  }
+}
+
+/* The manual toggle must beat the OS preference in *both* directions, so
+   each theme is restated at equal specificity under an explicit attribute. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper:        #101413;
+  --paper-raised: #181d1c;
+  --paper-sunken: #0a0d0c;
+  --ink:          #e8ebe7;
+  --ink-muted:    #98a29e;
+  --ink-faint:    #6b7572;
+  --rule:         #28302e;
+  --rule-strong:  #3c4643;
+
+  --accent:       #5ec5b6;
+  --accent-hover: #7ed7ca;
+  --accent-soft:  #1d3b37;
+  --accent-ink:   #06201d;
+
+  --good: #5fb37d;
+  --warn: #d6a45c;
+  --crit: #de7a70;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 30%), 0 2px 8px rgb(0 0 0 / 24%);
+  --shadow-md: 0 2px 6px rgb(0 0 0 / 34%), 0 12px 28px rgb(0 0 0 / 34%);
+  --shadow-lg: 0 8px 24px rgb(0 0 0 / 40%), 0 32px 64px rgb(0 0 0 / 48%);
+  --backdrop:  rgb(4 6 6 / 62%);
+  --skeleton:  linear-gradient(90deg, var(--paper-sunken) 25%, var(--rule) 37%, var(--paper-sunken) 63%);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --paper:        #f1f2ef;
+  --paper-raised: #fafbf9;
+  --paper-sunken: #e7e9e4;
+  --ink:          #14181a;
+  --ink-muted:    #5c6663;
+  --ink-faint:    #8a938f;
+  --rule:         #d6dad5;
+  --rule-strong:  #bcc3bb;
+
+  --accent:       #0e5f5a;
+  --accent-hover: #0a4a46;
+  --accent-soft:  #cfe0dc;
+  --accent-ink:   #ffffff;
+
+  --good: #3f8f5b;
+  --warn: #b8863b;
+  --crit: #b4483f;
+
+  --shadow-sm: 0 1px 2px rgb(20 24 26 / 4%), 0 2px 8px rgb(20 24 26 / 4%);
+  --shadow-md: 0 2px 6px rgb(20 24 26 / 6%), 0 12px 28px rgb(20 24 26 / 8%);
+  --shadow-lg: 0 8px 24px rgb(20 24 26 / 10%), 0 32px 64px rgb(20 24 26 / 14%);
+  --backdrop:  rgb(20 24 26 / 42%);
+  --skeleton:  linear-gradient(90deg, var(--paper-sunken) 25%, var(--rule) 37%, var(--paper-sunken) 63%);
+}

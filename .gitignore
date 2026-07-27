@@ -1,11 +1,7 @@
 test.html
-portfoli-ref.md
-
-update-content
-update-content/*
-
-main.html
 main-test.html
+portfoli-ref.md
 deploy.sh
 
-portfolio-data-summary.md
+.DS_Store
+*.log

@@ -1,287 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9ZV8TZTZ5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        
-        gtag('config', 'G-D9ZV8TZTZ5');
-    </script>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Taoudi Abdelbasset</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="data/ai-style.css">
+  <title>Abdelbasset Taoudi — Data & Big Data Engineer</title>
+  <meta name="description" content="Big Data and Cloud Computing engineer based in Morocco. Computer vision, streaming data pipelines, and the backends beneath them.">
+  <meta name="author" content="TAOUDI Abdelbasset">
+  <link rel="canonical" href="https://taoudi-abdelbasset.me/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Abdelbasset Taoudi — Data & Big Data Engineer">
+  <meta property="og:description" content="Big Data and Cloud Computing engineer based in Morocco. Computer vision, streaming data pipelines, and the backends beneath them.">
+  <meta property="og:url" content="https://taoudi-abdelbasset.me/">
+  <meta property="og:image" content="https://taoudi-abdelbasset.me/data/src/imgs/user.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="theme-color" content="#f1f2ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101413" media="(prefers-color-scheme: dark)">
+
+  <!-- Self-hosted: no third-party font request, no layout shift on swap. -->
+  <link rel="preload" href="assets/fonts/newsreader-latin-4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/plex-sans-latin-2.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <!-- Applies the stored theme before first paint so there is no flash. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio:theme');
+        if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9ZV8TZTZ5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D9ZV8TZTZ5');
+  </script>
 </head>
+
 <body>
-    <!-- AI Model Logique -->
-    <div class="loading-indicator" id="loadingIndicator">
-        <div>Loading portfolio data...</div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar" data-topbar>
+    <div class="topbar__inner shell">
+      <a class="wordmark" href="#top" data-wordmark>Abdelbasset Taoudi</a>
+
+      <nav class="topbar__nav" aria-label="Sections" data-nav-panel>
+        <ul class="navlist" data-nav></ul>
+      </nav>
+
+      <div class="topbar__tools">
+        <button class="iconbtn" type="button" data-theme-toggle aria-label="Switch theme"></button>
+        <button class="iconbtn topbar__menu" type="button" data-menu-toggle
+                aria-label="Menu" aria-expanded="false" aria-controls="section-nav"></button>
+      </div>
     </div>
+    <div class="topbar__progress" data-progress></div>
+  </header>
 
-    <div class="chat-widget">
-        <button class="chat-toggle" id="chatToggle">
-            <i class="fas fa-robot"></i>
-        </button>
-        <div class="chat-container" id="chatContainer">
-            <div class="chat-header">
-                <div>Portfolio Assistant 🎯</div>
-                <div class="chat-actions">
-                    <button class="chat-expand" id="chatExpandBtn" title="Expand/Collapse"><i class="fas fa-expand"></i></button>
-                    <button class="chat-close" id="chatCloseBtn">&times;</button>
-                </div>
-            </div>
-            <div class="chat-messages" id="chatMessages">
-                <div class="message ai">
-                    👋 Hello! I'm **Abdelbasset**. I'm here to tell you about my work and experience.
-                    <br><br>Feel free to ask me about:
-                    <br>• 💼 My projects and development experience
-                    <br>• 🛠️ Technical skills and technologies I work with
-                    <br>• 🎓 My background and education
-                    <br>• 📈 What value I can bring to your company or project
-                    <br>• 📧 How to get in touch with me
-                    <br><br>What would you like to know?
-                </div>
-            </div>
-            <div class="typing-indicator" id="typingIndicator">
-                <div class="typing-dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <div class="chat-input-container">
-                <input type="text" class="chat-input" id="chatInput" placeholder="Ask about my portfolio...">
-                <button class="send-btn" id="sendBtn">Send</button>
-            </div>
+  <main id="main">
+    <!-- Hero ------------------------------------------------------------ -->
+    <section class="hero" id="top" aria-labelledby="hero-name">
+      <div class="hero__inner shell">
+        <div class="hero__text">
+          <p class="eyebrow" data-hero-eyebrow></p>
+          <h1 class="hero__statement" id="hero-name" data-hero-statement>
+            <span class="skeleton skeleton-block" style="--h: 3rem; --w: 9ch"></span>
+          </h1>
+          <p class="hero__role" data-hero-role></p>
+          <p class="hero__bio measure" data-hero-bio></p>
+          <div class="hero__actions" data-hero-actions></div>
+          <dl class="hero__meta" data-hero-meta></dl>
         </div>
-    </div>
-
-    <div class="api-key-prompt" id="apiKeyPrompt">
-        <div class="api-key-modal">
-            <h3>Enter your Gemini API Key</h3>
-            <p style="margin-bottom: 15px; font-size: 14px; color: #666;">
-                Get your API key from <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a>
-            </p>
-            <input type="password" id="apiKeyInput" placeholder="Enter your API key">
-            <button onclick="setApiKey()">Save API Key</button>
-        </div>
-    </div>
-
-    <!-- Body Start -->
-    <div class="particles" id="particles"></div>
-    
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" style="backdrop-filter: blur(10px); z-index: 1000;">
-        <div class="container-fluid nav-container">
-            <a class="navbar-brand logo" href="#home">Portfolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto nav-links">
-                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
-                    <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
-                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <button class="theme-toggle ms-3" id="themeToggle">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section (one example) -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-image-container">
-                <div class="hero-image">
-                    <i class="fas fa-code"></i>
-                </div>
-            </div>
-            <div class="hero-text">
-                <h1>Your Name</h1>
-                <div class="subtitle-container">
-                    <div class="subtitle" id="animatedRole">Full Stack Developer</div>
-                </div>
-                <div class="education">Bachelor's in Computer Science</div>
-                <p>Passionate about creating innovative solutions and building exceptional digital experiences that make a difference in people's lives.</p>
-                <div class="hero-cta">
-                    <a href="#projects" class="cta-button cta-primary">
-                        <i class="fas fa-rocket"></i>
-                        View My Work
-                    </a>
-                    <a href="#contact" class="cta-button cta-secondary">
-                        <i class="fas fa-envelope"></i>
-                        Get In Touch
-                    </a>
-                </div>
-            </div>
-        </div>
+        <figure class="hero__plate" data-hero-plate></figure>
+      </div>
     </section>
 
-    <!-- Education Section (one example) -->
-    <section id="education" class="section">
-        <h2 data-aos="fade-up">Education</h2>
-        <div class="timeline">
-            <div class="timeline-item left" data-aos="fade-right">
-                <div class="timeline-content">
-                    <div class="timeline-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="timeline-date">2020 - 2022</div>
-                    <div class="timeline-title">Master of Science in Artificial Intelligence</div>
-                    <div class="timeline-company">Stanford University</div>
-                    <div class="timeline-description">
-                        Advanced studies in machine learning and deep learning.
-                    </div>
-                    <div class="timeline-achievements">
-                        <ul>
-                            <li>GPA: 3.9/4.0</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-skills">
-                        <span class="skill-tag">Machine Learning</span>
-                    </div>
-                </div>
-            </div>
+    <!-- Work ------------------------------------------------------------ -->
+    <section class="section" id="work" data-section="work" data-nav-label="Work" hidden>
+      <p class="eyebrow section__eyebrow">Work</p>
+      <div class="section__body">
+        <h2 class="section__title">Selected work</h2>
+
+        <div class="toolbar">
+          <div class="search" data-search>
+            <svg class="search__icon" data-search-icon></svg>
+            <label class="visually-hidden" for="project-search">Search projects</label>
+            <input id="project-search" type="search" autocomplete="off" spellcheck="false"
+                   placeholder="Search projects, technologies, features…" data-search-input>
+            <span class="search__hint"><kbd>/</kbd> to search</span>
+            <button class="search__clear" type="button" data-search-clear aria-label="Clear search"></button>
+          </div>
+
+          <p class="sort">
+            <label for="project-sort">Sort</label>
+            <select id="project-sort" data-sort>
+              <option value="featured">Featured</option>
+              <option value="newest">Newest</option>
+              <option value="az">A–Z</option>
+            </select>
+          </p>
         </div>
-    </section>
-    <!-- Experience Section (one example) -->
-    <section id="experience" class="section">
-        <h2 data-aos="fade-up">Professional Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item right" data-aos="fade-left">
-                <div class="timeline-content">
-                    <div class="timeline-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="timeline-date">2022 - Present</div>
-                    <div class="timeline-title">Senior AI Developer</div>
-                    <div class="timeline-company">TechCorp Solutions</div>
-                    <div class="timeline-description">
-                        Leading AI development projects and mentoring junior developers.
-                    </div>
-                    <div class="timeline-achievements">
-                        <ul>
-                            <li>Developed AI chatbot</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-skills">
-                        <span class="skill-tag">Python</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Skills Section (one example) -->
-    <section id="skills" class="section">
-        <h2>Skills & Technologies</h2>
-        <div class="skills-grid">
-            <div class="skill-card" data-skill="ai" data-aos="fade-up">
-                <i class="fas fa-robot"></i>
-                <h3>Artificial Intelligence</h3>
-                <p>Machine Learning, Deep Learning</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Python</span>
-                </div>
-            </div>
-        </div>
+
+        <div class="filters" data-filters></div>
+        <p class="resultcount" role="status" data-result-count></p>
+
+        <ul class="workgrid" data-work-grid></ul>
+        <div class="emptystate" data-work-empty hidden></div>
+      </div>
     </section>
 
-    <!-- Projects Section (one example) -->
-    <section id="projects" class="projects-section section">
-        <div class="section">
-            <h2>Featured Projects</h2>
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" id="projectSearch" placeholder="Search projects...">
-            </div>
-            <div class="project-filters" id="projectsFilterBtns">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="ai">AI Projects</button>
-            </div>
-            <div class="projects-grid" id="projectsGrid">
-                <div class="project-card">
-                    <div class="project-image"><i class="fas fa-robot"></i></div>
-                    <div class="project-content">
-                        <h3>AI Chatbot Assistant</h3>
-                        <p>Intelligent chatbot using NLP and machine learning</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Experience ------------------------------------------------------ -->
+    <section class="section" id="experience" data-section="experience" data-nav-label="Experience" hidden>
+      <p class="eyebrow section__eyebrow">Experience</p>
+      <div class="section__body">
+        <h2 class="section__title">Where I've worked</h2>
+        <div class="ledger" data-experience></div>
+      </div>
     </section>
 
-    <!-- Contact Section (kept simple) -->
-    <section id="contact" class="contact-section">
-        <div class="contact-simple">
-            <h2>Let's Collaborate</h2>
-            <p>Ready to work together? Get in touch!</p>
-            <div class="contact-links" id="contact-links-item">
-            </div>
-        </div>
+    <!-- Education ------------------------------------------------------- -->
+    <section class="section" id="education" data-section="education" data-nav-label="Education" hidden>
+      <p class="eyebrow section__eyebrow">Education</p>
+      <div class="section__body">
+        <h2 class="section__title">Studies</h2>
+        <div class="ledger" data-education></div>
+      </div>
     </section>
 
-    <!-- Education Modal -->
-    <div id="educationModal" class="modal">
-        <div class="model-container">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <div id="educationDetails"></div>
-            </div>
-        </div>
+    <!-- Skills ---------------------------------------------------------- -->
+    <section class="section" id="skills" data-section="skills" data-nav-label="Skills" hidden>
+      <p class="eyebrow section__eyebrow">Skills</p>
+      <div class="section__body">
+        <h2 class="section__title">What I work with</h2>
+        <ul class="skillindex" data-skills></ul>
+      </div>
+    </section>
+
+    <!-- Contact --------------------------------------------------------- -->
+    <section class="section section--contact" id="contact" data-section="contact" data-nav-label="Contact" hidden>
+      <p class="eyebrow section__eyebrow">Contact</p>
+      <div class="section__body">
+        <h2 class="contact__statement" data-contact-statement></h2>
+        <ul class="channels" data-contact></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner shell">
+      <span data-footer-copy></span>
+      <span>Built from a JSON file · <a href="https://github.com/taoudi-abdelbasset/Portfolio" rel="noopener">Source</a></span>
     </div>
+  </footer>
 
-    <!-- Experience Modal -->
-    <div id="experienceModal" class="modal">
-        <div class="model-container">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <div id="experienceDetails"></div>
-            </div>
+  <!-- Project viewer -->
+  <dialog class="viewer" data-viewer aria-label="Project details">
+    <div class="viewer__inner">
+      <div class="viewer__bar">
+        <div class="viewer__nav">
+          <button class="iconbtn" type="button" data-viewer-prev aria-label="Previous project"></button>
+          <button class="iconbtn" type="button" data-viewer-next aria-label="Next project"></button>
+          <span class="viewer__counter" data-viewer-counter></span>
         </div>
+        <span class="viewer__spacer"></span>
+        <button class="iconbtn" type="button" data-viewer-copy aria-label="Copy link to this project"></button>
+        <button class="iconbtn" type="button" data-viewer-close aria-label="Close"></button>
+      </div>
+      <div class="viewer__scroll" data-viewer-scroll>
+        <div class="viewer__body" data-viewer-body></div>
+      </div>
     </div>
+  </dialog>
 
-    <!-- Updated Project Modal (replace existing one) -->
-    <div id="projectModal" class="modal">
-        <div class="model-container">
-            <div class="modal-content project-modal-content">
-                <span class="close">&times;</span>
-                <div id="projectDetails"></div>
-            </div>
-        </div>
+  <div class="toast" data-toast role="status" hidden></div>
+
+  <noscript>
+    <div class="shell" style="padding-block: 3rem">
+      <h1>Abdelbasset Taoudi</h1>
+      <p>This portfolio renders its content from
+        <a href="data/portfolio.json">portfolio.json</a>, which needs JavaScript.
+        You can read the raw data at that link, or reach me at
+        <a href="mailto:taoudiabdelbasset.contact@gmail.com">taoudiabdelbasset.contact@gmail.com</a>.</p>
     </div>
+  </noscript>
 
-    <!-- Skill Modal (keep existing one) -->
-    <div id="skillModal" class="modal">
-        <div class="model-container">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <div id="skillDetails"></div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
-    <script src="script.js"></script>
-    <script src="data/analytics.js"></script>
-    <script src="data/ai-script.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
