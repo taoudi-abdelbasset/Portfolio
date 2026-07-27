@@ -21,7 +21,8 @@
     "bigdata": "Big Data",
     "web": "Web",
     "iot": "IoT",
-    "gamedev": "Game Dev"
+    "gamedev": "Game Dev",
+    "tools": "Developer Tools"
   },
   "education": [
     {
@@ -71,6 +72,25 @@
     }
   ],
   "experience": [
+    {
+      "from": "Jul 2025",
+      "to": "Jul 2026",
+      "logo": "",
+      "location": "Casablanca & Bouskoura, Morocco",
+      "title": "Full-Stack & AI Engineer — Intern",
+      "company": "Distamed (Pratisoft)",
+      "icon": "fas fa-code",
+      "description": "Twelve months in Distamed's IT development team, working on Pratisoft — Morocco's leading medical practice management platform, with over 800 installations nationwide. Delivered three projects solo, each from analysis and technical design through implementation, testing and deployment.",
+      "achievements": [
+        "Built MedVise, a self-hosted medical AI assistant pairing the MedGemma model with a PubMed retrieval pipeline, keeping patient data inside Morocco as law 09-08 requires",
+        "Integrated Morocco's CNSS FSE API into Pratisoft from scratch, letting doctors file electronic health claims without leaving their existing workflow",
+        "Created FireForge, a JSON-configured generator producing Python API client libraries — an API change became a config edit instead of a codebase-wide hunt for hardcoded calls",
+        "Owned the full lifecycle on every project: UML analysis, technical design, implementation, testing and validation",
+        "Worked in a ten-person team on a Django, AngularJS and MongoDB stack, under Scrum with two-week sprints",
+        "Shipped MedVise on a containerised self-hosted stack with a Jenkins CI/CD pipeline and canary deployment on company hardware"
+      ],
+      "skills": ["Python", "FastAPI", "Django", "Angular", "MedGemma", "vLLM", "RAG", "PostgreSQL", "pgvector", "MongoDB", "Redis", "Docker", "Jenkins", "REST APIs", "Healthcare IT"]
+    },
     {
       "from": "Aug 2024",
       "to": "Feb 2025",
@@ -389,12 +409,89 @@
       "teamMembers": [
         { "name": "Abdelbasset TAOUDI", "role": "Game Engine Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
       ]
+    },
+    {
+      "id": 7,
+      "title": "MedVise – Self-Hosted Medical AI Assistant",
+      "categories": ["ai", "web"],
+      "description": "Sovereign clinical assistant grounding every answer in PubMed literature",
+      "image": "fas fa-brain",
+      "imgBg": "data/src/imgs/projects/default.png",
+      "technologies": ["MedGemma", "vLLM", "RAG", "FastAPI", "Python", "Angular", "TypeScript", "PostgreSQL", "pgvector", "Redis", "MinIO", "Docker", "Jenkins", "PubMed API", "DICOM", "TotalSegmentator"],
+      "fullDescription": "End-of-studies project at Distamed. General-purpose chatbots hallucinate, rarely cite sources, and process data on foreign clouds — which Moroccan law 09-08 forbids for patient information. MedVise is a self-hosted medical conversational assistant that keeps every model, database and file on company hardware inside the country. It pairs the open-weight MedGemma model with a retrieval-augmented generation pipeline that grounds each answer in PubMed literature and returns the supporting citations. It reaches users as a doctor web application, an admin console, and an embeddable widget integrated into Pratisoft.",
+      "features": [
+        "PubMed-grounded answers streamed token by token with inline numbered citations",
+        "Self-hosted MedGemma served through vLLM — no patient data leaves the country",
+        "Medical image pipeline routing each attachment to its matching detection model",
+        "3D DICOM study viewer with per-organ TotalSegmentator segmentation, in 2D slices and rotatable volume",
+        "Answers in the language of the question over English-indexed evidence",
+        "B2C web app plus a B2B embeddable widget authenticating server-to-server",
+        "Admin console with per-account usage metering and an auditable access-window lifecycle",
+        "Three-stage auth chain over session JWTs and API tokens, with immediate revocation",
+        "Jenkins CI/CD into canary and stable pools, deployed entirely on company hardware"
+      ],
+      "githubLink": "",
+      "demoVideo": "",
+      "documentation": "",
+      "teamMembers": [
+        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "CNSS FSE Integration for Pratisoft",
+      "categories": ["web"],
+      "description": "Electronic health-claim filing to Morocco's national social security system",
+      "image": "fas fa-briefcase",
+      "imgBg": "data/src/imgs/projects/default.png",
+      "technologies": ["Django", "Django REST Framework", "Python", "AngularJS", "MongoDB", "Redis", "Docker", "GitLab", "REST API", "UML"],
+      "fullDescription": "Morocco's CNSS mandated a move from paper medical claim forms to a digital FSE system (Feuille de Soins Électronique), which every practice management platform had to support to stay compliant. Pratisoft handled only private insurance at the time, so I built the CNSS module from scratch: the integration with the official CNSS FSE API and the interfaces doctors use to create, verify and publish electronic claims without leaving their existing workflow. Delivered solo across the full cycle — problem analysis, UML design, implementation, testing and validation.",
+      "features": [
+        "Full FSE lifecycle — draft, verify, publish — with published documents immutable per CNSS rules",
+        "Direct integration with the official CNSS FSE API",
+        "Validation against CNSS requirements before a document is submitted",
+        "Status synchronisation between Pratisoft and the CNSS system",
+        "Patient visits, procedures and prescriptions folded automatically into each claim",
+        "Data model extended to carry procedures and prescriptions",
+        "Error handling that surfaces validation and submission failures to the doctor"
+      ],
+      "githubLink": "",
+      "demoVideo": "",
+      "documentation": "",
+      "teamMembers": [
+        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "FireForge – API Client Library Generator",
+      "categories": ["tools"],
+      "description": "CLI that turns a JSON API spec into a ready-to-use Python client library",
+      "image": "fas fa-tools",
+      "imgBg": "data/src/imgs/projects/default.png",
+      "technologies": ["Python", "Jinja2", "JSON Schema", "Poetry", "CLI", "Code Generation", "GitLab"],
+      "fullDescription": "Distamed called several third-party APIs across its projects, with the HTTP calls hardcoded throughout each codebase — so a provider changing an endpoint meant hunting down and editing every call site. FireForge replaces that with a configuration-driven generator: a technical lead describes an API in JSON (base URL, authentication, endpoints, methods, parameters) and the CLI renders a complete Python client from Jinja2 templates. An API update becomes a config edit and a regeneration. First used for the CNSS integration in Pratisoft.",
+      "features": [
+        "API specifications written in JSON and validated against a schema before generation",
+        "Jinja2 templates rendering complete Python client libraries",
+        "Class-level singleton authentication — one token shared across every module using a client",
+        "Removes the redundant login calls each module previously made on its own",
+        "Same generated library reusable across projects",
+        "An API version change becomes a config edit rather than a codebase-wide hunt"
+      ],
+      "githubLink": "",
+      "demoVideo": "",
+      "documentation": "",
+      "teamMembers": [
+        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
+      ]
     }
   ],
   "contact": [
     { "type": "email", "value": "taoudiabdu@gmail.com", "icon": "fas fa-envelope", "label": "taoudiabdu@gmail.com", "link": "mailto:taoudiabdu@gmail.com" },
     { "type": "phone", "value": "+212689381605", "icon": "fas fa-phone", "label": "+212689381605", "link": "tel:+212689381605" },
     { "type": "linkedin", "value": "https://www.linkedin.com/in/taoudi-abdelbasset/", "icon": "fab fa-linkedin", "label": "LinkedIn", "link": "https://www.linkedin.com/in/taoudi-abdelbasset/" },
-    { "type": "github", "value": "https://github.com/taoudi-abdelbasset", "icon": "fab fa-github", "label": "GitHub", "link": "https://github.com/taoudi-abdelbasset" }
+    { "type": "github", "value": "https://github.com/taoudi-abdelbasset", "icon": "fab fa-github", "label": "GitHub", "link": "https://github.com/taoudi-abdelbasset" },
+    { "type": "leetcode", "value": "https://leetcode.com/u/taoudi_abdelbasset/", "icon": "fas fa-code", "label": "LeetCode", "link": "https://leetcode.com/u/taoudi_abdelbasset/" }
   ]
 }

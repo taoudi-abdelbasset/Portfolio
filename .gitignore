@@ -3,5 +3,8 @@ main-test.html
 portfoli-ref.md
 deploy.sh
 
+# Internship reports — source material only, never published
+.data/
+
 .DS_Store
 *.log

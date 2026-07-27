@@ -165,6 +165,9 @@ const FA_ALIASES = {
   'user-friends': 'users',
   code: 'code',
   'laptop-code': 'code',
+  /* LeetCode's own mark reduces to a left-arrow at 15px, which would misread
+     next to the other channels — the generic code glyph is clearer. */
+  leetcode: 'code',
   eye: 'eye',
   database: 'database',
   'chart-line': 'activity',
@@ -254,6 +257,7 @@ export function iconForUrl(url = '') {
   const u = String(url).toLowerCase();
   if (u.includes('github.com')) return 'github';
   if (u.includes('linkedin.com')) return 'linkedin';
+  if (u.includes('leetcode.com')) return 'code';
   if (u.startsWith('mailto:')) return 'mail';
   if (u.startsWith('tel:')) return 'phone';
   if (u.includes('docs.google.com') || u.includes('notion.')) return 'book';

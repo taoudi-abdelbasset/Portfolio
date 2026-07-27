@@ -9,6 +9,7 @@ const TYPE_LABELS = {
   phone: 'Phone',
   linkedin: 'LinkedIn',
   github: 'GitHub',
+  leetcode: 'LeetCode',
   twitter: 'Twitter',
   website: 'Website',
   link: 'Link',

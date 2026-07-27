@@ -204,7 +204,7 @@ showing `BIGDATA`:
 
 `mailto:` / `tel:` prefixes are added automatically for `email` and `phone`
 types, so you can leave `link` out for those. Recognised types get a nicer
-label: `email`, `phone`, `linkedin`, `github`, `twitter`, `website`.
+label: `email`, `phone`, `linkedin`, `github`, `leetcode`, `twitter`, `website`.
 
 ## Icons
 
