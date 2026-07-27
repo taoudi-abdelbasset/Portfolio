@@ -10,6 +10,11 @@
 
 * { margin: 0; }
 
+/* Any author `display` beats the UA rule for [hidden], which would silently
+   un-hide every component that sets one (grids, flex rows, the empty state).
+   Toggling `.hidden` from JS has to keep working, so this wins outright. */
+[hidden] { display: none !important; }
+
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
@@ -48,7 +53,12 @@ input, button, textarea, select {
   color: inherit;
 }
 
-button { background: none; border: none; cursor: pointer; }
+button {
+  background: none;
+  border: none;
+  padding: 0; /* else the UA's 1px 6px indents anything using a bare button */
+  cursor: pointer;
+}
 
 a {
   color: inherit;
@@ -122,8 +132,6 @@ hr {
   padding-block: clamp(var(--space-2xl), 9vw, var(--space-3xl));
   border-top: 1px solid var(--rule);
 }
-
-.section[hidden] { display: none; }
 
 .section__body {
   display: flex;

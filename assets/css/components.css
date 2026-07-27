@@ -1216,7 +1216,6 @@ mark {
   color: var(--ink-muted);
 }
 
-.toast[hidden] { display: none; }
 .toast svg { width: 1rem; height: 1rem; color: var(--warn); flex: none; translate: 0 0.28em; }
 .toast button { color: var(--ink-faint); padding-inline-start: var(--space-2xs); }
 .toast button:hover { color: var(--ink); }

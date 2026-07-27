@@ -198,6 +198,9 @@ export function createProjectsController({ data, onOpen }) {
 
   /* ---------------------------------------------------------------- grid -- */
 
+  /** First paint animates in; every later render is a direct user action. */
+  let hasPainted = false;
+
   function renderGrid() {
     clear(grid);
     const q = terms();
@@ -205,6 +208,18 @@ export function createProjectsController({ data, onOpen }) {
     for (const project of visible) {
       grid.append(card(project, q));
     }
+
+    /* Cards carry `.reveal`, which starts at opacity 0 and is cleared by the
+       page-level IntersectionObserver pass. That pass only runs once, so a
+       card created later by a filter or search would sit invisible forever,
+       waiting for a scroll that never comes. Re-renders are a response to the
+       user acting on the grid they are already looking at, so show them now. */
+    if (hasPainted) {
+      for (const node of grid.querySelectorAll('.reveal')) {
+        node.classList.add('is-visible');
+      }
+    }
+    hasPainted = true;
 
     const empty = visible.length === 0;
     grid.hidden = empty;

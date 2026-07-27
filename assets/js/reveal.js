@@ -25,5 +25,13 @@ export function initReveal(root = document) {
     }
   }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
 
-  items.forEach((node) => observer.observe(node));
+  items.forEach((node) => {
+    /* Anything already scrolled past will never re-enter from below, so the
+       observer would leave it stuck at opacity 0. Show it outright. */
+    if (node.getBoundingClientRect().bottom < 0) {
+      node.classList.add('is-visible');
+      return;
+    }
+    observer.observe(node);
+  });
 }
