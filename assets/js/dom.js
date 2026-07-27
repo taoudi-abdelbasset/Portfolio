@@ -100,6 +100,24 @@ export function escapeRegExp(str) {
   return String(str).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+/**
+ * `*word*` becomes the one italic accent in a headline, so the emphasis is
+ * authored in the JSON rather than hard-coded in a renderer. Shared by the hero
+ * and contact statements.
+ *
+ * @param {string} text
+ * @returns {DocumentFragment}
+ */
+export function emphasise(text) {
+  const frag = document.createDocumentFragment();
+  const parts = String(text ?? '').split(/\*([^*]+)\*/g);
+  parts.forEach((part, i) => {
+    if (!part) return;
+    frag.append(i % 2 ? el('em', null, part) : document.createTextNode(part));
+  });
+  return frag;
+}
+
 /** Trailing-edge debounce. */
 export function debounce(fn, wait = 180) {
   let timer;

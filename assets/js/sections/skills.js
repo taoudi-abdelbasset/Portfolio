@@ -3,8 +3,11 @@ import { icon, iconFor } from '../icons.js';
 
 /**
  * Skills as a grouped index rather than a wall of identical icon cards: the
- * group name reads, the technologies list densely, and certificates are inline
- * links instead of being buried in a modal.
+ * group name reads and the technologies list densely.
+ *
+ * Certificates are not drawn here — they have their own section now, and
+ * `normalize.js` still reads a legacy `skills[].certificates` into it, so a
+ * cert would otherwise appear twice on the page.
  */
 export function renderSkills(node, skills) {
   if (!node) return;
@@ -22,7 +25,6 @@ export function renderSkills(node, skills) {
           ? el('ul', { class: 'skillgroup__tags' },
               group.techTags.map((t) => el('li', { class: 'tag' }, t)))
           : null,
-        group.certificates.length ? certificates(group.certificates) : null,
       ),
     );
   }
@@ -38,18 +40,3 @@ function groupIcon(faClass) {
   return glyph;
 }
 
-function certificates(list) {
-  return el('ul', { class: 'skillgroup__certs' },
-    list.map((cert) => el('li', null,
-      cert.link
-        ? el('a', {
-            href: cert.link,
-            target: '_blank',
-            rel: 'noopener',
-            dataset: { track: 'certificate_click', trackLabel: cert.name },
-          }, cert.name)
-        : cert.name,
-      cert.issuer ? el('span', { class: 'issuer' }, ` — ${cert.issuer}`) : null,
-    )),
-  );
-}

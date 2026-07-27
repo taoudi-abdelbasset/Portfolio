@@ -1,5 +1,8 @@
-import { el, clear, $ } from '../dom.js';
+import { el, clear, $, emphasise } from '../dom.js';
 import { icon, iconFor, iconForUrl } from '../icons.js';
+
+/** Used when `main.contactStatement` is absent from the JSON. */
+const DEFAULT_STATEMENT = 'Open to opportunities and *collaborations*.';
 
 const TYPE_LABELS = {
   email: 'Email',
@@ -15,11 +18,7 @@ export function renderContact(node, contacts, main) {
   const statement = $('[data-contact-statement]');
   if (statement) {
     clear(statement);
-    statement.append(
-      document.createTextNode('Open to work and '),
-      el('em', null, 'good problems'),
-      document.createTextNode('.'),
-    );
+    statement.append(emphasise(main.contactStatement || DEFAULT_STATEMENT));
   }
 
   if (!node) return;

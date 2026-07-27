@@ -62,14 +62,15 @@ and it simply won't render.
 {
   "main": {
     "name": "TAOUDI Abdelbasset",
-    "statement": "Data engineer building systems that *see*.",
+    "statement": "I turn raw data into *decisions*.",
+    "contactStatement": "Open to opportunities and *collaborations*.",
     "roles": ["Data Scientist", "Backend Developer"],
     "education": "Big Data & Cloud Computing, ENSET Mohammedia",
     "location": "Mohammedia, Morocco",
-    "availability": "Open to opportunities",
+    "availability": "",
     "resumeUrl": "",
     "img": "data/src/imgs/user.png",
-    "bio": "Motivated engineering student…"
+    "bio": "Big Data and Cloud Computing engineer…"
   }
 }
 ```
@@ -78,6 +79,7 @@ and it simply won't render.
 |---|---|
 | `name` | Required. Used in the wordmark, page title and schema.org data. |
 | `statement` | The big hero line. Wrap one word in `*asterisks*` to render it as the italic accent — that's the single coloured moment on the page. Falls back to `name`. |
+| `contactStatement` | The headline over the contact section. Same `*asterisk*` accent. Leave it out for the default. |
 | `roles` | Cycles in the mono line under the statement. Shown as a plain list when the visitor prefers reduced motion. |
 | `location`, `availability` | Optional; each renders a metadata row only if present. `availability` gets a green status dot. |
 | `resumeUrl` | Leave `""` and the Résumé button doesn't appear anywhere. Fill it and it shows in the hero and the contact list. |
@@ -114,14 +116,34 @@ Entries render in the order you list them. An entry with no `description`,
   "title": "Big Data & Analytics",
   "icon": "fas fa-chart-line",
   "description": "One sentence…",
-  "techTags": ["Spark", "Kafka"],
-  "certificates": [
-    { "name": "Supervised ML", "issuer": "Coursera", "link": "https://…" }
-  ]
+  "techTags": ["Spark", "Kafka"]
 }
 ```
 
-A certificate with no `link` renders as plain text instead of a dead link.
+## `certifications`
+
+A top-level list, rendered as its own section between Education and Skills.
+
+```json
+{
+  "name": "Supervised Machine Learning",
+  "issuer": "Coursera",
+  "date": "Mar 2025",
+  "credentialId": "ABC123",
+  "link": "https://…",
+  "icon": "fas fa-certificate",
+  "skills": ["Machine Learning", "Python"]
+}
+```
+
+Only `name` is required — every other field renders only if you fill it, and a
+certificate with no `link` renders as plain text rather than a dead link.
+Entries appear in the order you list them, so put the ones worth seeing first.
+
+Certificates used to live inside each skill group as `skills[].certificates`.
+That still works: if there's no top-level `certifications`, they're read from
+there instead. Don't fill both — the top-level list wins and the nested one is
+ignored.
 
 ## `projects`
 
@@ -231,7 +253,7 @@ assets/js/
   normalize.js              tolerant coercion of the JSON
   dom.js, icons.js          helpers
   theme.js nav.js reveal.js analytics.js
-  sections/                 hero, ledger, skills, contact renderers
+  sections/                 hero, ledger, skills, certifications, contact renderers
   projects/controller.js    search, filters, sort, URL state
   projects/viewer.js        the <dialog> detail panel
   main.js                   wiring

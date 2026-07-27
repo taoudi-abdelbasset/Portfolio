@@ -46,13 +46,13 @@ function ledgerItem(item, kind) {
         el('div', { class: 'ledger__detail' },
           item.description ? el('p', null, item.description) : null,
           item.achievements.length
-            ? el('div', null,
+            ? el('div', { class: 'ledger__block' },
                 el('h4', null, kind === 'education' ? 'Highlights' : 'Key achievements'),
                 el('ul', { class: 'bullets' }, item.achievements.map((a) => el('li', null, a))),
               )
             : null,
           item.skills.length
-            ? el('div', null,
+            ? el('div', { class: 'ledger__block' },
                 el('h4', null, kind === 'education' ? 'Skills gained' : 'Technologies'),
                 el('ul', { class: 'taglist' },
                   item.skills.map((s) => el('li', { class: 'tag' }, s))),

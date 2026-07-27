@@ -305,13 +305,19 @@ export function createProjectsController({ data, onOpen }) {
           project.description
             ? el('p', { class: 'workcard__desc' }, highlight(project.description, q))
             : null,
-          tags.length
-            ? el('ul', { class: 'workcard__tags' },
-                tags.map((t) => el('li', { class: 'tag' }, highlight(t, q))),
-                overflow > 0 ? el('li', { class: 'tag tag--overflow' }, `+${overflow}`) : null)
-            : null,
+          /* Tags and links share one bottom row, so a card carrying links is
+             the same height as one without and the tag rows stay on a line
+             across the grid. Links lead, so they sit in the same spot on every
+             card instead of drifting with the tag count. */
+          el('div', { class: 'workcard__foot' },
+            projectLinks(project),
+            tags.length
+              ? el('ul', { class: 'workcard__tags' },
+                  tags.map((t) => el('li', { class: 'tag' }, highlight(t, q))),
+                  overflow > 0 ? el('li', { class: 'tag tag--overflow' }, `+${overflow}`) : null)
+              : null,
+          ),
         ),
-        projectLinks(project),
       ),
     );
   }

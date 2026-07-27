@@ -36,6 +36,7 @@ export function normalize(raw) {
     education: arr(data.education).map(normalizeMilestone),
     experience: arr(data.experience).map(normalizeMilestone),
     skills: arr(data.skills).map(normalizeSkill),
+    certifications: normalizeCertifications(data),
     projects,
     contact: arr(data.contact).map(normalizeContact).filter((c) => c.href),
     categoryLabels,
@@ -59,6 +60,7 @@ function normalizeMain(main = {}) {
     bio: str(m.bio),
     /* Optional, all opt-in — absent fields simply don't render. */
     statement: str(m.statement),
+    contactStatement: str(m.contactStatement),
     location: str(m.location),
     availability: str(m.availability),
     resumeUrl: str(m.resumeUrl),
@@ -115,6 +117,40 @@ function normalizeSkill(skill = {}, index = 0) {
         link: str(c?.link),
       }))
       .filter((c) => c.name),
+  };
+}
+
+/* -------------------------------------------------------- certifications -- */
+
+/**
+ * Certifications are a top-level list. They used to live inside each skill
+ * group, so an older JSON is read from there instead — otherwise a content file
+ * that hasn't been migrated would silently lose its certificates.
+ */
+function normalizeCertifications(data) {
+  const top = arr(data.certifications);
+  const source = top.length
+    ? top
+    : arr(data.skills).flatMap((s) => arr(s?.certificates));
+
+  return source.map(normalizeCertification).filter((c) => c.name);
+}
+
+function normalizeCertification(cert = {}, index = 0) {
+  const c = cert && typeof cert === 'object' ? cert : {};
+  const name = str(c.name);
+  const date = str(c.date) || str(c.issued);
+
+  return {
+    id: slugify(name) || `certification-${index}`,
+    name,
+    issuer: str(c.issuer),
+    date,
+    credentialId: str(c.credentialId) || str(c.credential),
+    link: safeHref(str(c.link) || str(c.url)),
+    icon: str(c.icon),
+    skills: strArr(c.skills),
+    sortKey: yearOf(date),
   };
 }
 

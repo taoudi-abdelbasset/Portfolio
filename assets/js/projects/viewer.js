@@ -205,11 +205,11 @@ export function createViewer({ controller }) {
         member.img
           ? el('img', { src: member.img, alt: '', loading: 'lazy' })
           : initials(member.name)),
-      el('span', null,
+      el('span', { class: 'teammate__info' },
         el('span', { class: 'teammate__name' }, member.name),
-        member.role ? el('span', { class: 'teammate__role' }, ` ${member.role}`) : null,
+        member.role ? el('span', { class: 'teammate__role' }, member.role) : null,
         member.contact
-          ? el('a', { href: `mailto:${member.contact}` }, member.contact)
+          ? el('a', { class: 'teammate__contact', href: `mailto:${member.contact}` }, member.contact)
           : null,
       ),
     );

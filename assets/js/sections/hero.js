@@ -1,4 +1,4 @@
-import { el, clear, $ } from '../dom.js';
+import { el, clear, $, emphasise } from '../dom.js';
 import { icon } from '../icons.js';
 
 /**
@@ -22,20 +22,6 @@ export function renderHero(data) {
   renderActions($('[data-hero-actions]'), main, projects);
   renderMeta($('[data-hero-meta]'), main, projects);
   renderPlate($('[data-hero-plate]'), main);
-}
-
-/**
- * `*word*` in the statement becomes the one italic accent on the page, so the
- * emphasis is authored in the JSON rather than hard-coded here.
- */
-function emphasise(text) {
-  const frag = document.createDocumentFragment();
-  const parts = String(text).split(/\*([^*]+)\*/g);
-  parts.forEach((part, i) => {
-    if (!part) return;
-    frag.append(i % 2 ? el('em', null, part) : document.createTextNode(part));
-  });
-  return frag;
 }
 
 function setText(node, value) {

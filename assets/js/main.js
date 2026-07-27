@@ -8,6 +8,7 @@ import { initReveal } from './reveal.js';
 import { initNav } from './nav.js';
 import { renderHero } from './sections/hero.js';
 import { renderLedger } from './sections/ledger.js';
+import { renderCertifications } from './sections/certifications.js';
 import { renderSkills } from './sections/skills.js';
 import { renderContact } from './sections/contact.js';
 import { createProjectsController } from './projects/controller.js';
@@ -70,6 +71,9 @@ function renderSections(data) {
 
   toggleSection('education', data.education.length, () =>
     renderLedger($('[data-education]'), data.education, { kind: 'education' }));
+
+  toggleSection('certifications', data.certifications.length, () =>
+    renderCertifications($('[data-certifications]'), data.certifications));
 
   toggleSection('skills', data.skills.length, () =>
     renderSkills($('[data-skills]'), data.skills));
