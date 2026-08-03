@@ -22,7 +22,8 @@
     "web": "Web",
     "iot": "IoT",
     "gamedev": "Game Dev",
-    "tools": "Developer Tools"
+    "tools": "Developer Tools",
+    "cloud": "Cloud & DevOps"
   },
   "education": [
     {
@@ -482,6 +483,59 @@
       "githubLink": "",
       "demoVideo": "",
       "documentation": "",
+      "teamMembers": [
+        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Spree E-Commerce Migration to AWS",
+      "categories": ["cloud", "web"],
+      "description": "Production-ready Spree store deployed on AWS with ECS Fargate and a Jenkins CI/CD pipeline",
+      "image": "fas fa-cloud",
+      "imgBg": "data/src/imgs/projects/spree-e-commerce-migration2-aws/project-spree.png",
+      "technologies": ["AWS", "ECS Fargate", "RDS PostgreSQL", "ElastiCache Redis", "Docker", "Kubernetes", "Jenkins", "VPC", "IAM", "AWS Secrets Manager", "Spree", "Ruby on Rails", "CI/CD"],
+      "fullDescription": "Cloud architecture project at ENSET Mohammedia: migrating a Spree e-commerce application to AWS as a fully containerised, production-ready deployment. The application runs on ECS Fargate with RDS PostgreSQL for persistence and ElastiCache Redis for caching, behind a segmented VPC. Delivery is automated through a Jenkins and Kubernetes CI/CD pipeline, and credentials are held in AWS Secrets Manager rather than in the codebase. Built in a team of three under the supervision of Prof. Kamal EL GUEMMAT.",
+      "features": [
+        "Containerised application running serverlessly on ECS Fargate",
+        "Managed RDS PostgreSQL database and ElastiCache Redis caching layer",
+        "Segmented VPC network architecture isolating public and private tiers",
+        "IAM roles scoped to least-privilege principles",
+        "Credentials stored and rotated through AWS Secrets Manager",
+        "Automated CI/CD pipeline built on Jenkins and Kubernetes",
+        "Full technical report and architecture documentation"
+      ],
+      "githubLink": "",
+      "demoVideo": "",
+      "documentation": "https://drive.google.com/drive/folders/1HKnpqQMUlz1UcSPwC87if_5mTToF3R5S",
+      "teamMembers": [
+        { "name": "Abdelbasset TAOUDI", "role": "Cloud Architecture Lead", "contact": "taoudiabdu@gmail.com", "img": "" },
+        { "name": "Houssam Haida", "role": "Application Development & Containerisation", "contact": "hossamhaida4@gmail.com", "img": "data/src/imgs/teams/houssam-haida.png" },
+        { "name": "Zakaria Mestour", "role": "CI/CD Pipeline Engineer", "contact": "zakaria.mestour.tech@gmail.com", "img": "data/src/imgs/teams/zakaria-mestour.png" }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "AWS Zabbix Monitoring Infrastructure",
+      "categories": ["cloud"],
+      "description": "Containerised Zabbix platform on AWS supervising hybrid Linux and Windows fleets",
+      "image": "fas fa-server",
+      "imgBg": "data/src/imgs/projects/aws-zabbix-monitoring-infrastructure/app-viewr.png",
+      "technologies": ["AWS", "EC2", "VPC", "Security Groups", "Zabbix 6.4", "Docker", "Docker Compose", "PostgreSQL", "Ubuntu 22.04", "Windows Server 2022", "Bash", "Linux"],
+      "fullDescription": "Cloud infrastructure project building a production-ready Zabbix monitoring system on AWS to supervise a hybrid Linux and Windows environment. The Zabbix 6.4 server runs containerised through Docker Compose on EC2, inside a purpose-built VPC with least-privilege security groups. Agent deployment on the monitored hosts is scripted rather than manual, and the repository ships two architectures: a single-subnet lab design for learning, and a production reference design with multiple availability zones, private subnets behind a NAT gateway, an Application Load Balancer and managed RDS. Code and documentation are public on GitHub alongside a full technical report.",
+      "features": [
+        "Containerised Zabbix 6.4 server and PostgreSQL backend via Docker Compose",
+        "Purpose-built VPC with subnets, internet gateway, route tables and Network ACLs",
+        "Least-privilege security groups scoped to the Zabbix ports (10050/10051, 80/443)",
+        "Automated agent deployment scripts for both Linux and Windows hosts",
+        "Hybrid monitoring across Ubuntu 22.04 and Windows Server 2022 clients",
+        "Real-time monitoring dashboards and alerting",
+        "Documented production architecture with multi-AZ, NAT gateway, ALB and RDS",
+        "JSON export/import of the configuration for reproducible rebuilds"
+      ],
+      "githubLink": "https://github.com/taoudi-abdelbasset/aws-zabbix-monitoring-infrastructure",
+      "demoVideo": "",
+      "documentation": "https://drive.google.com/file/d/15w1xkUo5efF2M4zp4dL6W09Jl6FFxaRb/view?usp=drive_link",
       "teamMembers": [
         { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
       ]
