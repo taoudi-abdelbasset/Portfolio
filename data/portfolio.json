@@ -286,7 +286,7 @@
       "demoVideo": "",
       "documentation": "https://docs.google.com/document/d/1Q6rszE6J3B-ltHpWRbZT2jgiINE5lmKJdr725LYLQj8/edit?usp=sharing",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "ETL & Data Pipeline Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
+        { "name": "Abdelbasset TAOUDI", "role": "ETL & Data Pipeline Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
       ]
     },
     {
@@ -310,7 +310,7 @@
       "demoVideo": "",
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "System Architect", "contact": "taoudiabdu@gmail.com", "img": "" }
+        { "name": "Abdelbasset TAOUDI", "role": "System Architect", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
       ]
     },
     {
@@ -334,7 +334,7 @@
       "demoVideo": "",
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "AI Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
+        { "name": "Abdelbasset TAOUDI", "role": "AI Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
       ]
     },
     {
@@ -360,7 +360,7 @@
       "demoVideo": "", 
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Full Stack Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
+        { "name": "Abdelbasset TAOUDI", "role": "Full Stack Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
       ]
     },
     {
@@ -384,7 +384,7 @@
       "demoVideo": "",
       "documentation": "", 
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Full Stack Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
+        { "name": "Abdelbasset TAOUDI", "role": "Full Stack Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
       ]
     },
     {
@@ -408,7 +408,7 @@
       "demoVideo": "",
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Game Engine Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
+        { "name": "Abdelbasset TAOUDI", "role": "Game Engine Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
       ]
     },
     {
@@ -435,7 +435,7 @@
       "demoVideo": "",
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
+        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
       ]
     },
     {
@@ -460,7 +460,7 @@
       "demoVideo": "",
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
+        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
       ]
     },
     {
@@ -484,7 +484,7 @@
       "demoVideo": "",
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
+        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
       ]
     },
     {
@@ -509,7 +509,7 @@
       "demoVideo": "",
       "documentation": "https://drive.google.com/drive/folders/1HKnpqQMUlz1UcSPwC87if_5mTToF3R5S",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Cloud Architecture Lead", "contact": "taoudiabdu@gmail.com", "img": "" },
+        { "name": "Abdelbasset TAOUDI", "role": "Cloud Architecture Lead", "contact": "abdelbasset.taoudi@gmail.com", "img": "" },
         { "name": "Houssam Haida", "role": "Application Development & Containerisation", "contact": "hossamhaida4@gmail.com", "img": "data/src/imgs/teams/houssam-haida.png" },
         { "name": "Zakaria Mestour", "role": "CI/CD Pipeline Engineer", "contact": "zakaria.mestour.tech@gmail.com", "img": "data/src/imgs/teams/zakaria-mestour.png" }
       ]
@@ -537,12 +537,12 @@
       "demoVideo": "",
       "documentation": "https://drive.google.com/file/d/15w1xkUo5efF2M4zp4dL6W09Jl6FFxaRb/view?usp=drive_link",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "taoudiabdu@gmail.com", "img": "" }
+        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
       ]
     }
   ],
   "contact": [
-    { "type": "email", "value": "taoudiabdu@gmail.com", "icon": "fas fa-envelope", "label": "taoudiabdu@gmail.com", "link": "mailto:taoudiabdu@gmail.com" },
+    { "type": "email", "value": "abdelbasset.taoudi@gmail.com", "icon": "fas fa-envelope", "label": "abdelbasset.taoudi@gmail.com", "link": "mailto:abdelbasset.taoudi@gmail.com" },
     { "type": "phone", "value": "+212689381605", "icon": "fas fa-phone", "label": "+212689381605", "link": "tel:+212689381605" },
     { "type": "linkedin", "value": "https://www.linkedin.com/in/taoudi-abdelbasset/", "icon": "fab fa-linkedin", "label": "LinkedIn", "link": "https://www.linkedin.com/in/taoudi-abdelbasset/" },
     { "type": "github", "value": "https://github.com/taoudi-abdelbasset", "icon": "fab fa-github", "label": "GitHub", "link": "https://github.com/taoudi-abdelbasset" },
