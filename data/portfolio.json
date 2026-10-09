@@ -40,7 +40,16 @@
         "Hands-on experience with distributed systems and data processing",
         "Active participation in robotics competitions and AI projects"
       ],
-      "skills": ["Big Data", "Cloud Computing", "Data Science", "Machine Learning", "Python", "SQL", "NoSQL", "Distributed Systems"]
+      "skills": [
+        "Big Data",
+        "Cloud Computing",
+        "Data Science",
+        "Machine Learning",
+        "Python",
+        "SQL",
+        "NoSQL",
+        "Distributed Systems"
+      ]
     },
     {
       "from": "Sep 2021",
@@ -55,7 +64,15 @@
         "Gained expertise in web development and system analysis",
         "Developed multiple academic projects using various technologies"
       ],
-      "skills": ["PHP", "Laravel", "MySQL", "JavaScript", "System Analysis", "Database Design", "Web Development"]
+      "skills": [
+        "PHP",
+        "Laravel",
+        "MySQL",
+        "JavaScript",
+        "System Analysis",
+        "Database Design",
+        "Web Development"
+      ]
     },
     {
       "from": "Sep 2020",
@@ -69,7 +86,12 @@
         "Analytical and problem-solving skills development",
         "Preparation for engineering studies"
       ],
-      "skills": ["Mathematics", "Physics", "Analytical Thinking", "Problem Solving"]
+      "skills": [
+        "Mathematics",
+        "Physics",
+        "Analytical Thinking",
+        "Problem Solving"
+      ]
     }
   ],
   "experience": [
@@ -90,7 +112,23 @@
         "Worked in a ten-person team on a Django, AngularJS and MongoDB stack, under Scrum with two-week sprints",
         "Shipped MedVise on a containerised self-hosted stack with a Jenkins CI/CD pipeline and canary deployment on company hardware"
       ],
-      "skills": ["Python", "FastAPI", "Django", "Angular", "MedGemma", "vLLM", "RAG", "PostgreSQL", "pgvector", "MongoDB", "Redis", "Docker", "Jenkins", "REST APIs", "Healthcare IT"]
+      "skills": [
+        "Python",
+        "FastAPI",
+        "Django",
+        "Angular",
+        "MedGemma",
+        "vLLM",
+        "RAG",
+        "PostgreSQL",
+        "pgvector",
+        "MongoDB",
+        "Redis",
+        "Docker",
+        "Jenkins",
+        "REST APIs",
+        "Healthcare IT"
+      ]
     },
     {
       "from": "Aug 2024",
@@ -108,7 +146,14 @@
         "Enhanced organizational communication and follow-up processes, improving engagement and participant satisfaction",
         "Developed leadership, public speaking, and event coordination skills through on-site operations"
       ],
-      "skills": ["Leadership", "Intercultural Communication", "Event Coordination", "Project Management", "Public Speaking", "Youth Engagement"]
+      "skills": [
+        "Leadership",
+        "Intercultural Communication",
+        "Event Coordination",
+        "Project Management",
+        "Public Speaking",
+        "Youth Engagement"
+      ]
     },
     {
       "from": "Jul 2024",
@@ -127,13 +172,22 @@
         "Cut resolution time by 35% and improved performance metrics tracking",
         "Transformed manual Excel workflows into automated digital processes"
       ],
-      "skills": ["Laravel", "PHP", "D3.js", "MySQL", "Data Visualization", "Process Optimization", "Dashboard Development", "Workflow Automation"]
+      "skills": [
+        "Laravel",
+        "PHP",
+        "D3.js",
+        "MySQL",
+        "Data Visualization",
+        "Process Optimization",
+        "Dashboard Development",
+        "Workflow Automation"
+      ]
     },
     {
       "from": "Jun 2023",
       "to": "Aug 2023",
       "logo": "",
-      "location": "Casablanca, Morocco", 
+      "location": "Casablanca, Morocco",
       "title": "Software Development Intern",
       "company": "Botischool",
       "icon": "fas fa-code",
@@ -146,7 +200,15 @@
         "Gained hands-on experience in project management methodologies",
         "Replaced manual follow-up processes with automated workflows"
       ],
-      "skills": ["Laravel", "MySQL", "WebSockets", "Laravel Echo", "Real-time Systems", "Task Management", "Backend Development"]
+      "skills": [
+        "Laravel",
+        "MySQL",
+        "WebSockets",
+        "Laravel Echo",
+        "Real-time Systems",
+        "Task Management",
+        "Backend Development"
+      ]
     },
     {
       "from": "Aug 2022",
@@ -164,7 +226,14 @@
         "Gained experience in database design and documentation",
         "Improved document organization and data management processes"
       ],
-      "skills": ["Data Modeling", "Database Design", "Documentation", "Administrative Tasks", "MCD", "Entity-Relationship Modeling"]
+      "skills": [
+        "Data Modeling",
+        "Database Design",
+        "Documentation",
+        "Administrative Tasks",
+        "MCD",
+        "Entity-Relationship Modeling"
+      ]
     }
   ],
   "skills": [
@@ -173,105 +242,306 @@
       "icon": "fas fa-code",
       "title": "Programming Languages",
       "description": "Proficient in multiple programming languages used in backend, frontend, and data workflows.",
-      "techTags": ["Python", "Java", "PHP", "JavaScript", "C++", "C#", "VB.NET", "VBA", "HTML", "CSS"]
+      "techTags": [
+        "Python",
+        "Java",
+        "PHP",
+        "JavaScript",
+        "C++",
+        "C#",
+        "VB.NET",
+        "VBA",
+        "HTML",
+        "CSS"
+      ]
     },
     {
       "id": "databases",
-      "icon": "fas fa-database", 
+      "icon": "fas fa-database",
       "title": "Database Technologies",
       "description": "Skilled in designing, managing, and querying relational and non-relational databases.",
-      "techTags": ["MySQL", "MongoDB", "Redis", "Apache Cassandra", "Apache HBase", "SQL Server", "PostgreSQL", "Hive"]
+      "techTags": [
+        "MySQL",
+        "MongoDB",
+        "Redis",
+        "Apache Cassandra",
+        "Apache HBase",
+        "SQL Server",
+        "PostgreSQL",
+        "Hive"
+      ]
     },
     {
       "id": "bigdata",
       "icon": "fas fa-chart-line",
       "title": "Big Data & Analytics",
       "description": "Experience with distributed systems, data processing pipelines, and analytics tools.",
-      "techTags": ["HDFS", "Hive", "Apache Superset", "Elasticsearch", "D3.js", "Data Visualization", "Apache Spark", "Apache Kafka", "Stream Processing"]
+      "techTags": [
+        "HDFS",
+        "Hive",
+        "Apache Superset",
+        "Elasticsearch",
+        "D3.js",
+        "Data Visualization",
+        "Apache Spark",
+        "Apache Kafka",
+        "Stream Processing"
+      ]
     },
     {
       "id": "ai_ml",
       "icon": "fas fa-brain",
       "title": "AI/Computer Vision",
       "description": "Experience with computer vision, object detection, and machine learning systems.",
-      "techTags": ["YOLOv8", "DeepSORT", "Object Detection", "Re-identification", "OpenCV", "TensorFlow","Scikit-learn", "MLC LLM"]
+      "techTags": [
+        "YOLOv8",
+        "DeepSORT",
+        "Object Detection",
+        "Re-identification",
+        "OpenCV",
+        "TensorFlow",
+        "Scikit-learn",
+        "MLC LLM"
+      ]
     },
     {
       "id": "devops",
       "icon": "fas fa-cogs",
       "title": "DevOps & Tools",
       "description": "Proficient with containerization, version control, and deployment tools.",
-      "techTags": ["Docker", "Git", "GitHub", "Linux", "Windows", "Jira"]
+      "techTags": [
+        "Docker",
+        "Git",
+        "GitHub",
+        "Linux",
+        "Windows",
+        "Jira"
+      ]
     },
     {
       "id": "frameworks",
       "icon": "fas fa-layer-group",
       "title": "Frameworks & Technologies",
       "description": "Worked with various frameworks for web, real-time, and data-intensive applications.",
-      "techTags": ["Laravel", "Bootstrap", "Spring Boot", "Angular", "Django", "WebSockets"]
+      "techTags": [
+        "Laravel",
+        "Bootstrap",
+        "Spring Boot",
+        "Angular",
+        "Django",
+        "WebSockets"
+      ]
     },
     {
       "id": "softskills",
       "icon": "fas fa-user-check",
       "title": "Soft Skills",
       "description": "Strong interpersonal and organizational skills gained from leadership and volunteer roles.",
-      "techTags": ["Problem Solving", "Communication", "Time Management", "Sales", "Teamwork"]
+      "techTags": [
+        "Problem Solving",
+        "Communication",
+        "Time Management",
+        "Sales",
+        "Teamwork"
+      ]
     },
     {
       "id": "tools",
       "icon": "fas fa-tools",
       "title": "Design & Other Tools",
       "description": "Basic to intermediate experience with visual design and 3D tools.",
-      "techTags": ["Adobe Illustrator", "Adobe Photoshop", "Blender", "Wireframing"]
+      "techTags": [
+        "Adobe Illustrator",
+        "Adobe Photoshop",
+        "Blender",
+        "Wireframing"
+      ]
     }
   ],
   "certifications": [
     {
-      "name": "Supervised Machine Learning",
-      "issuer": "Coursera",
+      "name": "AWS Academy Graduate - Data Engineering - Training Badge",
+      "issuer": "Amazon Web Services (AWS)",
       "date": "",
       "credentialId": "",
-      "link": "https://shorturl.at/buksD",
-      "icon": "fas fa-certificate",
-      "skills": ["Machine Learning", "Python"]
+      "link": "",
+      "image": "",
+      "icon": "fab fa-aws",
+      "skills": [
+        "AWS",
+        "Data Engineering",
+        "ETL",
+        "Cloud Computing"
+      ]
+    },
+    {
+      "name": "Introduction to the Threat Landscape 3.0",
+      "issuer": "Fortinet Training Institute",
+      "date": "",
+      "credentialId": "",
+      "link": "",
+      "image": "",
+      "icon": "fas fa-shield-alt",
+      "skills": [
+        "Cybersecurity",
+        "Network Security",
+        "Threat Landscape"
+      ]
+    },
+    {
+      "name": "Cloud Native Development Explorer",
+      "issuer": "Oracle",
+      "date": "",
+      "credentialId": "",
+      "link": "",
+      "image": "",
+      "icon": "fas fa-cloud",
+      "skills": [
+        "Cloud Native",
+        "OCI",
+        "Containers",
+        "Kubernetes"
+      ]
     },
     {
       "name": "MongoDB Essentials",
-      "issuer": "MongoDB",
+      "issuer": "MongoDB University",
       "date": "",
       "credentialId": "",
       "link": "https://shorturl.at/TNH8K",
+      "image": "",
       "icon": "fas fa-database",
-      "skills": ["MongoDB", "NoSQL"]
+      "skills": [
+        "MongoDB",
+        "NoSQL"
+      ]
     },
     {
-      "name": "Linux Essentials",
-      "issuer": "Cisco",
+      "name": "Artificial Intelligence Fundamentals",
+      "issuer": "IBM SkillsBuild",
       "date": "",
       "credentialId": "",
       "link": "",
+      "image": "",
+      "icon": "fas fa-brain",
+      "skills": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Deep Learning",
+        "Computer Vision",
+        "NLP",
+        "AI Ethics"
+      ]
+    },
+    {
+      "name": "Python Essentials 1",
+      "issuer": "Cisco Networking Academy",
+      "date": "",
+      "credentialId": "",
+      "link": "",
+      "image": "",
+      "icon": "fab fa-python",
+      "skills": [
+        "Python"
+      ]
+    },
+    {
+      "name": "Supervised Machine Learning: Regression and Classification",
+      "issuer": "Coursera (DeepLearning.AI / Stanford Online, Andrew Ng)",
+      "date": "",
+      "credentialId": "",
+      "link": "https://shorturl.at/buksD",
+      "image": "",
       "icon": "fas fa-certificate",
-      "skills": ["Linux", "Command Line"]
+      "skills": [
+        "Machine Learning",
+        "Linear Regression",
+        "Logistic Regression",
+        "Python"
+      ]
+    },
+    {
+      "name": "NDG Linux Essentials",
+      "issuer": "Linux Professional Institute (LPI) / Cisco Networking Academy",
+      "date": "",
+      "credentialId": "",
+      "link": "",
+      "image": "",
+      "icon": "fab fa-linux",
+      "skills": [
+        "Linux",
+        "Command Line",
+        "File Permissions",
+        "Linux Security"
+      ]
+    },
+    {
+      "name": "NDG Linux Unhatched",
+      "issuer": "Cisco Networking Academy",
+      "date": "",
+      "credentialId": "",
+      "link": "",
+      "image": "",
+      "icon": "fab fa-linux",
+      "skills": [
+        "Linux",
+        "Command Line"
+      ]
     },
     {
       "name": "Networking Essentials",
-      "issuer": "Cisco",
+      "issuer": "Cisco Networking Academy",
       "date": "",
       "credentialId": "",
       "link": "",
-      "icon": "fas fa-certificate",
-      "skills": ["Networking", "TCP/IP"]
+      "image": "",
+      "icon": "fas fa-network-wired",
+      "skills": [
+        "Networking",
+        "TCP/IP",
+        "IP Addressing",
+        "Network Security"
+      ]
+    },
+    {
+      "name": "English for IT 1",
+      "issuer": "Cisco Networking Academy",
+      "date": "",
+      "credentialId": "",
+      "link": "",
+      "image": "",
+      "icon": "fas fa-language",
+      "skills": [
+        "Technical English"
+      ]
     }
   ],
   "projects": [
     {
       "id": 1,
       "title": "RetailVision Analytics - Smart Store Monitoring System",
-      "categories": ["ai", "bigdata", "web"],
+      "score": 73,
+      "categories": [
+        "ai",
+        "bigdata",
+        "web"
+      ],
       "description": "Computer vision solution for retail analytics using existing surveillance cameras",
       "image": "fas fa-store",
       "imgBg": "data/src/imgs/projects/default.png",
-      "technologies": ["Computer Vision", "YOLOv8", "DeepSORT", "Apache Spark", "Kafka", "MongoDB", "PostgreSQL", "HDFS", "Hive", "Angular", "Spring Boot"],
+      "technologies": [
+        "Computer Vision",
+        "YOLOv8",
+        "DeepSORT",
+        "Apache Spark",
+        "Kafka",
+        "MongoDB",
+        "PostgreSQL",
+        "HDFS",
+        "Hive",
+        "Angular",
+        "Spring Boot"
+      ],
       "fullDescription": "Developed an innovative retail analytics platform that transforms existing surveillance cameras into intelligent sensors for customer behavior analysis. The system provides actionable insights on customer traffic patterns, demographic segmentation, and store zone performance without requiring additional hardware investment.",
       "features": [
         "Real-time people detection and tracking with YOLOv8 and DeepSORT",
@@ -286,41 +556,73 @@
       "demoVideo": "",
       "documentation": "https://docs.google.com/document/d/1Q6rszE6J3B-ltHpWRbZT2jgiINE5lmKJdr725LYLQj8/edit?usp=sharing",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "ETL & Data Pipeline Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "ETL & Data Pipeline Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
       ]
     },
     {
       "id": 2,
       "title": "JavaDevLLM – AI-Powered Assistant for Java Developers",
-      "categories": ["ai", "bigdata", "web"],
+      "score": 51,
+      "categories": [
+        "ai",
+        "bigdata",
+        "web"
+      ],
       "description": "Smart assistant using JavaFX and LLM (LLaMA 3) for Java development tasks",
       "image": "fas fa-robot",
       "imgBg": "data/src/imgs/projects/default.png",
-      "technologies": ["Java", "JavaFX", "LLaMA 3", "RAG", "ChromaDB", "MongoDB", "MLC"],
+      "technologies": [
+        "Java",
+        "JavaFX",
+        "LLaMA 3",
+        "RAG",
+        "ChromaDB",
+        "MongoDB",
+        "MLC"
+      ],
       "fullDescription": "Developed a comprehensive AI-powered assistant to help developers and students with Java-related tasks including code generation, debugging, and algorithm explanation. Implemented RAG (Retrieval-Augmented Generation) architecture combining vector search with AI-generated responses for accurate and context-aware support.",
       "features": [
         "Code generation and debugging assistance",
         "Algorithm explanation and optimization",
-        "RAG architecture for accurate responses", 
+        "RAG architecture for accurate responses",
         "Vector search with ChromaDB integration",
         "Multilabel Classification for intent detection",
         "Context-aware Java development support"
       ],
-      "githubLink": "",
+      "githubLink": "https://github.com/taoudi-abdelbasset/JAVALLM-project",
       "demoVideo": "",
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "System Architect", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "System Architect",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
       ]
     },
     {
       "id": 3,
       "title": "Smart Car with Hand Gesture Recognition",
-      "categories": ["ai", "iot"],
+      "categories": [
+        "ai",
+        "iot"
+      ],
       "description": "AI-powered smart car with computer vision for gesture control",
       "image": "fas fa-car",
       "imgBg": "data/src/imgs/projects/default.png",
-      "technologies": ["AI", "Computer Vision", "Hand Gesture Recognition", "Classification Models", "IoT"],
+      "technologies": [
+        "AI",
+        "Computer Vision",
+        "Hand Gesture Recognition",
+        "Classification Models",
+        "IoT"
+      ],
       "fullDescription": "Participated in ESAM Meknès Robotics Competition, working on AI implementation for hand gesture recognition using camera and classification models to interpret gestures and trigger corresponding actions in the smart car.",
       "features": [
         "Real-time hand gesture recognition",
@@ -334,17 +636,32 @@
       "demoVideo": "",
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "AI Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "AI Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
       ]
     },
     {
       "id": 4,
       "title": "BTS School Management System",
-      "categories": ["web"],
+      "score": 39,
+      "categories": [
+        "web"
+      ],
       "description": "Comprehensive Laravel-based school management system with email alerts and analytics",
       "image": "fas fa-school",
       "imgBg": "data/src/imgs/projects/default.png",
-      "technologies": ["Laravel", "PHP", "MySQL", "JavaScript", "SMTP", "Bootstrap"],
+      "technologies": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "JavaScript",
+        "SMTP",
+        "Bootstrap"
+      ],
       "fullDescription": "Built a comprehensive school management web application using Laravel with integrated email alert system, action logging, and simplified workflows for managing students, teachers, and sub-administrators. Features interactive visual dashboards for analyzing academic performance and user activity.",
       "features": [
         "Student and teacher management",
@@ -356,21 +673,34 @@
         "Internal communication system",
         "Academic performance analytics"
       ],
-      "githubLink": "",
-      "demoVideo": "", 
+      "githubLink": "https://github.com/taoudi-abdelbasset/PFE-BTS-school-website",
+      "demoVideo": "",
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Full Stack Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Full Stack Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
       ]
     },
     {
       "id": 5,
       "title": "E-Biblio Online Library Platform",
-      "categories": ["web"],
+      "categories": [
+        "web"
+      ],
       "description": "Interactive online library platform for book sharing and community engagement",
       "image": "fas fa-book",
       "imgBg": "data/src/imgs/projects/default.png",
-      "technologies": ["Laravel", "PHP", "MySQL", "JavaScript", "Bootstrap"],
+      "technologies": [
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "JavaScript",
+        "Bootstrap"
+      ],
       "fullDescription": "Developed a web application for an online library (e-biblio) using Laravel, allowing users to share, comment on, and discover books within an interactive community environment. Completed in one week as an intensive development project.",
       "features": [
         "Book sharing and discovery",
@@ -380,21 +710,33 @@
         "User profile management",
         "Interactive community features"
       ],
-      "githubLink": "",
+      "githubLink": "https://github.com/taoudi-abdelbasset/e-biblio_laravel",
       "demoVideo": "",
-      "documentation": "", 
+      "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Full Stack Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Full Stack Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
       ]
     },
     {
       "id": 6,
       "title": "Personal Game Engine with SDL",
-      "categories": ["gamedev"],
+      "categories": [
+        "gamedev"
+      ],
       "description": "Custom game engine built with C++ and SDL for optimized rendering",
       "image": "fas fa-gamepad",
-      "imgBg": "data/src/imgs/projects/default.png", 
-      "technologies": ["C++", "SDL", "Data Structures", "Memory Optimization"],
+      "imgBg": "data/src/imgs/projects/default.png",
+      "technologies": [
+        "C++",
+        "SDL",
+        "Data Structures",
+        "Memory Optimization"
+      ],
       "fullDescription": "Developed a personal game engine using SDL (Simple DirectMedia Layer) in C++, utilizing advanced data structures to optimize memory usage and facilitate fast rendering. Completed in two weeks as a technical challenge project.",
       "features": [
         "Optimized memory management",
@@ -408,27 +750,86 @@
       "demoVideo": "",
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Game Engine Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Game Engine Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
       ]
     },
     {
       "id": 7,
       "title": "MedVise – Self-Hosted Medical AI Assistant",
-      "categories": ["ai", "web"],
+      "score": 96,
+      "categories": [
+        "ai",
+        "web"
+      ],
       "description": "Sovereign clinical assistant grounding every answer in PubMed literature",
       "image": "fas fa-brain",
       "imgBg": "",
       "media": [
-        { "type": "video", "src": "https://drive.google.com/file/d/1axPZ79wawjcShgSe70gtwIyOVndo3XmT/view?usp=drive_link", "caption": "MedVise walkthrough — PubMed-grounded answers with inline citations" },
-        { "type": "video", "src": "https://drive.google.com/file/d/13kNx-Hr9MjBL3DWKEus08l2yGYjkx8LT/view?usp=drive_link", "caption": "DICOM study viewer with per-organ segmentation" },
-        { "type": "image", "cover": true, "src": "https://drive.google.com/file/d/1CTXyKqo0uArHrl9YnDD6cYZMn_ePt7gN/view", "caption": "Answers grounded in PubMed literature with inline numbered citations" },
-        { "type": "image", "src": "https://drive.google.com/file/d/1gpheIW1DwSoVFgtKM5fO9kFxjNGshRmy/view", "caption": "Retrieval filters narrowing the evidence an answer is drawn from" },
-        { "type": "image", "src": "https://drive.google.com/file/d/1bo03vz88HEIFQgAe3l6vLT7kHskKxYsA/view", "caption": "Embeddable widget running inside Pratisoft" },
-        { "type": "image", "src": "https://drive.google.com/file/d/1K1TxwXYasuBTa2m08W9M4ke8jAwWTBfr/view", "caption": "Admin console — per-account usage metering" },
-        { "type": "image", "src": "https://drive.google.com/file/d/1Tx5cQxqq1sCL-UmdQCx6mqxHibDgRNoT/view", "caption": "API token management with immediate revocation" },
-        { "type": "image", "src": "https://drive.google.com/file/d/1aKATkV9YRn8yKk4Ghur8_JLZxsQexpJS/view", "caption": "Jenkins stage view — canary and stable deployment pools" }
+        {
+          "type": "video",
+          "src": "https://drive.google.com/file/d/1axPZ79wawjcShgSe70gtwIyOVndo3XmT/view?usp=drive_link",
+          "caption": "MedVise walkthrough — PubMed-grounded answers with inline citations"
+        },
+        {
+          "type": "video",
+          "src": "https://drive.google.com/file/d/13kNx-Hr9MjBL3DWKEus08l2yGYjkx8LT/view?usp=drive_link",
+          "caption": "DICOM study viewer with per-organ segmentation"
+        },
+        {
+          "type": "image",
+          "cover": true,
+          "src": "https://drive.google.com/file/d/1CTXyKqo0uArHrl9YnDD6cYZMn_ePt7gN/view",
+          "caption": "Answers grounded in PubMed literature with inline numbered citations"
+        },
+        {
+          "type": "image",
+          "src": "https://drive.google.com/file/d/1gpheIW1DwSoVFgtKM5fO9kFxjNGshRmy/view",
+          "caption": "Retrieval filters narrowing the evidence an answer is drawn from"
+        },
+        {
+          "type": "image",
+          "src": "https://drive.google.com/file/d/1bo03vz88HEIFQgAe3l6vLT7kHskKxYsA/view",
+          "caption": "Embeddable widget running inside Pratisoft"
+        },
+        {
+          "type": "image",
+          "src": "https://drive.google.com/file/d/1K1TxwXYasuBTa2m08W9M4ke8jAwWTBfr/view",
+          "caption": "Admin console — per-account usage metering"
+        },
+        {
+          "type": "image",
+          "src": "https://drive.google.com/file/d/1Tx5cQxqq1sCL-UmdQCx6mqxHibDgRNoT/view",
+          "caption": "API token management with immediate revocation"
+        },
+        {
+          "type": "image",
+          "src": "https://drive.google.com/file/d/1aKATkV9YRn8yKk4Ghur8_JLZxsQexpJS/view",
+          "caption": "Jenkins stage view — canary and stable deployment pools"
+        }
       ],
-      "technologies": ["MedGemma", "vLLM", "RAG", "FastAPI", "Python", "Angular", "TypeScript", "PostgreSQL", "pgvector", "Redis", "MinIO", "Docker", "Jenkins", "PubMed API", "DICOM", "TotalSegmentator"],
+      "technologies": [
+        "MedGemma",
+        "vLLM",
+        "RAG",
+        "FastAPI",
+        "Python",
+        "Angular",
+        "TypeScript",
+        "PostgreSQL",
+        "pgvector",
+        "Redis",
+        "MinIO",
+        "Docker",
+        "Jenkins",
+        "PubMed API",
+        "DICOM",
+        "TotalSegmentator"
+      ],
       "fullDescription": "End-of-studies project at Distamed. General-purpose chatbots hallucinate, rarely cite sources, and process data on foreign clouds — which Moroccan law 09-08 forbids for patient information. MedVise is a self-hosted medical conversational assistant that keeps every model, database and file on company hardware inside the country. It pairs the open-weight MedGemma model with a retrieval-augmented generation pipeline that grounds each answer in PubMed literature and returns the supporting citations. It reaches users as a doctor web application, an admin console, and an embeddable widget integrated into Pratisoft.",
       "features": [
         "PubMed-grounded answers streamed token by token with inline numbered citations",
@@ -445,20 +846,43 @@
       "demoVideo": "",
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Solo Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
       ]
     },
     {
       "id": 8,
       "title": "CNSS FSE Integration for Pratisoft",
-      "categories": ["web"],
+      "score": 79,
+      "categories": [
+        "web"
+      ],
       "description": "Electronic health-claim filing to Morocco's national social security system",
       "image": "fas fa-briefcase",
       "imgBg": "",
       "media": [
-        { "type": "image", "src": "https://drive.google.com/file/d/1JdoZ2Hvgpsjd_DQ7R_NXHEzV78mZVLOE/view", "caption": "Electronic claim filing inside the Pratisoft workflow" }
+        {
+          "type": "image",
+          "src": "https://drive.google.com/file/d/1JdoZ2Hvgpsjd_DQ7R_NXHEzV78mZVLOE/view",
+          "caption": "Electronic claim filing inside the Pratisoft workflow"
+        }
       ],
-      "technologies": ["Django", "Django REST Framework", "Python", "AngularJS", "MongoDB", "Redis", "Docker", "GitLab", "REST API", "UML"],
+      "technologies": [
+        "Django",
+        "Django REST Framework",
+        "Python",
+        "AngularJS",
+        "MongoDB",
+        "Redis",
+        "Docker",
+        "GitLab",
+        "REST API",
+        "UML"
+      ],
       "fullDescription": "Morocco's CNSS mandated a move from paper medical claim forms to a digital FSE system (Feuille de Soins Électronique), which every practice management platform had to support to stay compliant. Pratisoft handled only private insurance at the time, so I built the CNSS module from scratch: the integration with the official CNSS FSE API and the interfaces doctors use to create, verify and publish electronic claims without leaving their existing workflow. Delivered solo across the full cycle — problem analysis, UML design, implementation, testing and validation.",
       "features": [
         "Full FSE lifecycle — draft, verify, publish — with published documents immutable per CNSS rules",
@@ -473,20 +897,40 @@
       "demoVideo": "",
       "documentation": "",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Solo Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
       ]
     },
     {
       "id": 9,
       "title": "FireForge – API Client Library Generator",
-      "categories": ["tools"],
+      "score": 70,
+      "categories": [
+        "tools"
+      ],
       "description": "CLI that turns a JSON API spec into a ready-to-use Python client library",
       "image": "fas fa-tools",
       "imgBg": "",
       "media": [
-        { "type": "image", "src": "https://drive.google.com/file/d/1sqgaRnGZZ7bi_-BLH29aNULRyImlPDbQ/view", "caption": "Generating a Python client from a JSON API specification" }
+        {
+          "type": "image",
+          "src": "https://drive.google.com/file/d/1sqgaRnGZZ7bi_-BLH29aNULRyImlPDbQ/view",
+          "caption": "Generating a Python client from a JSON API specification"
+        }
       ],
-      "technologies": ["Python", "Jinja2", "JSON Schema", "Poetry", "CLI", "Code Generation", "GitLab"],
+      "technologies": [
+        "Python",
+        "Jinja2",
+        "JSON Schema",
+        "Poetry",
+        "CLI",
+        "Code Generation",
+        "GitLab"
+      ],
       "fullDescription": "Distamed called several third-party APIs across its projects, with the HTTP calls hardcoded throughout each codebase — so a provider changing an endpoint meant hunting down and editing every call site. FireForge replaces that with a configuration-driven generator: a technical lead describes an API in JSON (base URL, authentication, endpoints, methods, parameters) and the CLI renders a complete Python client from Jinja2 templates. An API update becomes a config edit and a regeneration. First used for the CNSS integration in Pratisoft.",
       "features": [
         "API specifications written in JSON and validated against a schema before generation",
@@ -500,20 +944,47 @@
       "demoVideo": "",
       "documentation": "https://pypi.org/project/restapi-library/",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Solo Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
       ]
     },
     {
       "id": 10,
       "title": "Spree E-Commerce Migration to AWS",
-      "categories": ["cloud", "web"],
+      "score": 64,
+      "categories": [
+        "cloud",
+        "web"
+      ],
       "description": "Production-ready Spree store deployed on AWS with ECS Fargate and a Jenkins CI/CD pipeline",
       "image": "fas fa-cloud",
       "imgBg": "data/src/imgs/projects/spree-e-commerce-migration2-aws/project-spree.png",
       "media": [
-        { "type": "image", "src": "data/src/imgs/projects/spree-e-commerce-migration2-aws/project-spree.png", "caption": "Spree storefront running on ECS Fargate" }
+        {
+          "type": "image",
+          "src": "data/src/imgs/projects/spree-e-commerce-migration2-aws/project-spree.png",
+          "caption": "Spree storefront running on ECS Fargate"
+        }
       ],
-      "technologies": ["AWS", "ECS Fargate", "RDS PostgreSQL", "ElastiCache Redis", "Docker", "Kubernetes", "Jenkins", "VPC", "IAM", "AWS Secrets Manager", "Spree", "Ruby on Rails", "CI/CD"],
+      "technologies": [
+        "AWS",
+        "ECS Fargate",
+        "RDS PostgreSQL",
+        "ElastiCache Redis",
+        "Docker",
+        "Kubernetes",
+        "Jenkins",
+        "VPC",
+        "IAM",
+        "AWS Secrets Manager",
+        "Spree",
+        "Ruby on Rails",
+        "CI/CD"
+      ],
       "fullDescription": "Cloud architecture project at ENSET Mohammedia: migrating a Spree e-commerce application to AWS as a fully containerised, production-ready deployment. The application runs on ECS Fargate with RDS PostgreSQL for persistence and ElastiCache Redis for caching, behind a segmented VPC. Delivery is automated through a Jenkins and Kubernetes CI/CD pipeline, and credentials are held in AWS Secrets Manager rather than in the codebase. Built in a team of three under the supervision of Prof. Kamal EL GUEMMAT.",
       "features": [
         "Containerised application running serverlessly on ECS Fargate",
@@ -528,22 +999,57 @@
       "demoVideo": "",
       "documentation": "https://drive.google.com/drive/folders/1HKnpqQMUlz1UcSPwC87if_5mTToF3R5S",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Cloud Architecture Lead", "contact": "abdelbasset.taoudi@gmail.com", "img": "" },
-        { "name": "Houssam Haida", "role": "Application Development & Containerisation", "contact": "hossamhaida4@gmail.com", "img": "data/src/imgs/teams/houssam-haida.png" },
-        { "name": "Zakaria Mestour", "role": "CI/CD Pipeline Engineer", "contact": "zakaria.mestour.tech@gmail.com", "img": "data/src/imgs/teams/zakaria-mestour.png" }
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Cloud Architecture Lead",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        },
+        {
+          "name": "Houssam Haida",
+          "role": "Application Development & Containerisation",
+          "contact": "hossamhaida4@gmail.com",
+          "img": "data/src/imgs/teams/houssam-haida.png"
+        },
+        {
+          "name": "Zakaria Mestour",
+          "role": "CI/CD Pipeline Engineer",
+          "contact": "zakaria.mestour.tech@gmail.com",
+          "img": "data/src/imgs/teams/zakaria-mestour.png"
+        }
       ]
     },
     {
       "id": 11,
       "title": "AWS Zabbix Monitoring Infrastructure",
-      "categories": ["cloud"],
+      "score": 60,
+      "categories": [
+        "cloud"
+      ],
       "description": "Containerised Zabbix platform on AWS supervising hybrid Linux and Windows fleets",
       "image": "fas fa-server",
       "imgBg": "data/src/imgs/projects/aws-zabbix-monitoring-infrastructure/app-viewr.png",
       "media": [
-        { "type": "image", "src": "data/src/imgs/projects/aws-zabbix-monitoring-infrastructure/app-viewr.png", "caption": "Zabbix monitoring dashboard" }
+        {
+          "type": "image",
+          "src": "data/src/imgs/projects/aws-zabbix-monitoring-infrastructure/app-viewr.png",
+          "caption": "Zabbix monitoring dashboard"
+        }
       ],
-      "technologies": ["AWS", "EC2", "VPC", "Security Groups", "Zabbix 6.4", "Docker", "Docker Compose", "PostgreSQL", "Ubuntu 22.04", "Windows Server 2022", "Bash", "Linux"],
+      "technologies": [
+        "AWS",
+        "EC2",
+        "VPC",
+        "Security Groups",
+        "Zabbix 6.4",
+        "Docker",
+        "Docker Compose",
+        "PostgreSQL",
+        "Ubuntu 22.04",
+        "Windows Server 2022",
+        "Bash",
+        "Linux"
+      ],
       "fullDescription": "Cloud infrastructure project building a production-ready Zabbix monitoring system on AWS to supervise a hybrid Linux and Windows environment. The Zabbix 6.4 server runs containerised through Docker Compose on EC2, inside a purpose-built VPC with least-privilege security groups. Agent deployment on the monitored hosts is scripted rather than manual, and the repository ships two architectures: a single-subnet lab design for learning, and a production reference design with multiple availability zones, private subnets behind a NAT gateway, an Application Load Balancer and managed RDS. Code and documentation are public on GitHub alongside a full technical report.",
       "features": [
         "Containerised Zabbix 6.4 server and PostgreSQL backend via Docker Compose",
@@ -559,15 +1065,299 @@
       "demoVideo": "",
       "documentation": "https://drive.google.com/file/d/15w1xkUo5efF2M4zp4dL6W09Jl6FFxaRb/view?usp=drive_link",
       "teamMembers": [
-        { "name": "Abdelbasset TAOUDI", "role": "Solo Developer", "contact": "abdelbasset.taoudi@gmail.com", "img": "" }
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Solo Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "score": 55,
+      "title": "Digital Banking – Spring Boot, Angular & JWT",
+      "categories": [
+        "web"
+      ],
+      "description": "Full-stack digital banking application secured with JWT",
+      "image": "fas fa-university",
+      "imgBg": "",
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Spring Security",
+        "JWT",
+        "Spring Data JPA",
+        "Angular",
+        "REST API"
+      ],
+      "fullDescription": "JEE project at ENSET Mohammedia: a digital banking application with a Spring Boot backend and an Angular frontend, authenticated with JWT. VERIFY: I could not read this repo's code (README is empty), so check the features list against the repo.",
+      "features": [
+        "Spring Boot REST backend",
+        "JWT authentication and role-based access",
+        "Angular client",
+        "Accounts and operations management"
+      ],
+      "githubLink": "https://github.com/taoudi-abdelbasset/Projet-JEE-Spring-Angular-JWT_Digital-Banking",
+      "demoVideo": "",
+      "documentation": "",
+      "teamMembers": [
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Full Stack Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "score": 52,
+      "title": "Kafka Streams Real-Time Analytics (Spring Boot)",
+      "categories": [
+        "bigdata"
+      ],
+      "description": "Event-driven page-view analytics pipeline with Kafka Streams and a live dashboard",
+      "image": "fas fa-stream",
+      "imgBg": "",
+      "technologies": [
+        "Java 17",
+        "Spring Boot 3",
+        "Kafka",
+        "Kafka Streams",
+        "Docker",
+        "Maven"
+      ],
+      "fullDescription": "Event-driven architecture simulating page-view events and processing them in real time. A supplier emits random events every 200 ms, Kafka Streams filters and counts views in 5-second tumbling windows, and a live dashboard streams the results through queryable state stores.",
+      "features": [
+        "Supplier generating page events every 200 ms",
+        "Windowed aggregation (5 s tumbling windows)",
+        "Queryable state stores",
+        "REST endpoints to publish events and stream analytics",
+        "Live real-time dashboard"
+      ],
+      "githubLink": "https://github.com/taoudi-abdelbasset/kafka-streams-spring",
+      "demoVideo": "",
+      "documentation": "",
+      "teamMembers": [
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Solo Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "score": 50,
+      "title": "Spring Microservices Suite (eBank, POS, Conference)",
+      "categories": [
+        "web",
+        "cloud"
+      ],
+      "description": "Three Spring microservices demos: banking, point of sale and conference management",
+      "image": "fas fa-project-diagram",
+      "imgBg": "",
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Spring Cloud",
+        "Microservices",
+        "REST API"
+      ],
+      "fullDescription": "Three microservice architecture exercises built with Spring: an e-banking system, a point-of-sale system and a conference management system. VERIFY: READMEs are empty, so check which Spring Cloud pieces (Gateway, Eureka, Config, OpenFeign, Keycloak...) each one actually uses and list them.",
+      "features": [
+        "Independent services per business domain",
+        "Service-to-service communication",
+        "Three domain case studies"
+      ],
+      "githubLink": "https://github.com/taoudi-abdelbasset/spring-ebank-microservices-demo",
+      "demoVideo": "",
+      "documentation": "",
+      "extraLinks": [
+        "https://github.com/taoudi-abdelbasset/spring-pos-microservices-demo",
+        "https://github.com/taoudi-abdelbasset/spring-microservices-conference-demo"
+      ],
+      "teamMembers": [
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Solo Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "score": 48,
+      "title": "Event Sourcing & CQRS with Spring and Axon",
+      "categories": [
+        "web"
+      ],
+      "description": "Order system applying event sourcing and CQRS with Axon Framework",
+      "image": "fas fa-random",
+      "imgBg": "",
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Axon Framework",
+        "Event Sourcing",
+        "CQRS",
+        "Microservices"
+      ],
+      "fullDescription": "Distributed order system built around event sourcing and CQRS with Axon. VERIFY: two repos exist (distributed-microservices-order-system, event-sourcing-cqrs-spring-axon-app-main) and the first one's README carries the second's title, so they look like the same project; keep one entry.",
+      "features": [
+        "Command/query separation",
+        "Event store as source of truth",
+        "Distributed microservices"
+      ],
+      "githubLink": "https://github.com/taoudi-abdelbasset/distributed-microservices-order-system",
+      "demoVideo": "",
+      "documentation": "",
+      "extraLinks": [
+        "https://github.com/taoudi-abdelbasset/event-sourcing-cqrs-spring-axon-app-main"
+      ],
+      "teamMembers": [
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Solo Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "score": 30,
+      "title": "JEE Exam Project",
+      "categories": [
+        "web"
+      ],
+      "description": "JEE exam project with Spring",
+      "image": "fas fa-file-code",
+      "imgBg": "",
+      "technologies": [
+        "Java",
+        "JEE",
+        "Spring"
+      ],
+      "fullDescription": "VERIFY: repo has no README (6 MB). Open it and describe what it actually builds, or leave this one out.",
+      "features": [],
+      "githubLink": "https://github.com/taoudi-abdelbasset/TAOUDI-Abdelbasset-Exam-JEE",
+      "demoVideo": "",
+      "documentation": "",
+      "teamMembers": [
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "score": 28,
+      "title": "Dependency Injection Framework",
+      "categories": [
+        "tools"
+      ],
+      "description": "Hand-built DI framework in Java compared against Spring",
+      "image": "fas fa-puzzle-piece",
+      "imgBg": "",
+      "technologies": [
+        "Java",
+        "Spring",
+        "Maven",
+        "XML configuration"
+      ],
+      "fullDescription": "Practical exercise on dependency injection in Java: a static version, a dynamic version driven by a config file, and a Spring version, over a DAO / business / presentation layering.",
+      "features": [
+        "Static injection (PresV1)",
+        "Dynamic injection from config file",
+        "Spring XML and annotation configuration",
+        "Layered DAO / Metier / Presentation structure"
+      ],
+      "githubLink": "https://github.com/taoudi-abdelbasset/FrameworkInjectionDesDependance",
+      "demoVideo": "",
+      "documentation": "",
+      "teamMembers": [
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "score": 26,
+      "title": "Spring MVC, Spring Data JPA & Thymeleaf",
+      "categories": [
+        "web"
+      ],
+      "description": "Server-rendered Spring MVC web app with JPA persistence",
+      "image": "fas fa-leaf",
+      "imgBg": "",
+      "technologies": [
+        "Java",
+        "Spring MVC",
+        "Spring Data JPA",
+        "Thymeleaf"
+      ],
+      "fullDescription": "VERIFY: no README. Spring MVC web application using Spring Data JPA for persistence and Thymeleaf for views. Add the domain it manages.",
+      "features": [],
+      "githubLink": "https://github.com/taoudi-abdelbasset/Spring_MVC-Spring_data_JPA_thymeleaf",
+      "demoVideo": "",
+      "documentation": "",
+      "teamMembers": [
+        {
+          "name": "Abdelbasset TAOUDI",
+          "role": "Developer",
+          "contact": "abdelbasset.taoudi@gmail.com",
+          "img": ""
+        }
       ]
     }
   ],
   "contact": [
-    { "type": "email", "value": "abdelbasset.taoudi@gmail.com", "icon": "fas fa-envelope", "label": "abdelbasset.taoudi@gmail.com", "link": "mailto:abdelbasset.taoudi@gmail.com" },
-    { "type": "phone", "value": "+212689381605", "icon": "fas fa-phone", "label": "+212689381605", "link": "tel:+212689381605" },
-    { "type": "linkedin", "value": "https://www.linkedin.com/in/taoudi-abdelbasset/", "icon": "fab fa-linkedin", "label": "LinkedIn", "link": "https://www.linkedin.com/in/taoudi-abdelbasset/" },
-    { "type": "github", "value": "https://github.com/taoudi-abdelbasset", "icon": "fab fa-github", "label": "GitHub", "link": "https://github.com/taoudi-abdelbasset" },
-    { "type": "leetcode", "value": "https://leetcode.com/u/taoudi_abdelbasset/", "icon": "fas fa-code", "label": "LeetCode", "link": "https://leetcode.com/u/taoudi_abdelbasset/" }
+    {
+      "type": "email",
+      "value": "abdelbasset.taoudi@gmail.com",
+      "icon": "fas fa-envelope",
+      "label": "abdelbasset.taoudi@gmail.com",
+      "link": "mailto:abdelbasset.taoudi@gmail.com"
+    },
+    {
+      "type": "phone",
+      "value": "+212689381605",
+      "icon": "fas fa-phone",
+      "label": "+212689381605",
+      "link": "tel:+212689381605"
+    },
+    {
+      "type": "linkedin",
+      "value": "https://www.linkedin.com/in/taoudi-abdelbasset/",
+      "icon": "fab fa-linkedin",
+      "label": "LinkedIn",
+      "link": "https://www.linkedin.com/in/taoudi-abdelbasset/"
+    },
+    {
+      "type": "github",
+      "value": "https://github.com/taoudi-abdelbasset",
+      "icon": "fab fa-github",
+      "label": "GitHub",
+      "link": "https://github.com/taoudi-abdelbasset"
+    },
+    {
+      "type": "leetcode",
+      "value": "https://leetcode.com/u/taoudi_abdelbasset/",
+      "icon": "fas fa-code",
+      "label": "LeetCode",
+      "link": "https://leetcode.com/u/taoudi_abdelbasset/"
+    }
   ]
 }
